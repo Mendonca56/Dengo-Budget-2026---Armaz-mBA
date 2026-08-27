@@ -1,0 +1,2805 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dengo — Budget 2026 v5 · CD Armazém Bahia</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F1F5F9;--sf:#fff;--bd:#E2E8F0;--bd2:#F1F5F9;
+  --sb:#0F172A;--sb2:#1E293B;
+  --t1:#0F172A;--t2:#475569;--t3:#94A3B8;
+  --gold:#B45309;--gbg:#FEF3C7;--gb:#FDE68A;
+  --green:#059669;--grbg:#ECFDF5;--grb:#A7F3D0;
+  --red:#DC2626;--rbg:#FEF2F2;--rbd:#FECACA;
+  --blue:#1D4ED8;--bbg:#EFF6FF;--bbd:#BFDBFE;
+  --amber:#D97706;--abg:#FFFBEB;--abd:#FDE68A;
+  --purple:#7C3AED;--pbg:#F5F3FF;--pbd:#DDD6FE;
+  --slate:#64748B;--slag:#F8FAFC;
+  --rad:10px;--rsm:6px
+}
+body,html{font-family:'Inter',system-ui,sans-serif;color:var(--t1);background:var(--bg);font-size:13px;height:100%}
+.app{display:flex;height:100vh;overflow:hidden}
+/* SIDEBAR */
+.sb{width:198px;background:var(--sb);display:flex;flex-direction:column;flex-shrink:0}
+.sb-brand{padding:16px 14px 12px;border-bottom:1px solid var(--sb2)}
+.sb-logo{display:flex;align-items:center;gap:9px}
+.sb-ico{width:32px;height:32px;background:#B45309;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.sb-name{font-size:13px;font-weight:600;color:#F8FAFC}.sb-sub{font-size:9px;color:#64748B;margin-top:1px;text-transform:uppercase;letter-spacing:.06em}
+.sb-sec{padding:9px 10px 3px;font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:#334155}
+.ni{display:flex;align-items:center;gap:7px;padding:8px 10px;border-radius:var(--rsm);cursor:pointer;font-size:11.5px;font-weight:500;color:#64748B;width:100%;text-align:left;border:none;background:transparent;transition:all .15s;margin:1px 0;font-family:inherit}
+.ni i{font-size:14px;flex-shrink:0}
+.ni:hover{background:var(--sb2);color:#CBD5E1}
+.ni.on{background:#B45309;color:#fff}.ni.on i{color:#FEF3C7}
+.sb-sep{height:1px;background:var(--sb2);margin:8px 10px}
+.sb-body{padding:0 7px;flex:1}
+.sb-inf{padding:12px 10px}
+.si-title{font-size:9px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;padding:0 4px}
+.si-row{display:flex;align-items:center;gap:9px;padding:7px 8px;margin-bottom:2px;border-radius:6px;transition:background .15s ease}
+.si-row:hover{background:rgba(255,255,255,.03)}
+.si-icon{width:22px;height:22px;border-radius:5px;background:var(--sb2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;color:#94A3B8}
+.si-body{flex:1;min-width:0}
+.si-lbl{font-size:9px;color:#64748B;font-weight:500;text-transform:uppercase;letter-spacing:.05em;line-height:1.2;margin-bottom:2px}
+.si-val{font-size:12.5px;font-weight:600;line-height:1.1;color:#CBD5E1;font-variant-numeric:tabular-nums}
+.sb-foot{padding:12px 12px 10px;border-top:1px solid var(--sb2);margin-top:6px}
+.sf-txt{font-size:9px;color:#334155;text-align:center;line-height:1.6}
+/* MAIN */
+.main{flex:1;background:var(--bg);overflow-y:auto;overflow-x:hidden;min-width:0}
+.sec{display:none;padding:18px;max-width:100%;overflow-x:hidden}.sec.vis{display:block}
+.sh{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px}
+.st{font-size:19px;font-weight:600;color:var(--t1);letter-spacing:-.02em}
+.sd{font-size:12px;color:var(--t2);margin-top:3px}
+.sb2r{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500}
+.bg{background:var(--gbg);color:var(--gold);border:1px solid var(--gb)}
+.bgr{background:var(--grbg);color:var(--green);border:1px solid var(--grb)}
+.br{background:var(--rbg);color:var(--red);border:1px solid var(--rbd)}
+.bb{background:var(--bbg);color:var(--blue);border:1px solid var(--bbd)}
+.bgy{background:var(--slag);color:var(--slate);border:1px solid var(--bd)}
+.ba{background:var(--abg);color:var(--amber);border:1px solid var(--abd)}
+.bp{background:var(--pbg);color:var(--purple);border:1px solid var(--pbd)}
+/* GRIDS */
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:13px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:13px}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-bottom:13px}
+/* CARD */
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rad);padding:14px 16px;position:relative}
+.card.blg{border-left:3px solid #B45309}.card.blgr{border-left:3px solid var(--green)}
+.card.blr{border-left:3px solid var(--red)}.card.blb{border-left:3px solid var(--blue)}
+.card.blgy{border-left:3px solid #CBD5E1}.card.bla{border-left:3px solid var(--amber)}
+.card.blp{border-left:3px solid var(--purple)}
+.ci{position:absolute;top:13px;right:14px;font-size:20px;color:var(--bd)}
+.cl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--t2);margin-bottom:5px}
+.cv{font-size:24px;font-weight:500;color:var(--t1);line-height:1;margin-bottom:4px}
+.cd{font-size:11px;color:var(--t3);line-height:1.4}
+.cy{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;margin-top:6px}
+.yup{background:var(--rbg);color:var(--red)}.ydn{background:var(--grbg);color:var(--green)}
+.yw{background:var(--gbg);color:var(--gold)}.yeq{background:var(--slag);color:var(--slate)}
+.yp{background:var(--pbg);color:var(--purple)}
+/* CC BOX */
+.cc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rad);padding:14px 16px;margin-bottom:13px}
+.cch{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;flex-wrap:wrap;gap:5px}
+.cct{font-size:13px;font-weight:600;color:var(--t1)}
+.ccs{font-size:11px;color:var(--t2);margin-bottom:10px}
+.leg{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:9px}
+.li{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--t2)}
+.ld{width:10px;height:10px;border-radius:2px}
+.cw{position:relative}.cw.h180{height:180px}.cw.h200{height:200px}.cw.h220{height:220px}.cw.h240{height:240px}.cw.h260{height:260px}
+/* PIPELINE */
+.pipe{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rad);display:grid;grid-template-columns:1fr 22px 1fr 22px 1fr 22px 1fr;margin-bottom:13px;overflow:hidden}
+.pi{padding:14px;text-align:center}
+.pa{display:flex;align-items:center;justify-content:center;color:var(--t3);font-size:13px;background:var(--bd2)}
+.pl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--t2);margin-bottom:5px}
+.pv{font-size:17px;font-weight:500;color:var(--t1);margin-bottom:2px}
+.pd{font-size:10px;color:var(--t3)}
+.pgd{color:var(--green)}.pwn{color:var(--gold)}
+/* ALERTS */
+.alert{border-radius:var(--rad);padding:12px 14px;display:flex;align-items:flex-start;gap:10px;border:1px solid}
+.alert.red{background:var(--rbg);border-color:var(--rbd)}.alert.gold{background:var(--gbg);border-color:var(--gb)}
+.alert.green{background:var(--grbg);border-color:var(--grb)}.alert.blue{background:var(--bbg);border-color:var(--bbd)}
+.alert.purple{background:var(--pbg);border-color:var(--pbd)}.alert.amber{background:var(--abg);border-color:var(--abd)}
+.alert.red .ai,.alert.red .at{color:var(--red)}.alert.gold .ai,.alert.gold .at{color:var(--gold)}
+.alert.green .ai,.alert.green .at{color:var(--green)}.alert.blue .ai,.alert.blue .at{color:var(--blue)}
+.alert.purple .ai,.alert.purple .at{color:var(--purple)}.alert.amber .ai,.alert.amber .at{color:var(--amber)}
+.ai{font-size:16px;flex-shrink:0;margin-top:1px}
+.at{font-size:12px;font-weight:600;margin-bottom:2px}
+.ad{font-size:11px;color:var(--t2);line-height:1.5}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:13px}
+/* BENCH */
+.bench{background:linear-gradient(to right,#FFFBEB,#fff);border:1px solid var(--gb);border-radius:var(--rad);padding:13px 15px;margin-bottom:13px}
+.bht{font-size:12px;font-weight:600;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.bg3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bi{text-align:center}
+.bl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:4px}
+.bv{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:2px}
+.bs{font-size:10px;color:var(--t3)}
+/* CENÁRIOS */
+.ceng{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--bd);border-radius:var(--rad);overflow:hidden;margin-bottom:11px}
+.cen{padding:13px 15px;border-right:1px solid var(--bd)}
+.cen:last-child{border-right:none}
+.ctag{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 9px;border-radius:10px;margin-bottom:9px}
+.cval{font-size:21px;font-weight:500;margin-bottom:3px}
+.cdel{font-size:11px;font-weight:600;margin-bottom:7px}
+.citm{font-size:10.5px;color:var(--t2);line-height:1.9}
+.citm span{display:block}
+.cen.otm{background:#ECFDF5}.cen.bas{background:#FFFBEB}.cen.pes{background:#FEF2F2}
+/* TOP 5 */
+.t5{display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid var(--bd2)}
+.t5:last-child{border-bottom:none}
+.t5rk{font-size:11px;font-weight:700;min-width:18px;text-align:center}
+.t5nm{font-size:11px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.t5bg{width:70px;background:var(--bd);border-radius:3px;height:5px;flex-shrink:0}
+.t5bf{height:5px;border-radius:3px}
+.t5vl{font-size:11px;font-weight:700;min-width:68px;text-align:right;font-variant-numeric:tabular-nums}
+/* EFFICIENCY */
+.efr{display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid var(--bd2)}
+.efr:last-child{border-bottom:none}
+.efnm{font-size:11px;min-width:210px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.efbg{flex:1;background:var(--bd);border-radius:3px;height:8px;position:relative}
+.efbf{height:8px;border-radius:3px;position:absolute;left:0;top:0}
+.efmk{position:absolute;top:-3px;width:2px;height:14px;background:#DC2626;border-radius:1px;opacity:.8}
+.efpct{font-size:11px;font-weight:700;min-width:38px;text-align:right}
+.efdl{font-size:10px;font-weight:600;min-width:62px;text-align:right}
+/* FRETE PANEL */
+.fp{background:var(--grbg);border:1px solid var(--grb);border-radius:var(--rad);padding:14px 16px;margin-bottom:13px}
+.fph{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;flex-wrap:wrap;gap:7px}
+.fpt{font-size:13px;font-weight:600;color:var(--green);display:flex;align-items:center;gap:7px}
+.fkp{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--grb);border-radius:var(--rsm);overflow:hidden;margin-bottom:11px;background:var(--sf)}
+.fk{padding:10px 11px;text-align:center;border-right:1px solid var(--grb)}
+.fk:last-child{border-right:none}
+.fkl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:3px}
+.fkv{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:1px}
+.fks{font-size:10px;color:var(--t3)}
+.fmg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:11px}
+.fm{background:var(--sf);border:1px solid var(--grb);border-radius:var(--rsm);padding:10px 12px}
+.fmn{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:5px}
+.fmr{font-size:18px;font-weight:500;margin-bottom:2px}
+.fmo{font-size:10px;color:var(--t3);margin-bottom:5px}
+.fmb{height:4px;background:var(--bd);border-radius:2px;overflow:hidden}
+.fmbf{height:4px;border-radius:2px}
+.fms{font-size:10px;font-weight:600;margin-top:4px}
+.fnota{font-size:11.5px;color:var(--t2);line-height:1.65;padding:11px 13px;background:var(--sf);border:1px solid var(--grb);border-radius:var(--rsm)}
+.fnota strong{color:var(--green);font-weight:600}
+/* NOTICE */
+.notice{background:var(--pbg);border:1px solid var(--pbd);border-radius:var(--rad);padding:12px 15px;margin-bottom:13px;display:flex;align-items:flex-start;gap:10px}
+.notice i{color:var(--purple);font-size:16px;flex-shrink:0;margin-top:1px}
+.notice-title{font-size:12px;font-weight:600;color:var(--purple);margin-bottom:3px}
+.notice-desc{font-size:11px;color:var(--t2);line-height:1.5}
+/* TABLE */
+.tw{overflow-x:auto;max-width:100%}
+table{width:100%;border-collapse:collapse;font-size:11.5px}
+thead th{padding:8px 9px;text-align:left;font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--t2);background:var(--slag);border-bottom:1px solid var(--bd)}
+tbody td{padding:7px 9px;border-bottom:1px solid var(--bd2);vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--slag)}
+.tr{text-align:right;font-variant-numeric:tabular-nums}
+.pt{height:5px;background:var(--bd);border-radius:3px;overflow:hidden;min-width:48px}
+.pf{height:5px;border-radius:3px}
+.tbg{display:inline-flex;align-items:center;padding:2px 6px;border-radius:7px;font-size:9.5px;font-weight:600}
+/* CAPEX */
+.cxp{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rad);padding:14px 16px;margin-bottom:13px}
+.pt8{height:8px;border-radius:8px;background:var(--bd);overflow:hidden}
+.pf8{height:8px;border-radius:8px}
+.prow{display:flex;justify-content:space-between;font-size:11px;color:var(--t2);margin-bottom:5px;font-weight:500}
+.cxtl{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;margin-top:13px;align-items:end}
+.cxc{display:flex;flex-direction:column;align-items:center;gap:2px}
+.cxba{width:100%;display:flex;align-items:flex-end;justify-content:center;height:55px}
+.cxb{width:100%;border-radius:3px 3px 0 0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:#fff}
+.cxm{font-size:8.5px;font-weight:600;color:var(--t2)}.cxv{font-size:8.5px;font-weight:600}
+/* DRE */
+.dr{display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid var(--bd2)}
+.dr:last-child{border-bottom:none}
+.drk{font-size:10px;font-weight:700;color:var(--t3);min-width:18px;text-align:center}
+.drn{font-size:12px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.drb{flex:1.5;max-width:150px;background:var(--bd);border-radius:3px;height:6px}
+.drbf{height:6px;border-radius:3px}
+.drp{font-size:11px;font-weight:700;min-width:36px;text-align:right}
+.drv{font-size:11px;min-width:80px;text-align:right;color:var(--t2);font-variant-numeric:tabular-nums}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:13px}
+.tag{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:var(--rsm);font-size:11px;font-weight:500;border:1px solid var(--bd);background:var(--sf);color:var(--t2)}
+.tga{background:var(--gbg);border-color:var(--gb);color:var(--gold)}
+/* META TIMELINE - linha do tempo orçamentária */
+.tl-wrap{padding:18px 22px 20px}
+.tl-canvas{position:relative;padding:0;margin-top:10px;overflow:hidden}
+
+/* === TARGETS ACIMA DA BARRA (stack vertical com conectores) === */
+.tl-targets-top{position:relative;height:215px;margin-bottom:0}
+.tl-conn{position:absolute;bottom:0;width:2px;opacity:.45;z-index:2;transform:translateX(-1px);border-radius:1px}
+.tl-lbl-anchor{position:absolute;z-index:3}
+.tl-lbl{position:absolute;bottom:0;right:0;padding-right:6px;text-align:right;white-space:nowrap;font-size:10px;line-height:1.3}
+.tt-tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;border:1px solid;white-space:nowrap}
+.tt-val{display:block;font-size:12px;font-weight:600;margin-top:3px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tt-saving{font-size:9.5px;font-weight:500;color:var(--t3);margin-left:3px}
+
+/* === BARRA === */
+.tl-bar{position:relative;height:32px;background:#F1F5F9;border-radius:16px;border:1px solid var(--bd);overflow:visible;margin-top:6px}
+.tl-fill-real{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,#10B981 0%,#059669 100%);border-radius:16px 4px 4px 16px;z-index:1;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-size:10px;font-weight:700;letter-spacing:.04em}
+.tl-fill-proj{position:absolute;top:0;height:100%;background:repeating-linear-gradient(135deg,rgba(245,158,11,.25),rgba(245,158,11,.25) 8px,rgba(245,158,11,.45) 8px,rgba(245,158,11,.45) 16px);border-top:1.5px dashed #D97706;border-bottom:1.5px dashed #D97706;z-index:1}
+.tl-target{position:absolute;top:-10px;bottom:-10px;width:3px;border-radius:2px;z-index:4}
+.tl-target.super{background:#7C3AED}
+.tl-target.meta{background:#059669}
+.tl-target.min{background:#D97706}
+.tl-target.end{background:#B45309;width:4px}
+.tl-target::before{content:'';position:absolute;top:-5px;left:-4px;width:11px;height:11px;border-radius:50%;background:inherit;border:2px solid #fff;box-shadow:0 1px 2px rgba(0,0,0,.15)}
+.tl-target::after{content:'';position:absolute;bottom:-5px;left:-4px;width:11px;height:11px;border-radius:50%;background:inherit;border:2px solid #fff;box-shadow:0 1px 2px rgba(0,0,0,.15)}
+
+/* === CALLOUTS ABAIXO DA BARRA (apontando para cima) === */
+.tl-callouts-bottom{position:relative;height:80px;margin-top:14px}
+.tl-cb-start{position:absolute;top:18px;left:0;font-size:10px;color:var(--t3);font-weight:600}
+.tl-callout{position:absolute;top:0;transform:translateX(-50%);text-align:center;z-index:3;min-width:140px}
+.tl-co-arrow{margin:0 auto 0;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent}
+.tl-co-box{display:inline-block;padding:7px 12px;border-radius:8px;border:1.5px solid;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-top:-1px}
+.tl-co-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:2px}
+.tl-co-val{font-size:13px;font-weight:600;color:var(--t1);font-variant-numeric:tabular-nums}
+.tl-co-sub{font-size:10px;color:var(--t2);font-weight:500;margin-top:1px}
+.tl-callout.realized .tl-co-box{background:var(--grbg);border-color:var(--green);color:var(--green)}
+.tl-callout.realized .tl-co-arrow{border-bottom:7px solid var(--green)}
+.tl-callout.projection .tl-co-box{background:var(--rbg);border-color:var(--red);color:var(--red)}
+.tl-callout.projection .tl-co-arrow{border-bottom:7px solid var(--red)}
+
+.tl-danger{position:absolute;left:92%;right:0;top:0;bottom:0;background:repeating-linear-gradient(135deg,rgba(220,38,38,.10),rgba(220,38,38,.10) 6px,rgba(220,38,38,.20) 6px,rgba(220,38,38,.20) 12px);border-radius:0 16px 16px 0;z-index:0;cursor:help}
+.tl-finish{position:absolute;left:92%;top:-14px;bottom:-14px;width:4px;background:#059669;border-radius:2px;z-index:5;box-shadow:0 0 0 2px #fff,0 2px 6px rgba(5,150,105,.4);cursor:help}
+.tl-finish::before{content:'🏁';position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:14px}
+.mt-status{display:grid;grid-template-columns:1fr 26px 1fr 26px 1.05fr 26px 1fr;border:1px solid var(--bd);border-radius:var(--rad);overflow:hidden;margin:12px 0 4px;background:#fff}
+.mt-st-item{padding:11px 13px;text-align:center;transition:background .15s ease}
+.mt-st-item:hover{background:var(--slag)}
+.mt-st-item.highlight{background:var(--bbg)}
+.mt-st-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:4px}
+.mt-st-val{font-size:17px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums;margin-bottom:3px}
+.mt-st-sub{font-size:9.5px;color:var(--t3);line-height:1.3}
+.mt-st-arrow{display:flex;align-items:center;justify-content:center;background:var(--bd2);color:var(--t3);font-size:12px}
+.tl-legend{display:flex;gap:18px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--bd2);margin-top:10px}
+.tl-leg-item{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--t2)}
+.tl-leg-swatch{width:18px;height:10px;border-radius:2px;flex-shrink:0}
+.tl-leg-line{width:3px;height:14px;border-radius:1.5px;flex-shrink:0}
+/* ============================================
+   DYNAMIC INTERACTIONS — hover, tooltips, animations
+   ============================================ */
+
+/* Smooth hover lift for all cards */
+.card, .cc, .frete-insight, .bench-panel, .fp, .cxp {
+  transition: transform 0.2s cubic-bezier(.4,0,.2,1), box-shadow 0.2s cubic-bezier(.4,0,.2,1), border-color 0.2s ease;
+}
+.card:hover, .cc:hover, .frete-insight:hover, .bench-panel:hover, .fp:hover, .cxp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15,23,42,0.06), 0 2px 6px rgba(15,23,42,0.04);
+}
+.card:hover { z-index: 2; }
+
+/* KPI cards: thicker accent border on hover */
+.card.blg:hover { border-left-width: 5px }
+.card.blgr:hover { border-left-width: 5px }
+.card.blr:hover { border-left-width: 5px }
+.card.blb:hover { border-left-width: 5px }
+.card.blp:hover { border-left-width: 5px }
+.card.bla:hover { border-left-width: 5px }
+.card.blgy:hover { border-left-width: 5px }
+
+/* Cenário cards: stronger hover */
+.cen {
+  transition: transform 0.2s cubic-bezier(.4,0,.2,1), box-shadow 0.2s ease;
+  cursor: default;
+}
+.cen:hover {
+  transform: translateY(-3px) scale(1.012);
+  box-shadow: 0 12px 30px rgba(15,23,42,0.08);
+  z-index: 3;
+}
+
+/* Pipeline items: subtle highlight */
+.pi {
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+.pi:hover {
+  background: rgba(180,83,9,0.04) !important;
+  transform: scale(1.015);
+}
+
+/* Sidebar nav: slide effect on hover */
+.ni:not(.on) { transition: background 0.15s ease, color 0.15s ease, padding-left 0.18s cubic-bezier(.4,0,.2,1) }
+.ni:not(.on):hover { padding-left: 14px }
+
+/* Alert hover */
+.alert { transition: transform 0.15s ease, box-shadow 0.15s ease }
+.alert:hover { transform: translateX(2px); box-shadow: 0 4px 10px rgba(15,23,42,0.04) }
+
+/* Frete monthly cards: lift on hover */
+.fm { transition: transform 0.18s ease, box-shadow 0.18s ease }
+.fm:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(5,150,105,0.12) }
+
+/* Frete KPI mini cards */
+.fk { transition: background 0.15s ease }
+.fk:hover { background: var(--grbg) }
+
+/* Bench items hover */
+.bi { transition: transform 0.15s ease; padding: 4px; border-radius: var(--rsm); cursor: default }
+.bi:hover { transform: scale(1.05); background: rgba(180,83,9,0.04) }
+
+/* Table row hover with subtle lift */
+tbody tr { transition: background 0.15s ease, box-shadow 0.15s ease }
+tbody tr:hover { box-shadow: inset 3px 0 0 var(--gold) }
+
+/* Timeline markers grow on hover */
+.tl-target {
+  cursor: help;
+  transition: width 0.15s ease, filter 0.15s ease;
+}
+.tl-target:hover { width: 5px; filter: brightness(1.15); z-index: 6 }
+.tl-target::before, .tl-target::after { transition: transform 0.15s ease }
+.tl-target:hover::before, .tl-target:hover::after { transform: scale(1.4) }
+
+/* Subtle pulse for current position callout */
+.tl-callout.realized .tl-co-box {
+  animation: pulseGreen 3.5s ease-in-out infinite;
+}
+@keyframes pulseGreen {
+  0%, 100% { box-shadow: 0 1px 3px rgba(5,150,105,0.18) }
+  50% { box-shadow: 0 6px 16px rgba(5,150,105,0.28) }
+}
+
+/* Bar animations on entry — bars grow from 0 to width */
+.pf, .pf8, .drbf, .efbf, .t5bf, .fmbf, .prog-fill, .prog-fill8,
+.frete-mes-bar-f, .frete-bar-fill, .tl-fill-real, .tl-fill-proj {
+  transition: width 1.2s cubic-bezier(.4,0,.2,1) 0.1s;
+}
+
+/* Section fade-in animation on tab switch */
+.sec.vis { animation: fadeInUp 0.35s cubic-bezier(.4,0,.2,1) }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px) }
+  to { opacity: 1; transform: translateY(0) }
+}
+
+/* === CUSTOM TOOLTIP SYSTEM ===
+   Add data-tip="text" to any element for a clean dark tooltip */
+[data-tip] { position: relative; cursor: help }
+[data-tip]::before, [data-tip]::after {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s cubic-bezier(.4,0,.2,1), transform 0.2s cubic-bezier(.4,0,.2,1);
+  z-index: 9999;
+}
+[data-tip]::before {
+  content: '';
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  border: 5px solid transparent;
+  border-top-color: #0F172A;
+}
+[data-tip]::after {
+  content: attr(data-tip);
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #0F172A;
+  color: #F8FAFC;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18), 0 4px 8px rgba(0,0,0,0.08);
+  max-width: 280px;
+  width: max-content;
+  text-align: center;
+  white-space: pre-line;
+}
+[data-tip]:hover::before, [data-tip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Tooltip below variant */
+[data-tip-pos="bottom"]::before {
+  bottom: auto; top: calc(100% + 2px);
+  border-top-color: transparent;
+  border-bottom-color: #0F172A;
+}
+[data-tip-pos="bottom"]::after {
+  bottom: auto; top: calc(100% + 8px);
+}
+
+/* Sortable table headers */
+th.sortable {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+th.sortable:hover { color: var(--gold); background: var(--gbg) }
+th.sortable::after {
+  content: '⇅';
+  font-size: 9px;
+  opacity: 0.4;
+  margin-left: 4px;
+}
+th.sortable.asc::after  { content: '↑'; opacity: 1; color: var(--gold) }
+th.sortable.desc::after { content: '↓'; opacity: 1; color: var(--gold) }
+
+/* Help icon for tooltips */
+.help-ico {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--bd);
+  color: var(--t2);
+  font-size: 9px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 13px;
+  margin-left: 4px;
+  cursor: help;
+  vertical-align: 1px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.help-ico:hover { background: var(--gold); color: #fff }
+
+/* Smooth nav transition */
+.sb-body { transition: padding 0.2s ease }
+
+/* Badge subtle hover */
+.badge { transition: transform 0.15s ease }
+.badge:hover { transform: scale(1.06) }
+
+/* DRE row hover */
+.dre-row { transition: background 0.15s ease, padding-left 0.15s ease; padding-left: 0 !important }
+.dre-row:hover { background: var(--slate-bg); padding-left: 6px !important; border-radius: var(--rad-sm) }
+
+/* Top 5 row hover */
+.t5 { transition: background 0.15s ease, padding-left 0.15s ease; padding-left: 0 !important; border-radius: 5px }
+.t5:hover { background: var(--slag); padding-left: 6px !important }
+
+/* Efficiency row hover */
+.efr { transition: background 0.15s ease, padding-left 0.15s ease; padding-left: 0 !important; border-radius: 5px }
+.efr:hover { background: var(--slag); padding-left: 6px !important }
+
+/* === VISÃO MENSAL - Filtro por mês === */
+.mv-chips{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 12px}
+.mv-chip{padding:6px 14px;border-radius:20px;border:1px solid var(--bd);background:#fff;font-size:11px;font-weight:600;color:var(--t2);cursor:pointer;transition:all .15s ease;font-family:inherit;letter-spacing:.02em}
+.mv-chip:hover:not(:disabled){border-color:var(--gold);color:var(--gold);background:var(--gbg)}
+.mv-chip.on{background:var(--gold);border-color:var(--gold);color:#fff;box-shadow:0 2px 8px rgba(180,83,9,.25)}
+.mv-chip:disabled{opacity:.45;cursor:not-allowed;background:var(--slag);color:var(--t3)}
+.mv-chip .mv-chip-sub{font-size:8.5px;font-weight:500;opacity:.75;margin-left:4px;text-transform:uppercase;letter-spacing:.05em}
+.mv-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:11px;flex-wrap:wrap;gap:8px}
+.mv-selected{font-size:12px;color:var(--t2);font-weight:500;display:flex;align-items:center;gap:6px}
+.mv-selected strong{color:var(--gold);font-weight:700;font-size:14px}
+.mv-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.mv-kpi{background:#fff;border:1px solid var(--bd);border-left:3px solid var(--gold);border-radius:var(--rad);padding:12px 14px;transition:transform .18s ease,box-shadow .18s ease}
+.mv-kpi:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(15,23,42,.06)}
+.mv-kpi.green{border-left-color:var(--green)}
+.mv-kpi.blue{border-left-color:var(--blue)}
+.mv-kpi.red{border-left-color:var(--red)}
+.mv-kpi.amber{border-left-color:var(--amber)}
+.mv-kpi-lbl{font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--t2);margin-bottom:4px}
+.mv-kpi-val{font-size:22px;font-weight:500;color:var(--t1);line-height:1;font-variant-numeric:tabular-nums;margin-bottom:3px}
+.mv-kpi-sub{font-size:10.5px;color:var(--t3);line-height:1.3}
+.mv-table-row{display:grid;grid-template-columns:1.8fr 1fr 1fr 60px 1fr;gap:10px;padding:7px 10px;border-bottom:1px solid var(--bd2);align-items:center;font-size:11px;transition:background .15s ease}
+.mv-table-row:hover{background:var(--slag)}
+.mv-table-head{background:var(--slag);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--t2);border-radius:var(--rsm) var(--rsm) 0 0;border-bottom:2px solid var(--bd)}
+.mv-tbg{display:inline-flex;padding:2px 7px;border-radius:8px;font-size:9.5px;font-weight:700;justify-self:center}
+.mv-hl{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.mv-hl-card{background:#fff;border:1px solid var(--bd);border-radius:var(--rad);padding:12px 14px}
+.mv-hl-card.green{border-top:3px solid var(--green);background:linear-gradient(180deg,var(--grbg) 0%,#fff 40%)}
+.mv-hl-card.red{border-top:3px solid var(--red);background:linear-gradient(180deg,var(--rbg) 0%,#fff 40%)}
+.mv-hl-card.blue{border-top:3px solid var(--blue);background:linear-gradient(180deg,var(--bbg) 0%,#fff 40%)}
+.mv-hl-lbl{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}
+.mv-hl-name{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:3px;line-height:1.3}
+.mv-hl-val{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1;margin-bottom:2px}
+.mv-hl-sub{font-size:10px;color:var(--t3)}
+.mv-empty{text-align:center;padding:24px;color:var(--t3);font-size:12px}
+.mv-chip-future{border-style:dashed;color:var(--blue);background:#F8FAFC}
+.mv-chip-future:hover:not(.on){border-color:var(--blue);color:var(--blue);background:var(--bbg)}
+.mv-chip-future.on{background:var(--blue);border-color:var(--blue);border-style:solid;color:#fff;box-shadow:0 2px 8px rgba(29,78,216,.25)}
+.mv-banner{display:none;align-items:flex-start;gap:9px;padding:10px 13px;border-radius:var(--rad);margin-bottom:12px;font-size:11.5px;line-height:1.5}
+.mv-banner.plan{background:var(--bbg);border:1px solid var(--bbd);color:var(--t2)}
+.mv-banner.plan i{color:var(--blue);font-size:16px;flex-shrink:0;margin-top:1px}
+.mv-banner.plan strong{color:var(--blue);font-weight:600}
+
+
+/* ================= MODO APRESENTAÇÃO EXECUTIVA ================= */
+.pres-trigger{position:fixed;top:14px;right:20px;z-index:900;background:rgba(255,255,255,.97);border:1px solid var(--bd);border-radius:22px;padding:8px 15px;cursor:pointer;font-family:inherit;font-size:11.5px;font-weight:600;color:var(--t1);display:inline-flex;align-items:center;gap:7px;box-shadow:0 4px 14px rgba(15,23,42,.10);transition:all .2s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(8px)}
+.pres-trigger i{font-size:15px;color:var(--gold)}
+.pres-trigger:hover{background:var(--sb);border-color:var(--sb);color:#fff;transform:translateY(-1px);box-shadow:0 8px 22px rgba(15,23,42,.22)}
+.pres-trigger:hover i{color:#FCD34D}
+
+.pres{position:fixed;inset:0;z-index:9998;background:#0B1120;display:none;flex-direction:column;color:#E2E8F0;font-family:inherit}
+.pres.open{display:flex;animation:presIn .3s ease}
+@keyframes presIn{from{opacity:0}to{opacity:1}}
+
+.pres-top{display:flex;align-items:center;justify-content:space-between;padding:16px 34px;border-bottom:1px solid #1E293B;flex-shrink:0}
+.pres-brand{display:flex;align-items:center;gap:11px}
+.pres-brand-ico{width:34px;height:34px;background:#B45309;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px}
+.pres-brand-t{font-size:14px;font-weight:600;color:#F8FAFC;line-height:1.2}
+.pres-brand-s{font-size:10px;color:#64748B;text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
+.pres-close{background:transparent;border:1px solid #334155;color:#94A3B8;border-radius:8px;padding:7px 13px;cursor:pointer;font-family:inherit;font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:6px;transition:all .15s}
+.pres-close:hover{background:#1E293B;color:#F8FAFC;border-color:#475569}
+
+.pres-body{flex:1;overflow:hidden;position:relative}
+.pres-slide{position:absolute;inset:0;padding:26px 40px;display:none;flex-direction:column;overflow-y:auto}
+.pres-slide.on{display:flex;animation:slideIn .35s cubic-bezier(.4,0,.2,1)}
+@keyframes slideIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.pres-h{font-size:23px;font-weight:600;color:#F8FAFC;letter-spacing:-.02em;margin-bottom:3px}
+.pres-sub{font-size:12.5px;color:#64748B;margin-bottom:22px}
+
+.pk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:22px}
+.pk{background:#111C2E;border:1px solid #1E293B;border-radius:12px;padding:18px 20px;border-left:3px solid #B45309}
+.pk.green{border-left-color:#10B981}.pk.blue{border-left-color:#3B82F6}
+.pk.red{border-left-color:#EF4444}.pk.purple{border-left-color:#A78BFA}
+.pk-l{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#64748B;margin-bottom:7px}
+.pk-v{font-size:31px;font-weight:600;color:#F8FAFC;line-height:1;font-variant-numeric:tabular-nums;margin-bottom:6px;letter-spacing:-.02em}
+.pk-v.green{color:#10B981}.pk-v.blue{color:#60A5FA}.pk-v.red{color:#F87171}.pk-v.gold{color:#FBBF24}
+.pk-s{font-size:11px;color:#94A3B8;line-height:1.4}
+
+.pres-bar-wrap{background:#111C2E;border:1px solid #1E293B;border-radius:12px;padding:24px 26px;margin-bottom:18px}
+.pres-bar-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;flex-wrap:wrap;gap:8px}
+.pres-bar-t{font-size:14px;font-weight:600;color:#F8FAFC}
+.pres-bar-n{font-size:12px;color:#64748B}
+.pres-bar{position:relative;height:40px;background:#1E293B;border-radius:20px;overflow:visible}
+.pres-bar-danger{position:absolute;left:92%;right:0;top:0;bottom:0;background:repeating-linear-gradient(135deg,rgba(239,68,68,.15),rgba(239,68,68,.15) 6px,rgba(239,68,68,.28) 6px,rgba(239,68,68,.28) 12px);border-radius:0 20px 20px 0}
+.pres-bar-real{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#059669,#10B981);border-radius:20px 4px 4px 20px;display:flex;align-items:center;justify-content:flex-end;padding-right:14px;font-size:12px;font-weight:700;color:#fff;z-index:2}
+.pres-bar-proj{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(135deg,rgba(251,191,36,.22),rgba(251,191,36,.22) 7px,rgba(251,191,36,.38) 7px,rgba(251,191,36,.38) 14px);border-top:1.5px dashed #FBBF24;border-bottom:1.5px dashed #FBBF24;z-index:1}
+.pres-bar-finish{position:absolute;left:92%;top:-13px;bottom:-13px;width:4px;background:#10B981;border-radius:2px;z-index:5;box-shadow:0 0 0 2px #0B1120}
+.pres-bar-finish::after{content:'🏁 META';position:absolute;top:-24px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;color:#10B981;white-space:nowrap;letter-spacing:.06em}
+.pres-bar-mk{position:absolute;top:-8px;bottom:-8px;width:2.5px;border-radius:2px;z-index:4}
+.pres-bar-lbls{display:flex;justify-content:space-between;margin-top:30px;font-size:10.5px;color:#64748B}
+
+.pl-list{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.pl-item{background:#111C2E;border:1px solid #1E293B;border-radius:10px;padding:15px 18px;display:flex;gap:13px;align-items:flex-start}
+.pl-ico{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.pl-t{font-size:12.5px;font-weight:600;color:#F8FAFC;margin-bottom:3px}
+.pl-d{font-size:11.5px;color:#94A3B8;line-height:1.55}
+
+.pt-tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.pt-tbl thead th{padding:11px 13px;text-align:left;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#64748B;border-bottom:1px solid #1E293B}
+.pt-tbl tbody td{padding:13px;border-bottom:1px solid #16202F;color:#CBD5E1}
+.pt-tbl tbody tr:hover td{background:#111C2E}
+.pt-tr{text-align:right;font-variant-numeric:tabular-nums}
+.pt-badge{display:inline-flex;padding:3px 10px;border-radius:11px;font-size:10px;font-weight:700}
+
+.pres-chart{background:#111C2E;border:1px solid #1E293B;border-radius:12px;padding:16px 20px 12px}
+.pres-chart-t{font-size:12.5px;font-weight:600;color:#F8FAFC;margin-bottom:2px}
+.pres-chart-s{font-size:10.5px;color:#64748B;margin-bottom:10px}
+.pres-cw{position:relative;width:100%}
+.pres-split{display:grid;grid-template-columns:1.35fr 1fr;gap:15px;flex:1;min-height:0}
+.pres-split-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.pres-nav{display:flex;align-items:center;justify-content:space-between;padding:13px 34px;border-top:1px solid #1E293B;flex-shrink:0}
+.pres-dots{display:flex;gap:7px}
+.pres-dot{width:8px;height:8px;border-radius:50%;background:#334155;cursor:pointer;transition:all .2s;border:none;padding:0}
+.pres-dot.on{background:#B45309;width:22px;border-radius:4px}
+.pres-arrows{display:flex;gap:8px}
+.pres-arw{background:#1E293B;border:1px solid #334155;color:#94A3B8;width:32px;height:32px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .15s}
+.pres-arw:hover:not(:disabled){background:#B45309;color:#fff;border-color:#B45309}
+.pres-arw:disabled{opacity:.3;cursor:not-allowed}
+.pres-count{font-size:11px;color:#64748B;font-variant-numeric:tabular-nums}
+
+</style>
+</head>
+<body>
+
+<!-- BOTÃO MODO APRESENTAÇÃO -->
+<button class="pres-trigger" onclick="presOpen()">
+  <i class="ti ti-presentation"></i> Modo Apresentação
+</button>
+
+<!-- OVERLAY APRESENTAÇÃO EXECUTIVA -->
+<div class="pres" id="pres">
+  <div class="pres-top">
+    <div class="pres-brand">
+      <div class="pres-brand-ico"><i class="ti ti-leaf" style="color:#FEF3C7"></i></div>
+      <div>
+        <div class="pres-brand-t">Dengo · CD Armazém Bahia</div>
+        <div class="pres-brand-s">Budget 2026 · Jan–Jul · Agosto 2026</div>
+      </div>
+    </div>
+    <button class="pres-close" onclick="presClose()"><i class="ti ti-x" style="font-size:14px"></i> Sair (ESC)</button>
+  </div>
+
+  <div class="pres-body">
+
+    <!-- SLIDE 1 — RESULTADO -->
+    <div class="pres-slide on" data-s="0">
+      <div class="pres-h">Resultado do ano até Julho</div>
+      <div class="pres-sub">7 meses lançados · projeção fecha 2026 abaixo das três metas de saving</div>
+      <div class="pk-grid">
+        <div class="pk">
+          <div class="pk-l">Orçado FY 2026</div>
+          <div class="pk-v">R$ 1,06M</div>
+          <div class="pk-s">Budget anual aprovado</div>
+        </div>
+        <div class="pk green">
+          <div class="pk-l">Realizado Jan–Jul</div>
+          <div class="pk-v green">R$ 537k</div>
+          <div class="pk-s">50,6% do orçado · 7 de 12 meses</div>
+        </div>
+        <div class="pk green">
+          <div class="pk-l">Projeção FY</div>
+          <div class="pk-v green">R$ 921k</div>
+          <div class="pk-s">Ritmo de R$ 76,7k/mês</div>
+        </div>
+        <div class="pk purple">
+          <div class="pk-l">Saving projetado</div>
+          <div class="pk-v" style="color:#A78BFA">–13,3%</div>
+          <div class="pk-s">R$ 141.007 abaixo do budget</div>
+        </div>
+      </div>
+      <div class="pres-split">
+        <div class="pres-chart">
+          <div class="pres-chart-t">Curva de queima acumulada</div>
+          <div class="pres-chart-s">Realizado descolando do orçado mês a mês · projeção fecha abaixo da linha da Meta</div>
+          <div class="pres-cw" style="height:262px"><canvas id="pch-burn"></canvas></div>
+        </div>
+        <div class="pres-chart">
+          <div class="pres-chart-t">De onde vem o saving de R$ 141k</div>
+          <div class="pres-chart-s">Principais contribuições por conta</div>
+          <div class="pres-cw" style="height:262px"><canvas id="pch-water"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 — CORRIDA PARA A META -->
+    <div class="pres-slide" data-s="1">
+      <div class="pres-h">Corrida para a Meta</div>
+      <div class="pres-sub">Régua ancorada na Meta (–8%) = R$ 976.694 = 100% · entregar o orçado integral significaria não cumprir a meta</div>
+
+      <div class="pres-bar-wrap">
+        <div class="pres-bar-hd">
+          <div class="pres-bar-t">Posição atual contra o teto da meta</div>
+          <div class="pres-bar-n">Consumido 55,0% · projeção fecha em 94,3%</div>
+        </div>
+        <div class="pres-bar">
+          <div class="pres-bar-danger"></div>
+          <div class="pres-bar-real" style="width:50.6%">55,0% da meta</div>
+          <div class="pres-bar-proj" style="left:50.6%;width:36.1%"></div>
+          <div class="pres-bar-mk" style="left:90%;background:#A78BFA"></div>
+          <div class="pres-bar-mk" style="left:94%;background:#EF4444"></div>
+          <div class="pres-bar-finish"></div>
+        </div>
+        <div class="pres-bar-lbls">
+          <span>R$ 0</span>
+          <span style="color:#10B981;font-weight:600">Meta R$ 976.694</span>
+        </div>
+      </div>
+
+      <div class="pk-grid" style="margin-bottom:0">
+        <div class="pk green">
+          <div class="pk-l">Consumido</div>
+          <div class="pk-v green" style="font-size:26px">R$ 537.026</div>
+          <div class="pk-s">55,0% da meta</div>
+        </div>
+        <div class="pk blue">
+          <div class="pk-l">Saldo até a meta</div>
+          <div class="pk-v blue" style="font-size:26px">R$ 439.668</div>
+          <div class="pk-s">disponível para Ago–Dez</div>
+        </div>
+        <div class="pk blue">
+          <div class="pk-l">Teto mensal permitido</div>
+          <div class="pk-v blue" style="font-size:26px">R$ 87.934</div>
+          <div class="pk-s">ritmo atual R$ 76,7k · folga de 13%</div>
+        </div>
+        <div class="pk red">
+          <div class="pk-l">Atenção</div>
+          <div class="pk-v red" style="font-size:26px">102,2%</div>
+          <div class="pk-s">o cenário Mínimo (–6%) estoura a meta</div>
+        </div>
+      </div>
+
+      <div class="pres-chart" style="margin-top:16px">
+        <div class="pres-chart-t">Orçado dos 5 meses restantes contra o teto permitido</div>
+        <div class="pres-chart-s">Linha verde = teto de R$ 87.934/mês para cumprir a meta · linha tracejada = ritmo atual de R$ 76,7k</div>
+        <div class="pres-cw" style="height:200px"><canvas id="pch-rest"></canvas></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 — CENÁRIOS -->
+    <div class="pres-slide" data-s="2">
+      <div class="pres-h">Cenários de saving</div>
+      <div class="pres-sub">Projeção atual comparada aos três cenários definidos para o ano</div>
+      <div class="pres-chart" style="margin-bottom:16px">
+        <div class="pres-chart-t">Alvo de cada cenário × projeção atual</div>
+        <div class="pres-chart-s">Barras = target de cada cenário · linha vermelha = projeção atual de R$ 920.616</div>
+        <div class="pres-cw" style="height:150px"><canvas id="pch-scen"></canvas></div>
+      </div>
+      <table class="pt-tbl">
+        <thead>
+          <tr>
+            <th>Cenário</th>
+            <th class="pt-tr">Saving</th>
+            <th class="pt-tr">Target FY</th>
+            <th class="pt-tr">Economia</th>
+            <th class="pt-tr">Teto/mês Ago–Dez</th>
+            <th class="pt-tr">Folga vs projeção</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#0F2A20">
+            <td style="font-weight:600;color:#F8FAFC">Projeção atual</td>
+            <td class="pt-tr" style="color:#10B981;font-weight:700">–13,3%</td>
+            <td class="pt-tr">R$ 920.616</td>
+            <td class="pt-tr" style="color:#10B981;font-weight:600">R$ 141.007</td>
+            <td class="pt-tr">R$ 76.718</td>
+            <td class="pt-tr">—</td>
+            <td><span class="pt-badge" style="background:rgba(16,185,129,.2);color:#10B981">Superando tudo</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600">Mínimo</td>
+            <td class="pt-tr">–6,0%</td>
+            <td class="pt-tr">R$ 997.926</td>
+            <td class="pt-tr">R$ 63.697</td>
+            <td class="pt-tr">R$ 92.180</td>
+            <td class="pt-tr" style="color:#10B981;font-weight:600">R$ 77.310</td>
+            <td><span class="pt-badge" style="background:rgba(16,185,129,.15);color:#10B981">✓ Atingido</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600">Meta</td>
+            <td class="pt-tr">–8,0%</td>
+            <td class="pt-tr">R$ 976.694</td>
+            <td class="pt-tr">R$ 84.930</td>
+            <td class="pt-tr">R$ 87.933</td>
+            <td class="pt-tr" style="color:#10B981;font-weight:600">R$ 56.078</td>
+            <td><span class="pt-badge" style="background:rgba(16,185,129,.15);color:#10B981">✓ Atingido</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600">Supermeta</td>
+            <td class="pt-tr">–10,0%</td>
+            <td class="pt-tr">R$ 955.461</td>
+            <td class="pt-tr">R$ 106.162</td>
+            <td class="pt-tr">R$ 83.687</td>
+            <td class="pt-tr" style="color:#10B981;font-weight:600">R$ 34.845</td>
+            <td><span class="pt-badge" style="background:rgba(167,139,250,.18);color:#A78BFA">✓ Atingido</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SLIDE 4 — DRIVERS E RISCOS -->
+    <div class="pres-slide" data-s="3">
+      <div class="pres-h">O que sustenta o resultado e o que monitorar</div>
+      <div class="pres-sub">Drivers estruturais do saving e pontos de atenção para Ago–Dez</div>
+
+      <div class="pres-split-2">
+        <div class="pres-chart">
+          <div class="pres-chart-t" style="color:#10B981">Driver · Frete zerado em 4 dos 7 meses</div>
+          <div class="pres-chart-s">R$ 40.850 consumidos de R$ 140.766 orçados — R$ 99.916 preservados</div>
+          <div class="pres-cw" style="height:158px"><canvas id="pch-frete"></canvas></div>
+        </div>
+        <div class="pres-chart">
+          <div class="pres-chart-t" style="color:#10B981">Driver · Ritmo mensal em queda</div>
+          <div class="pres-chart-s">Média móvel caiu de R$ 79,9k (Jan–Jun) para R$ 76,7k (Jan–Jul)</div>
+          <div class="pres-cw" style="height:158px"><canvas id="pch-ritmo"></canvas></div>
+        </div>
+      </div>
+
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#FBBF24;margin:18px 0 11px">Pontos de atenção para Ago–Dez</div>
+      <div class="pl-list">
+        <div class="pl-item">
+          <div class="pl-ico" style="background:rgba(251,191,36,.16);color:#FBBF24"><i class="ti ti-calendar-exclamation"></i></div>
+          <div>
+            <div class="pl-t">Outubro concentra R$ 126.253</div>
+            <div class="pl-d">Maior mês do orçado FY, 11,9% do total e 65% acima do ritmo atual. Único mês que ultrapassa o teto da meta.</div>
+          </div>
+        </div>
+        <div class="pl-item">
+          <div class="pl-ico" style="background:rgba(251,191,36,.16);color:#FBBF24"><i class="ti ti-alert-triangle"></i></div>
+          <div>
+            <div class="pl-t">Outras Desp. de Consumo em 66,7%</div>
+            <div class="pl-d" style="margin-bottom:7px">Oximaster/Levery com R$ 76.597 de R$ 114.836 — saldo de R$ 38.239 para cinco meses.</div>
+            <div style="height:7px;background:#1E293B;border-radius:4px;overflow:hidden"><div style="height:100%;width:66.7%;background:linear-gradient(90deg,#F59E0B,#FBBF24);border-radius:4px"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pres-nav">
+    <div class="pres-dots" id="pres-dots"></div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <span class="pres-count" id="pres-count">1 / 4</span>
+      <div class="pres-arrows">
+        <button class="pres-arw" id="pres-prev" onclick="presGo(-1)"><i class="ti ti-chevron-left"></i></button>
+        <button class="pres-arw" id="pres-next" onclick="presGo(1)"><i class="ti ti-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<aside class="sb">
+  <div class="sb-brand"><div class="sb-logo"><div class="sb-ico"><i class="ti ti-leaf" style="color:#FEF3C7"></i></div><div><div class="sb-name">Dengo</div><div class="sb-sub">Budget BI · v5</div></div></div></div>
+  <div class="sb-sec">Módulos</div>
+  <div class="sb-body">
+    <button class="ni on" onclick="goto('vg',this)"><i class="ti ti-chart-bar"></i> Budget 2026</button>
+    <button class="ni" onclick="goto('dre',this)"><i class="ti ti-layout-list"></i> Análise DRE</button>
+    <button class="ni" onclick="goto('capex',this)"><i class="ti ti-tools"></i> CAPEX 2026</button>
+    <button class="ni" onclick="goto('meta',this)"><i class="ti ti-target-arrow"></i> Meta Budget 2026</button>
+  </div>
+  <div class="sb-sep"></div>
+  <div class="sb-sec">Insights avançados</div>
+  <div class="sb-body">
+    <button class="ni" onclick="goto('vg',this);navScroll('s-mv')"><i class="ti ti-calendar-search"></i> Visão Mensal</button>
+    <button class="ni" onclick="goto('vg',this);navScroll('s-sazon')"><i class="ti ti-chart-line"></i> Sazonalidade</button>
+    <button class="ni" onclick="goto('vg',this);navScroll('s-cen')"><i class="ti ti-adjustments"></i> Cenários FY</button>
+    <button class="ni" onclick="goto('vg',this);navScroll('s-top5')"><i class="ti ti-alert-triangle"></i> Saldo Crítico</button>
+    <button class="ni" onclick="goto('vg',this);navScroll('s-ef')"><i class="ti ti-gauge"></i> Saldo por Categ.</button>
+    <button class="ni" onclick="goto('vg',this);navScroll('s-tbl')"><i class="ti ti-traffic-lights"></i> Semáforo</button>
+  </div>
+  <div class="sb-sep"></div>
+  <div class="sb-inf">
+    <div class="si-title">Status FY 2026</div>
+
+    <div class="si-row">
+      <div class="si-icon"><i class="ti ti-calendar-check"></i></div>
+      <div class="si-body">
+        <div class="si-lbl">Realizado</div>
+        <div class="si-val">Jan–Jul 2026</div>
+      </div>
+    </div>
+
+    <div class="si-row">
+      <div class="si-icon"><i class="ti ti-wallet"></i></div>
+      <div class="si-body">
+        <div class="si-lbl">Orçado FY</div>
+        <div class="si-val">R$ 1.061.623</div>
+      </div>
+    </div>
+
+    <div class="si-row">
+      <div class="si-icon"><i class="ti ti-chart-line"></i></div>
+      <div class="si-body">
+        <div class="si-lbl">Projeção base</div>
+        <div class="si-val">R$ 920.616</div>
+      </div>
+    </div>
+
+    <div class="si-row">
+      <div class="si-icon"><i class="ti ti-trophy"></i></div>
+      <div class="si-body">
+        <div class="si-lbl">Saving projetado</div>
+        <div class="si-val">–13,3% ✓✓</div>
+      </div>
+    </div>
+  </div>
+  <div class="sb-foot"><div class="sf-txt">Apresentação Diretoria<br>Agosto 2026</div></div>
+</aside>
+
+<main class="main">
+
+<!-- ======================================================
+     BUDGET 2026
+====================================================== -->
+<div class="sec vis" id="sec-vg">
+  <div class="sh">
+    <div><div class="st">Budget 2026 — G&A Sem HC</div><div class="sd">CD Armazém Bahia · Ricardo/Caio · BR02001 · Jan–Jul realizados · Ago–Dez projeção · Supermeta atingida</div></div>
+    <div class="sb2r">
+      <span class="badge bg">Budget 2026</span>
+      <span class="badge bgr">Jan–Jul Realizado</span>
+      <span class="badge bgr">Supermeta atingida ✓✓</span>
+      <span class="badge bp">6 insights</span>
+
+    </div>
+  </div>
+
+
+
+  <!-- PIPELINE -->
+  <div class="pipe">
+    <div class="pi" data-tip="Budget anual aprovado pela diretoria para 2026&#10;Base de comparação para todas as análises&#10;+24,1% vs orçado 2025 (R$855.671)"><div class="pl">Orçado FY 2026</div><div class="pv">R$ 1.061.623</div><div class="pd">Budget anual aprovado</div></div>
+    <div class="pa"><i class="ti ti-chevron-right"></i></div>
+    <div class="pi" data-tip="Total consumido entre Janeiro e Julho de 2026&#10;7 meses lançados de 12&#10;Representa 50,6% do orçado FY"><div class="pl">Realizado Jan–Jul</div><div class="pv pwn">R$ 537.026</div><div class="pd">7 meses lançados · 50,6%</div></div>
+    <div class="pa"><i class="ti ti-chevron-right"></i></div>
+    <div class="pi" data-tip="Saldo = Orçado FY – Realizado Jan-Jul&#10;R$1.061.623 – R$537.026 = R$524.597&#10;Disponível para Ago-Dez (5 meses)"><div class="pl">Saldo disponível</div><div class="pv">R$ 524.597</div><div class="pd">49,4% do orçado FY</div></div>
+    <div class="pa"><i class="ti ti-chevron-right"></i></div>
+    <div class="pi" data-tip="Projeção FY = média mensal × 12&#10;Média Jan-Jul: R$76.718/mês&#10;Projeção total: R$920.616 (–13,3%)"><div class="pl">Projeção FY · cenário base</div><div class="pv pgd">R$ 920.616</div><div class="pd">–13,3% · bate Supermeta ✓✓</div></div>
+  </div>
+
+  <!-- KPIs -->
+  <div class="g4">
+    <div class="card blg" data-tip="Orçado FY 2026 aprovado em ciclo orçamentário&#10;Base de comparação anual&#10;Crescimento de R$205.952 vs 2025"><i class="ti ti-cash ci"></i><div class="cl">Orçado FY 2026</div><div class="cv">R$ 1.062k</div><div class="cd">Budget anual total aprovado</div><div class="cy yw">↑ +24,1% vs orçado 2025</div></div>
+    <div class="card blgr" data-tip="Soma do consumo Jan a Jul&#10;Reconciliado contra summary da planilha&#10;Total: R$537.025,75"><i class="ti ti-check ci"></i><div class="cl">Realizado Jan–Jul</div><div class="cv" style="color:var(--green)">R$ 537k</div><div class="cd">7 meses lançados · 50,6% do FY</div><div class="cy ydn">↓ R$108k abaixo do orçado parcial</div></div>
+    <div class="card blgr" data-tip="Diferença acumulada Orçado – Realizado no período&#10;Orçado Jan-Jul: R$644.808&#10;Realizado Jan-Jul: R$537.026&#10;Economia: +R$107.782 (16,7% abaixo)"><i class="ti ti-coin ci"></i><div class="cl">Economia acumulada Jan–Jul</div><div class="cv" style="color:var(--green)">+R$ 108k</div><div class="cd">Orç. R$ 645k · Real R$ 537k</div><div class="cy ydn">↓ 16,7% abaixo do orçado parcial</div></div>
+    <div class="card blgr" data-tip="Projeção FY em R$920.616&#10;Supera as 3 metas simultaneamente&#10;Folga sobre Supermeta: R$34.845"><i class="ti ti-target-arrow ci"></i><div class="cl">Saving projetado FY</div><div class="cv" style="color:var(--green)">–13,3%</div><div class="cd">R$141.007 abaixo do budget FY</div><div class="cy ydn">✓✓ Bate Supermeta com folga</div></div>
+  </div>
+
+  <!-- ⓿ VISÃO MENSAL - Filtro por mês -->
+  <div class="cc" id="s-mv">
+    <div class="mv-hd">
+      <div>
+        <div class="cct"><i class="ti ti-calendar-search" style="font-size:14px;vertical-align:-2px;margin-right:4px;color:var(--gold)"></i> Visão Mensal — Detalhamento por mês</div>
+        <div style="font-size:11px;color:var(--t2);margin-top:3px">Meses <strong style="color:var(--gold)">Real</strong> mostram consumo efetivo · meses <strong style="color:var(--blue)">Plano</strong> mostram o orçado a executar</div>
+      </div>
+      <div class="mv-selected" id="mv-selected">Mês selecionado: <strong id="mv-month-name">Junho</strong></div>
+    </div>
+
+    <div class="mv-chips" id="mv-chips">
+      <!-- Chips renderizados por JS -->
+    </div>
+
+    <div class="mv-banner" id="mv-mode-banner"></div>
+
+    <!-- KPIs do mês -->
+    <div class="mv-kpi-grid">
+      <div class="mv-kpi">
+        <div class="mv-kpi-lbl">Orçado do mês</div>
+        <div class="mv-kpi-val" id="mv-orc">R$ 0</div>
+        <div class="mv-kpi-sub">Total previsto no budget FY</div>
+      </div>
+      <div class="mv-kpi green">
+        <div class="mv-kpi-lbl">Realizado do mês</div>
+        <div class="mv-kpi-val" id="mv-real" style="color:var(--green)">R$ 0</div>
+        <div class="mv-kpi-sub" id="mv-real-sub">Total consumido</div>
+      </div>
+      <div class="mv-kpi blue">
+        <div class="mv-kpi-lbl">Diferença (saldo)</div>
+        <div class="mv-kpi-val" id="mv-saldo" style="color:var(--blue)">R$ 0</div>
+        <div class="mv-kpi-sub" id="mv-saldo-sub">Orçado – Realizado</div>
+      </div>
+      <div class="mv-kpi amber">
+        <div class="mv-kpi-lbl">% Executado</div>
+        <div class="mv-kpi-val" id="mv-pct" style="color:var(--amber)">0%</div>
+        <div class="mv-kpi-sub" id="mv-pct-sub">Realizado / Orçado</div>
+      </div>
+    </div>
+
+    <!-- Chart + Tabela lado a lado -->
+    <div class="g2">
+      <div class="cc" style="margin-bottom:0">
+        <div class="cch">
+          <div class="cct">Comparativo Orçado × Realizado — Top 10 contas</div>
+          <span class="badge bg" id="mv-chart-badge">Junho</span>
+        </div>
+        <div class="ccs">Contas com maior movimentação no mês selecionado</div>
+        <div class="cw h260"><canvas id="ch-mv"></canvas></div>
+      </div>
+      <div class="cc" style="margin-bottom:0">
+        <div class="cch">
+          <div class="cct">Detalhamento das contas consumidas</div>
+          <span class="badge bp" id="mv-count-badge">0 contas</span>
+        </div>
+        <div class="ccs">Contas movimentadas (meses realizados) ou contas orçadas a executar (meses de planejamento)</div>
+        <div class="mv-table-row mv-table-head" id="mv-thead">
+          <div>Conta</div>
+          <div class="tr">Orçado</div>
+          <div class="tr">Realizado</div>
+          <div class="mv-tbg" style="background:transparent">%</div>
+          <div class="tr">Δ Saldo</div>
+        </div>
+        <div id="mv-tbl" style="max-height:250px;overflow-y:auto"></div>
+      </div>
+    </div>
+
+    <!-- Destaques do mês -->
+    <div class="mv-hl">
+      <div class="mv-hl-card red">
+        <div class="mv-hl-lbl" style="color:var(--red)"><i class="ti ti-trending-up" style="vertical-align:-1px"></i> Maior gasto do mês</div>
+        <div class="mv-hl-name" id="mv-hl1-name">—</div>
+        <div class="mv-hl-val" id="mv-hl1-val" style="color:var(--red)">R$ 0</div>
+        <div class="mv-hl-sub" id="mv-hl1-sub">—</div>
+      </div>
+      <div class="mv-hl-card green">
+        <div class="mv-hl-lbl" style="color:var(--green)"><i class="ti ti-trending-down" style="vertical-align:-1px"></i> Maior economia (orçado × real)</div>
+        <div class="mv-hl-name" id="mv-hl2-name">—</div>
+        <div class="mv-hl-val" id="mv-hl2-val" style="color:var(--green)">R$ 0</div>
+        <div class="mv-hl-sub" id="mv-hl2-sub">—</div>
+      </div>
+      <div class="mv-hl-card blue">
+        <div class="mv-hl-lbl" style="color:var(--blue)"><i class="ti ti-alert-circle" style="vertical-align:-1px"></i> Maior estouro do mês</div>
+        <div class="mv-hl-name" id="mv-hl3-name">—</div>
+        <div class="mv-hl-val" id="mv-hl3-val" style="color:var(--blue)">R$ 0</div>
+        <div class="mv-hl-sub" id="mv-hl3-sub">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ① SAZONALIDADE -->
+  <div class="cc" id="s-sazon">
+    <div class="cch">
+      <div><div class="cct">① Sazonalidade histórica — 2026 Orçado e Realizado Jan–Abr</div></div>
+      <span class="badge bp">Insight #1</span>
+    </div>
+    <div class="ccs">2026 orçado (barras azuis) × realizado Jan–Jul (barras verdes) × projeção Ago–Dez (amarelo) × linha roxa histórica 2025.</div>
+
+    <div class="leg">
+      <div class="li"><span class="ld" style="background:rgba(147,197,253,.6)"></span>2026 Orçado</div>
+      <div class="li"><span class="ld" style="background:#6EE7B7"></span>2026 Realizado (Jan–Jul)</div>
+      <div class="li"><span class="ld" style="background:#FCD34D;opacity:.8"></span>2026 Projeção (Ago–Dez)</div>
+      <div class="li"><span class="ld" style="background:#7C3AED"></span>2025 Realizado (histórico)</div>
+    </div>
+    <div class="cw h220"><canvas id="ch-sazon"></canvas></div>
+    <div class="g3" style="margin-top:12px;margin-bottom:0">
+      <div style="background:var(--grbg);border-radius:var(--rsm);padding:10px 12px;border:1px solid var(--grb)">
+        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--green);margin-bottom:4px">Jul 2026 · mês eficiente</div>
+        <div style="font-size:14px;font-weight:500;color:var(--green)">R$ 57.635</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:2px">89% do orçado · frete zerado ✓</div>
+      </div>
+      <div style="background:var(--gbg);border-radius:var(--rsm);padding:10px 12px;border:1px solid var(--gb)">
+        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:4px">Média mensal Jan-Jul</div>
+        <div style="font-size:14px;font-weight:500;color:var(--gold)">R$ 76.718</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:2px">–4,0% vs média anterior (Jan-Jun)</div>
+      </div>
+      <div style="background:var(--pbg);border-radius:var(--rsm);padding:10px 12px;border:1px solid var(--pbd)">
+        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--purple);margin-bottom:4px">Projeção FY vs Budget</div>
+        <div style="font-size:14px;font-weight:500;color:var(--purple)">–13,3%</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:2px">Supera Supermeta em R$34,8k ✓✓</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② CENÁRIOS -->
+  <div class="cc" id="s-cen">
+    <div class="cch"><div class="cct">② Projeção por cenário — Otimista · Base · Pessimista</div><span class="badge bb">Insight #2</span></div>
+    <div class="ccs">R$537.026 realizados Jan–Jul + comportamento esperado Ago–Dez por 3 hipóteses de volume de compra de cacau</div>
+    <div class="ceng">
+      <div class="cen otm">
+        <div class="ctag" style="background:#D1FAE5;color:#059669"><i class="ti ti-trending-down" style="font-size:11px"></i> Otimista</div>
+        <div class="cval" style="color:var(--green)">R$ 895.000</div>
+        <div class="cdel" style="color:var(--green)">–R$ 166.623 vs budget (–15,7%)</div>
+        <div class="citm">
+          <span>• Ritmo atual: R$76,7k/mês</span>
+          <span>• Frete Jul zerado (4º mês)</span>
+          <span>• Consumo Oximaster controlado</span>
+          <span style="color:var(--green);font-weight:700;margin-top:4px">→ Ultrapassa Super em R$60k</span>
+        </div>
+      </div>
+      <div class="cen bas">
+        <div class="ctag" style="background:#D1FAE5;color:#059669"><i class="ti ti-target" style="font-size:11px"></i> Base (mais provável)</div>
+        <div class="cval" style="color:var(--green)">R$ 920.616</div>
+        <div class="cdel" style="color:var(--green)">–R$ 141.007 vs budget (–13,3%)</div>
+        <div class="citm">
+          <span>• Média Jan–Jul: R$76,7k/mês</span>
+          <span>• Mantém ritmo até Dez</span>
+          <span>• Frete Ago–Dez conforme orçado</span>
+          <span style="color:var(--green);font-weight:700;margin-top:4px">→ Bate Supermeta ✓✓ (–R$35k)</span>
+        </div>
+      </div>
+      <div class="cen pes">
+        <div class="ctag" style="background:#FDE68A;color:#B45309"><i class="ti ti-alert-circle" style="font-size:11px"></i> Pessimista</div>
+        <div class="cval" style="color:var(--green)">R$ 980.000</div>
+        <div class="cdel" style="color:var(--green)">–R$ 81.623 vs budget (–7,7%)</div>
+        <div class="citm">
+          <span>• Retomada forte compras Q4</span>
+          <span>• Out R$126k orçado · monitorar</span>
+          <span>• Frete cresce Ago–Dez</span>
+          <span style="color:var(--green);font-weight:700;margin-top:4px">→ Mesmo pessimista, bate Meta</span>
+        </div>
+      </div>
+    </div>
+    <div class="cw h180"><canvas id="ch-cen"></canvas></div>
+    <div class="leg" style="margin-top:9px;margin-bottom:0">
+      <div class="li"><span class="ld" style="background:#059669"></span>Otimista</div>
+      <div class="li"><span class="ld" style="background:#D97706"></span>Base</div>
+      <div class="li"><span class="ld" style="background:#DC2626"></span>Pessimista</div>
+      <div class="li"><span class="ld" style="background:#6EE7B7"></span>Realizado</div>
+      <div class="li"><span class="ld" style="background:#CBD5E1"></span>Budget R$1.062k</div>
+    </div>
+  </div>
+
+  <!-- BENCH -->
+  <div class="bench">
+    <div class="bht"><i class="ti ti-flag"></i> Comparativo anual — G&A Sem HC · Armazém Bahia</div>
+    <div class="bg3">
+      <div class="bi"><div class="bl">Realizado 2025 · Jan-Jul</div><div class="bv">R$ 460.659</div><div class="bs">7 meses histórico</div></div>
+      <div class="bi"><div class="bl">Realizado 2026 · Jan-Jul</div><div class="bv" style="color:var(--gold)">R$ 537.026</div><div class="bs">+16,6% vs 2025 · +R$76.367</div></div>
+      <div class="bi"><div class="bl">Projeção FY 2026 (base)</div><div class="bv" style="color:var(--green)">R$ 920.616</div><div class="bs">–13,3% vs budget · Supermeta ✓✓</div></div>
+    </div>
+  </div>
+
+  <!-- ALERTS -->
+  <div class="ag">
+    <div class="alert green"><i class="ti ti-trophy ai"></i><div><div class="at">Supermeta (–10%) atingida com R$34.845 de folga ✓✓</div><div class="ad">Média R$76,7k/mês em Jan–Jul projeta FY em R$920.616 — R$141.007 abaixo do budget. Todas as 3 metas (Mínimo, Meta e Supermeta) superadas simultaneamente pela projeção atual.</div></div></div>
+    <div class="alert green"><i class="ti ti-truck ai"></i><div><div class="at">Frete: 4 meses zerados em 7 · economia estrutural</div><div class="ad">R$40.850 de R$140.766 orçados (29%). Mar+Abr+Mai+Jul foram R$0, apenas Jan/Fev/Jun com lançamento. Saldo preservado: R$99.916 — fator estrutural para sustentar –13,3%.</div></div></div>
+    <div class="alert green"><i class="ti ti-arrow-down ai"></i><div><div class="at">Média mensal em queda — de R$79,9k para R$76,7k</div><div class="ad">A entrada de Jul (R$57,6k, 89% do orçado) diluiu a média. O ritmo Jul melhor que Jun (que teve pico Oximaster) reforça controle efetivo. Oximaster já em 66,7% consumido (saldo R$38k).</div></div></div>
+    <div class="alert blue"><i class="ti ti-calendar ai"></i><div><div class="at">Atenção: Out 2026 orçado em R$126.253</div><div class="ad">Outubro concentra 11,9% do budget anual — maior mês do FY. Monitorar antecipadamente para preservar a folga –R$141k já assegurada.</div></div></div>
+  </div>
+
+  <!-- ③ TOP 5 SALDO CRÍTICO + MAIOR FOLGA -->
+  <div class="g2" id="s-top5">
+    <div class="cc" style="margin-bottom:0">
+      <div class="cch"><div class="cct">③ Saldo crítico — maior % do budget já consumido</div><span class="badge br">Insight #3</span></div>
+      <div class="ccs">Contas que mais consumiram do budget anual. Saldo restante = o que ainda pode ser gasto nos 8 meses restantes. Risco real = saldo próximo de zero.</div>
+      <div id="top5-risco"></div>
+    </div>
+    <div class="cc" style="margin-bottom:0">
+      <div class="cch"><div class="cct">③ Maior folga orçamentária — saldo preservado</div><span class="badge bgr">Eficiência</span></div>
+      <div class="ccs">Contas com maior saldo disponível — as que mais contribuem para manter a projeção FY favorável ao budget anual.</div>
+      <div id="top5-econ"></div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:13px"></div>
+
+  <!-- ④ FRETE -->
+  <div class="fp">
+    <div class="fph">
+      <div class="fpt"><i class="ti ti-truck"></i> ④ Eficiência de Frete — Leite Express/Smartlog/Cereais · Conta 61320104</div>
+      <span class="badge bgr"><i class="ti ti-star"></i> Destaque Diretoria</span>
+    </div>
+    <div class="fkp">
+      <div class="fk"><div class="fkl">Orçado FY</div><div class="fkv">R$ 140.766</div><div class="fks">2ª maior conta · 13,3%</div></div>
+      <div class="fk"><div class="fkl">Realizado Jan–Jul</div><div class="fkv" style="color:var(--green)">R$ 40.850</div><div class="fks">29,0% do orçado FY</div></div>
+      <div class="fk"><div class="fkl">Economia preservada</div><div class="fkv" style="color:var(--green)">R$ 99.916</div><div class="fks">saldo disponível no FY</div></div>
+      <div class="fk"><div class="fkl">Jul · R$0 · 4º mês zerado</div><div class="fkv" style="color:var(--green)">4 meses</div><div class="fks">Mar+Abr+Mai+Jul sem frete</div></div>
+      <div class="fk"><div class="fkl">Meses sem frete</div><div class="fkv" style="color:var(--green)">4 de 7</div><div class="fks">57% dos meses sem frete</div></div>
+    </div>
+    <div class="fmg" style="grid-template-columns:repeat(7,1fr)">
+      <div class="fm"><div class="fmn">Jan</div><div class="fmr" style="color:var(--amber)">R$ 29.718</div><div class="fmo">orç. R$ 36.543</div><div class="fmb"><div class="fmbf" style="width:81%;background:#D97706"></div></div><div class="fms" style="color:var(--amber)">81%</div></div>
+      <div class="fm"><div class="fmn">Fev</div><div class="fmr" style="color:var(--amber)">R$ 5.082</div><div class="fmo">orç. R$ 7.936</div><div class="fmb"><div class="fmbf" style="width:64%;background:#D97706"></div></div><div class="fms" style="color:var(--amber)">64%</div></div>
+      <div class="fm" style="background:#ECFDF5;border-color:var(--grb)"><div class="fmn" style="color:var(--green)">Mar ✓</div><div class="fmr" style="color:var(--green)">R$ 0</div><div class="fmo">orç. R$ 5.600</div><div class="fmb"><div class="fmbf" style="width:0%"></div></div><div class="fms" style="color:var(--green)">Sem cacau</div></div>
+      <div class="fm" style="background:#ECFDF5;border-color:var(--grb)"><div class="fmn" style="color:var(--green)">Abr ✓</div><div class="fmr" style="color:var(--green)">R$ 0</div><div class="fmo">sem orç.</div><div class="fmb"><div class="fmbf" style="width:0%"></div></div><div class="fms" style="color:var(--green)">Sem cacau</div></div>
+      <div class="fm" style="background:#ECFDF5;border-color:var(--grb)"><div class="fmn" style="color:var(--green)">Mai ✓</div><div class="fmr" style="color:var(--green)">R$ 0</div><div class="fmo">orç. R$ 7.936</div><div class="fmb"><div class="fmbf" style="width:0%"></div></div><div class="fms" style="color:var(--green)">Sem cacau</div></div>
+      <div class="fm"><div class="fmn">Jun</div><div class="fmr" style="color:var(--amber)">R$ 6.050</div><div class="fmo">orç. R$ 5.600</div><div class="fmb"><div class="fmbf" style="width:100%;background:#D97706"></div></div><div class="fms" style="color:var(--amber)">Retomada</div></div>
+      <div class="fm" style="background:#ECFDF5;border-color:var(--grb)"><div class="fmn" style="color:var(--green)">Jul ✓</div><div class="fmr" style="color:var(--green)">R$ 0</div><div class="fmo">orç. R$ 5.600</div><div class="fmb"><div class="fmbf" style="width:0%"></div></div><div class="fms" style="color:var(--green)">Sem cacau</div></div>
+    </div>
+    <div class="fnota"><strong>4 dos 7 meses sem frete → padrão estrutural consolidado:</strong> A conta Transporte Bahia (2ª maior do FY, 13,3%) consumiu apenas R$40.850 de R$140.766 orçados (29,0%) em 7 meses. Julho voltou a zerar após a retomada moderada de Junho. Saldo preservado: <strong>R$99.916</strong> — fator estrutural que sustenta a projeção –13,3% e a Supermeta atingida.</div>
+  </div>
+
+  <!-- CHARTS MENSAIS -->
+  <div class="g2">
+    <div class="cc" style="margin-bottom:0">
+      <div class="cch"><div class="cct">Orçado × Realizado × Projeção — Mês a mês</div><span class="badge bg">FY 2026</span></div>
+      <div class="ccs">Jan–Jul realizados · Ago–Dez projeção R$76,7k/mês (média atual)</div>
+      <div class="leg">
+        <div class="li"><span class="ld" style="background:#93C5FD"></span>Orçado</div>
+        <div class="li"><span class="ld" style="background:#6EE7B7"></span>Realizado (Jan–Abr)</div>
+        <div class="li"><span class="ld" style="background:#FCD34D"></span>Projeção (Mai–Dez)</div>
+      </div>
+      <div class="cw h200"><canvas id="ch-mensal"></canvas></div>
+    </div>
+    <div class="cc" style="margin-bottom:0">
+      <div class="cch"><div class="cct">Frete mensal — Realizado × Orçado (7 meses)</div><span class="badge bgr">4 meses zerados</span></div>
+      <div class="ccs">Leite Express/Smartlog · Mar+Abr+Mai+Jul zerados · apenas Jan/Fev/Jun com lançamento</div>
+      <div class="leg">
+        <div class="li"><span class="ld" style="background:#93C5FD"></span>Orçado</div>
+        <div class="li"><span class="ld" style="background:#D97706"></span>Realizado</div>
+        <div class="li"><span class="ld" style="background:#059669"></span>Zero · eficiência</div>
+      </div>
+      <div class="cw h200"><canvas id="ch-frete"></canvas></div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:13px"></div>
+
+  <!-- ⑤ EFICIÊNCIA POR CATEGORIA -->
+  <div class="cc" id="s-ef">
+    <div class="cch"><div class="cct">⑤ Saldo orçamentário disponível por categoria — Mai–Dez</div><span class="badge bp">Insight #5</span></div>
+    <div class="ccs">Quanto de budget resta em cada categoria para os 8 meses restantes. Ordenado do maior saldo ao menor. Verde = folgado (&gt;60% restante). Amarelo = usar com atenção (30–60%). Vermelho = saldo crítico ou já estourado.</div>
+    <div id="ef-list"></div>
+    <div class="g3" style="margin-top:13px;margin-bottom:0">
+      <div style="background:var(--grbg);border:1px solid var(--grb);border-radius:var(--rsm);padding:10px 12px;text-align:center">
+        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--green);margin-bottom:4px">Saldo folgado (&gt;60% restante)</div>
+        <div style="font-size:20px;font-weight:500;color:var(--green)" id="cnt-green">—</div>
+        <div style="font-size:10px;color:var(--t3)">categorias com amplo budget disponível</div>
+      </div>
+      <div style="background:var(--gbg);border:1px solid var(--gb);border-radius:var(--rsm);padding:10px 12px;text-align:center">
+        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:4px">Usar com atenção (30–60%)</div>
+        <div style="font-size:20px;font-weight:500;color:var(--gold)" id="cnt-yellow">—</div>
+        <div style="font-size:10px;color:var(--t3)">saldo existente — controlar consumo</div>
+      </div>
+      <div style="background:var(--rbg);border:1px solid var(--rbd);border-radius:var(--rsm);padding:10px 12px;text-align:center">
+        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--red);margin-bottom:4px">Saldo crítico (&lt;30% ou estourado)</div>
+        <div style="font-size:20px;font-weight:500;color:var(--red)" id="cnt-red">—</div>
+        <div style="font-size:10px;color:var(--t3)">monitorar urgente</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ TABELA SEMÁFORO -->
+  <div class="cc" id="s-tbl">
+    <div class="cch">
+      <div><div class="cct">⑥ Detalhamento por conta — Semáforo + Realizado Jan–Jul</div></div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap">
+        <span class="badge bg">28 contratos</span>
+        <span class="badge bp">Semáforo · Insight #6</span>
+        <span class="badge bgr">Jul consolidado</span>
+      </div>
+    </div>
+    <div class="ccs">🟢 Saldo folgado (≤ 60% do FY consumido) · 🟡 Atenção (60–80% consumido) · 🔴 Saldo crítico (&gt; 80% consumido ou já estourou)</div>
+    <div class="tw">
+      <table>
+        <colgroup>
+          <col style="width:4%"><col style="width:26%"><col style="width:9%"><col style="width:10%">
+          <col style="width:6%"><col style="width:9%"><col style="width:7%"><col style="width:7%">
+          <col style="width:7%"><col style="width:7%"><col style="width:7%"><col style="width:8%">
+        </colgroup>
+        <thead><tr>
+          <th>Sinal</th>
+          <th class="sortable" data-col="d" data-type="text">Conta / Fornecedor</th>
+          <th class="tr sortable" data-col="o" data-type="num">Orçado FY</th>
+          <th class="tr sortable" data-col="r" data-type="num">Real. Jan–Jul</th>
+          <th class="tr sortable" data-col="p" data-type="num">%</th>
+          <th>Execução</th>
+          <th class="tr sortable" data-col="mr" data-type="num">Mar</th>
+          <th class="tr sortable" data-col="ar" data-type="num">Abr</th>
+          <th class="tr sortable" data-col="mar" data-type="num">Mai</th>
+          <th class="tr sortable" data-col="jur" data-type="num">Jun</th>
+          <th class="tr sortable" data-col="jlr" data-type="num">Jul</th>
+          <th class="tr sortable" data-col="saldo" data-type="num">Saldo</th>
+        </tr></thead>
+        <tbody id="tbl-contas"></tbody>
+      </table>
+    </div>
+    <div style="display:flex;gap:14px;margin-top:10px;padding-top:10px;border-top:1px solid var(--bd2)">
+      <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--t2)"><span style="font-size:14px">🟢</span> Saldo folgado ≤ 60% consumido</div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--t2)"><span style="font-size:14px">🟡</span> Atenção 60–80% consumido</div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--t2)"><span style="font-size:14px">🔴</span> Saldo crítico &gt; 80% ou estourado</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================
+     DRE
+====================================================== -->
+<div class="sec" id="sec-dre">
+  <div class="sh">
+    <div><div class="st">Análise DRE — Armazém Bahia</div><div class="sd">Composição do orçado FY 2026 por tipo de utilização · BR02001</div></div>
+    <div class="sb2r"><span class="badge bg">FY 2026 · R$ 1.061.623</span><span class="badge bgy">12 categorias</span></div>
+  </div>
+  <div class="g4">
+    <div class="card blg"><div class="cl">Maior categoria</div><div class="cv" style="font-size:19px;color:var(--gold)">Armazenagem</div><div class="cd">R$ 373.965 · 35,2% do total</div><div class="cy yw">top 1 de 12 categorias</div></div>
+    <div class="card blb"><div class="cl">Top 3 concentram</div><div class="cv" style="color:var(--blue)">59,3%</div><div class="cd">Armazenagem + Fretes + Materiais</div><div class="cy yw">R$ 629.567 dos R$ 1.062k</div></div>
+    <div class="card blgr"><div class="cl">Frete · % executado</div><div class="cv" style="color:var(--green)">24,7%</div><div class="cd">R$34.800 de R$140.766 orçados</div><div class="cy ydn">Mar + Abr = R$0 · eficiência</div></div>
+    <div class="card bla"><div class="cl">Potencial revisão</div><div class="cv" style="color:var(--amber)">R$ 215.106</div><div class="cd">Fretes + Limpeza (contratos)</div><div class="cy yw">20,3% do orçado total</div></div>
+  </div>
+  <div class="g2">
+    <div class="cc" style="margin-bottom:0"><div class="cch"><div class="cct">Composição % FY 2026</div><span class="badge bg">Donut</span></div><div class="ccs">Participação de cada categoria no budget total</div><div class="cw h240"><canvas id="ch-dre-donut"></canvas></div></div>
+    <div class="cc" style="margin-bottom:0"><div class="cch"><div class="cct">Ranking por valor orçado</div><span class="badge bgy">Horizontal</span></div><div class="ccs">Categorias ordenadas do maior ao menor</div><div class="cw h240"><canvas id="ch-dre-bar"></canvas></div></div>
+  </div>
+  <div style="margin-bottom:13px"></div>
+  <div class="cc"><div class="cch"><div class="cct">Detalhamento DRE — ranking completo</div><span class="badge bg">FY 2026 · Orçado</span></div><div class="ccs">12 categorias · % sobre total de R$1.061.623</div><div id="dre-list"></div></div>
+  <div class="cc"><div class="cch"><div class="cct">Concentração — Análise Pareto</div><span class="badge bb">Pareto</span></div><div class="ccs">Barras = valor orçado · Linha vermelha = % acumulado · 3 categorias = 59,3%</div><div class="cw h220"><canvas id="ch-pareto"></canvas></div></div>
+  <div class="ag">
+    <div class="alert gold"><i class="ti ti-flag ai"></i><div><div class="at">Top 3 concentram 59,3% do orçamento</div><div class="ad">Armazenagem (35,2%), Fretes (13,3%) e Materiais (10,8%). Gestão focada nestas 3 contas garante controle de mais da metade do budget anual.</div></div></div>
+    <div class="alert green"><i class="ti ti-truck ai"></i><div><div class="at">Frete (2ª maior conta): apenas 24,7% executado</div><div class="ad">Zero frete em Mar e Abr por baixo volume de compra de cacau. R$105.966 preservados — gestão de compras com impacto direto no custo logístico.</div></div></div>
+  </div>
+</div>
+
+<!-- ======================================================
+     CAPEX
+====================================================== -->
+<div class="sec" id="sec-capex">
+  <div class="sh">
+    <div><div class="st">CAPEX 2026 — Armazém Bahia</div><div class="sd">Manutenção Predial / Manutenção de Máquinas · Ricardo/Caio · BR02001</div></div>
+    <div class="sb2r"><span class="badge bg">Budget 2026</span><span class="badge ba">CAPEX 2026</span></div>
+  </div>
+  <div class="tag-row">
+    <div class="tag tga"><i class="ti ti-filter" style="font-size:12px"></i> Budget 2026</div>
+    <div class="tag tga"><i class="ti ti-tools" style="font-size:12px"></i> CAPEX 2026</div>
+    <div class="tag"><i class="ti ti-building-warehouse" style="font-size:12px"></i> Armazém BA</div>
+    <div class="tag"><i class="ti ti-user" style="font-size:12px"></i> Ricardo / Caio</div>
+  </div>
+  <div class="g4">
+    <div class="card blg" data-tip="Budget CAPEX aprovado para 2026&#10;Total anual para Manutenção Predial&#10;e Manutenção de Máquinas"><i class="ti ti-wallet ci"></i><div class="cl">Total orçado CAPEX</div><div class="cv">R$ 40.000</div><div class="cd">FY 2026 · budget aprovado</div></div>
+    <div class="card bla" data-tip="Realizado acumulado:&#10;Mar/2026: R$15.000&#10;Jun/2026: R$2.800 (parcial · conserto de calha)&#10;Total: R$17.800 (44,5%)"><i class="ti ti-check ci"></i><div class="cl">Realizado (Mar + Jun)</div><div class="cv" style="color:var(--amber)">R$ 17.800</div><div class="cd">44,5% do budget · 2 lançamentos</div><div class="cy yw">Mar R$15k + Jun R$2,8k</div></div>
+    <div class="card blgr" data-tip="Saldo disponível para novos lançamentos&#10;R$40.000 – R$17.800 = R$22.200&#10;Dos quais R$10k já reservados para Set"><i class="ti ti-piggy-bank ci"></i><div class="cl">Saldo disponível</div><div class="cv" style="color:var(--green)">R$ 22.200</div><div class="cd">55,5% restante do budget FY</div><div class="cy ydn">R$12,2k livre + R$10k Set</div></div>
+    <div class="card blb" data-tip="Próximas execuções previstas:&#10;Jun 2026 (R$12,2k ainda em aberto)&#10;Set 2026 (R$10k planejado)"><i class="ti ti-calendar ci"></i><div class="cl">Próximos lançamentos</div><div class="cv" style="color:var(--blue)">Jun + Set</div><div class="cd">R$12,2k Jun aberto · R$10k Set</div><div class="cy yeq">55% ainda por executar</div></div>
+  </div>
+  <div class="cxp">
+    <div class="cch" style="margin-bottom:10px"><div class="cct">Execução CAPEX 2026</div><span class="badge ba">44,5% executado · Mar + Jun/2026</span></div>
+    <div class="prow"><span>Realizado: R$ 17.800 (Mar R$15k + Jun R$2,8k)</span><span style="color:var(--gold);font-weight:600">Saldo: R$ 22.200 · Budget: R$ 40.000</span></div>
+    <div class="pt8"><div class="pf8" style="width:44.5%;background:var(--gold)"></div></div>
+    <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--t2);margin-top:13px;margin-bottom:6px">Cronograma mensal FY 2026</div>
+    <div class="cxtl">
+      <div class="cxc"><div class="cxba"><div class="cxb" style="height:5px;background:var(--bd);width:100%"></div></div><div class="cxm">Jan</div><div class="cxv" style="color:var(--t3)">–</div></div>
+      <div class="cxc"><div class="cxba"><div class="cxb" style="height:5px;background:var(--bd);width:100%"></div></div><div class="cxm">Fev</div><div class="cxv" style="color:var(--t3)">–</div></div>
+      <div class="cxc"><div class="cxba"><div class="cxb" style="height:55px;background:#B45309;width:100%">15k</div></div><div class="cxm" style="color:var(--gold);font-weight:700">Mar</div><div class="cxv" style="color:var(--gold)">✓ Real</div></div>
+      <div class="cxc"><div class="cxba"><div class="cxb" style="height:5px;background:var(--bd);width:100%"></div></div><div class="cxm">Abr</div><div class="cxv" style="color:var(--t3)">–</div></div>
+      <div class="cxc"><div class="cxba"><div class="cxb" style="height:5px;background:var(--bd);width:100%"></div></div><div class="cxm">Mai</div><div class="cxv" style="color:var(--t3)">–</div></div>
+      <div class="cxc" data-tip="Junho 2026 — Realização parcial&#10;R$2.800 realizado (conserto de calha)&#10;R$12.200 ainda em aberto"><div class="cxba" style="flex-direction:column;justify-content:flex-end;gap:0"><div style="width:100%;height:44px;background:repeating-linear-gradient(45deg,rgba(29,78,216,.25),rgba(29,78,216,.25) 4px,rgba(29,78,216,.4) 4px,rgba(29,78,216,.4) 8px);border:1px dashed #1D4ED8;border-bottom:none;display:flex;align-items:center;justify-content:center;font-size:7.5px;font-weight:600;color:#1D4ED8">12,2k</div><div style="width:100%;height:11px;background:#B45309;display:flex;align-items:center;justify-content:center;font-size:7.5px;font-weight:700;color:#fff">2,8k</div></div><div class="cxm" style="color:var(--gold);font-weight:700">Jun</div><div class="cxv" style="color:var(--gold);font-size:7.5px">Parcial ⚠</div></div>
+      <div class="cxc"><div class="cxba"><div class="cxb" style="height:5px;background:var(--bd);width:100%"></div></div><div class="cxm">Jul</div><div class="cxv" style="color:var(--t3)">–</div></div>
+      <div class="cxc"><div class="cxba"><div class="cxb" style="height:5px;background:var(--bd);width:100%"></div></div><div class="cxm">Ago</div><div class="cxv" style="color:var(--t3)">–</div></div>
+      <div class="cxc"><div class="cxba"><div class="cxb" style="height:37px;background:#1D4ED8;width:100%">10k</div></div><div class="cxm" style="color:var(--blue);font-weight:700">Set</div><div class="cxv" style="color:var(--blue)">Planej.</div></div>
+      <div class="cxc"><div class="cxba"><div class="cxb" style="height:5px;background:var(--bd);width:100%"></div></div><div class="cxm">Out</div><div class="cxv" style="color:var(--t3)">–</div></div>
+      <div class="cxc"><div class="cxba"><div class="cxb" style="height:5px;background:var(--bd);width:100%"></div></div><div class="cxm">Nov</div><div class="cxv" style="color:var(--t3)">–</div></div>
+      <div class="cxc"><div class="cxba"><div class="cxb" style="height:5px;background:var(--bd);width:100%"></div></div><div class="cxm">Dez</div><div class="cxv" style="color:var(--t3)">–</div></div>
+    </div>
+    <div style="display:flex;gap:14px;margin-top:12px;padding-top:10px;border-top:1px solid var(--bd2);flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:6px;font-size:10px;color:var(--t2)"><span style="width:14px;height:8px;background:#B45309;border-radius:2px;display:inline-block"></span>Realizado (contabilizado)</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:10px;color:var(--t2)"><span style="width:14px;height:8px;background:repeating-linear-gradient(45deg,rgba(29,78,216,.25),rgba(29,78,216,.25) 3px,rgba(29,78,216,.4) 3px,rgba(29,78,216,.4) 6px);border:1px dashed #1D4ED8;border-radius:2px;display:inline-block"></span>Em aberto (aguardando lançamento)</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:10px;color:var(--t2)"><span style="width:14px;height:8px;background:#1D4ED8;border-radius:2px;display:inline-block"></span>Planejado</div>
+    </div>
+  </div>
+
+  <!-- LOG DE EXECUÇÃO CAPEX -->
+  <div class="cc">
+    <div class="cch">
+      <div>
+        <div class="cct"><i class="ti ti-list-details" style="font-size:14px;vertical-align:-2px;margin-right:4px;color:var(--gold)"></i> Log de execução CAPEX 2026</div>
+        <div style="font-size:11px;color:var(--t2);margin-top:3px">Detalhamento dos lançamentos realizados e planejados · em construção</div>
+      </div>
+      <span class="badge bp">2 lançamentos · em atualização</span>
+    </div>
+    <div class="tw">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:80px">Mês</th>
+            <th style="width:100px">Status</th>
+            <th class="tr" style="width:110px">Valor</th>
+            <th>Descrição / Escopo</th>
+            <th style="width:120px">Categoria</th>
+            <th style="width:100px">Referência</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:600;color:var(--gold)">Mar/2026</td>
+            <td><span class="tbg" style="background:#D1FAE5;color:var(--green)">✓ Contabilizado</span></td>
+            <td class="tr" style="font-weight:600">R$ 15.000,00</td>
+            <td style="font-size:11px;color:var(--t2)"><em>A detalhar pelo responsável</em></td>
+            <td><span class="tbg" style="background:#FEF3C7;color:var(--gold)">Manutenção</span></td>
+            <td style="font-size:11px;color:var(--t3)">—</td>
+          </tr>
+          <tr style="background:#FFFBEB">
+            <td style="font-weight:600;color:var(--gold)">Jun/2026</td>
+            <td><span class="tbg" style="background:#FEF3C7;color:var(--amber)">⚠ Parcial</span></td>
+            <td class="tr" style="font-weight:600">R$ 2.800,00</td>
+            <td style="font-size:11px;color:var(--t1);font-weight:500">Conserto de calha</td>
+            <td><span class="tbg" style="background:#DBEAFE;color:var(--blue)">Predial</span></td>
+            <td style="font-size:11px;color:var(--t3)">—</td>
+          </tr>
+          <tr style="background:#F8FAFC">
+            <td style="font-weight:600;color:var(--blue)">Jun/2026</td>
+            <td><span class="tbg" style="background:#DBEAFE;color:var(--blue)">◷ Em aberto</span></td>
+            <td class="tr" style="font-weight:600;color:var(--blue)">R$ 12.200,00</td>
+            <td style="font-size:11px;color:var(--t2)"><em>Saldo remanescente aguardando execução / reclassificação</em></td>
+            <td><span class="tbg" style="background:#F1F5F9;color:var(--slate)">A definir</span></td>
+            <td style="font-size:11px;color:var(--t3)">—</td>
+          </tr>
+          <tr style="background:#F8FAFC">
+            <td style="font-weight:600;color:var(--blue)">Set/2026</td>
+            <td><span class="tbg" style="background:#DBEAFE;color:var(--blue)">◷ Planejado</span></td>
+            <td class="tr" style="font-weight:600;color:var(--blue)">R$ 10.000,00</td>
+            <td style="font-size:11px;color:var(--t2)"><em>A detalhar pelo responsável</em></td>
+            <td><span class="tbg" style="background:#F1F5F9;color:var(--slate)">A definir</span></td>
+            <td style="font-size:11px;color:var(--t3)">—</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr style="background:var(--slag);font-weight:700">
+            <td colspan="2">TOTAIS</td>
+            <td class="tr">R$ 40.000,00</td>
+            <td colspan="3" style="font-size:10.5px;color:var(--t2);font-weight:500">Realizado R$17.800 · Aberto R$12.200 · Planejado R$10.000</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div style="margin-top:11px;padding:9px 12px;background:var(--slag);border-left:3px solid var(--gold);border-radius:var(--rsm);font-size:11px;color:var(--t2);line-height:1.5">
+      <strong style="color:var(--gold)">📝 Para completar:</strong> lista detalhada de execução será atualizada com os itens específicos (fornecedor, nota fiscal, escopo técnico) conforme os lançamentos forem sendo finalizados na contabilidade.
+    </div>
+  </div>
+  <div class="ag">
+    <div class="alert green"><i class="ti ti-piggy-bank ai"></i><div><div class="at">Saldo CAPEX flexível — R$12,2k voltou para o pool disponível</div><div class="ad">Jun executou apenas R$2,8k (conserto de calha) dos R$15k planejados. O saldo restante de R$12,2k pode ser realocado para outras demandas ou complementar Set. Set mantém R$10k reservado.</div></div></div>
+    <div class="alert blue"><i class="ti ti-info-circle ai"></i><div><div class="at">Natureza do investimento</div><div class="ad">Infraestrutura crítica do CD Bahia — classificadora Palini Alves, estruturas de armazenamento e conservação predial. Impacto direto na conformidade operacional do cacau.</div></div></div>
+  </div>
+</div>
+
+<!-- ======================================================
+     META BUDGET 2026 — PLANO DE SAVINGS
+====================================================== -->
+<div class="sec" id="sec-meta">
+  <div class="sh">
+    <div>
+      <div class="st">Meta Budget 2026 — Plano de Savings</div>
+      <div class="sd">Cenários de economia · Mínimo 6% · Meta 8% · Supermeta 10% · CD Armazém Bahia</div>
+    </div>
+    <div class="sb2r">
+      <span class="badge bg">Budget 2026</span>
+      <span class="badge bp">Meta de saving</span>
+      <span class="badge bb">3 cenários</span>
+    </div>
+  </div>
+
+  <!-- PIPELINE CASCATEADO -->
+  <div class="pipe" style="grid-template-columns:1.1fr 18px 1fr 18px 1fr 18px .95fr 18px .95fr 18px .95fr">
+    <div class="pi" data-tip="Ponto de partida para o cálculo de saving&#10;Todos os cenários são calculados sobre este valor">
+      <div class="pl">Orçado FY 2026</div>
+      <div class="pv">R$ 1.061.623</div>
+      <div class="pd">base do plano</div>
+    </div>
+    <div class="pa"><i class="ti ti-minus" style="font-size:13px"></i></div>
+    <div class="pi" style="background:#FEF3C7" data-tip="Valor já consumido em Jan-Jul&#10;Subtraído do orçado para chegar ao saldo">
+      <div class="pl">Realizado Jan–Jul</div>
+      <div class="pv" style="color:var(--gold)">R$ 537.026</div>
+      <div class="pd">já consumido · 50,6%</div>
+    </div>
+    <div class="pa"><i class="ti ti-equal" style="font-size:13px"></i></div>
+    <div class="pi" style="background:#EFF6FF" data-tip="Saldo livre para consumir em Ago-Dez&#10;Distribuído entre 5 meses (R$105k/mês teórico)">
+      <div class="pl">Saldo disponível</div>
+      <div class="pv" style="color:var(--blue)">R$ 524.597</div>
+      <div class="pd">para Ago–Dez</div>
+    </div>
+    <div class="pa"><i class="ti ti-chevron-right"></i></div>
+    <div class="pi" style="background:#FFFBEB" data-tip="Meta MÍNIMA aceitável de saving&#10;Cálculo: Orçado FY × 0,94&#10;Teto mensal Ago-Dez: R$92.180/mês&#10;ATINGIDO ✓ (–R$77.310 de folga)">
+      <div class="pl" style="color:var(--amber)">Mínimo –6%</div>
+      <div class="pv" style="color:var(--amber);font-size:15px">R$ 997.926</div>
+      <div class="pd">economia R$63.697</div>
+    </div>
+    <div class="pa" style="background:#FFFBEB"><i class="ti ti-chevron-right"></i></div>
+    <div class="pi" style="background:#ECFDF5" data-tip="META principal do plano de saving&#10;Cálculo: Orçado FY × 0,92&#10;Teto mensal Ago-Dez: R$87.933/mês&#10;ATINGIDO ✓ (–R$56.078 de folga)">
+      <div class="pl" style="color:var(--green)">Meta –8%</div>
+      <div class="pv" style="color:var(--green);font-size:15px">R$ 976.694</div>
+      <div class="pd">economia R$84.930</div>
+    </div>
+    <div class="pa" style="background:#ECFDF5"><i class="ti ti-chevron-right"></i></div>
+    <div class="pi" style="background:#F5F3FF" data-tip="SUPER META ambiciosa&#10;Cálculo: Orçado FY × 0,90&#10;Teto mensal Ago-Dez: R$83.687/mês&#10;ATINGIDO ✓ (–R$34.845 de folga)">
+      <div class="pl" style="color:var(--purple)">Supermeta –10%</div>
+      <div class="pv" style="color:var(--purple);font-size:15px">R$ 955.461</div>
+      <div class="pd">economia R$106.162</div>
+    </div>
+  </div>
+
+  <!-- STATUS ATUAL -->
+  <div class="alert green" style="margin-bottom:13px">
+    <i class="ti ti-trophy ai"></i>
+    <div>
+      <div class="at">Meta do ano: 55,0% consumida · projeção fecha em 94,3% da meta ✓</div>
+      <div class="ad">Contra o <strong>teto da meta (R$976.694)</strong>, já foram consumidos R$537.026 (55,0%), restando <strong>R$439.668 para Ago–Dez</strong> — um teto de <strong>R$87.934/mês</strong>. No ritmo atual de R$76,7k/mês a projeção fecha em R$920.616, ou <strong>94,3% da meta</strong>, com folga de R$56.078. Atenção: entregar o orçado FY integral (R$1.061.623) representaria <strong style="color:var(--red)">108,7% da meta</strong> — meta não cumprida.</div>
+    </div>
+  </div>
+
+  <!-- LINHA DO TEMPO ANCORADA NA META -->
+  <div class="cc tl-wrap">
+    <div class="cch">
+      <div>
+        <div class="cct"><i class="ti ti-flag-check" style="font-size:14px;vertical-align:-2px;margin-right:3px;color:var(--green)"></i> Corrida para a Meta — quanto falta para fechar o ano em –8%</div>
+        <div style="font-size:11px;color:var(--t2);margin-top:3px">Régua ancorada na <strong style="color:var(--green)">Meta (–8%) = R$976.694 = 100%</strong>. Entregar o orçado FY integral significa <strong style="color:var(--red)">não cumprir a meta</strong>.</div>
+      </div>
+      <span class="badge bgr">Meta = linha de chegada</span>
+    </div>
+
+    <!-- FAIXA DE STATUS -->
+    <div class="mt-status">
+      <div class="mt-st-item">
+        <div class="mt-st-lbl">Teto da meta (–8%)</div>
+        <div class="mt-st-val" style="color:var(--green)">R$ 976.694</div>
+        <div class="mt-st-sub">não pode ultrapassar</div>
+      </div>
+      <div class="mt-st-arrow"><i class="ti ti-minus"></i></div>
+      <div class="mt-st-item">
+        <div class="mt-st-lbl">Consumido Jan–Jul</div>
+        <div class="mt-st-val" style="color:var(--gold)">R$ 537.026</div>
+        <div class="mt-st-sub">55,0% da meta</div>
+      </div>
+      <div class="mt-st-arrow"><i class="ti ti-equal"></i></div>
+      <div class="mt-st-item highlight">
+        <div class="mt-st-lbl">Saldo até a meta</div>
+        <div class="mt-st-val" style="color:var(--blue)">R$ 439.668</div>
+        <div class="mt-st-sub">45,0% restante · Ago–Dez</div>
+      </div>
+      <div class="mt-st-arrow"><i class="ti ti-chevron-right"></i></div>
+      <div class="mt-st-item">
+        <div class="mt-st-lbl">Teto mensal permitido</div>
+        <div class="mt-st-val" style="color:var(--blue)">R$ 87.934</div>
+        <div class="mt-st-sub">5 meses · ritmo atual R$76,7k ✓</div>
+      </div>
+    </div>
+
+    <div class="tl-canvas">
+      <!-- LABELS ACIMA DA BARRA -->
+      <div class="tl-targets-top" style="height:190px">
+        <div class="tl-conn" style="left:90%;height:15px;background:#7C3AED"></div>
+        <div class="tl-conn" style="left:92%;height:62px;background:#059669"></div>
+        <div class="tl-conn" style="left:94%;height:110px;background:#DC2626"></div>
+        <div class="tl-conn" style="left:calc(100% - 2px);height:158px;background:#B45309"></div>
+
+        <!-- Supermeta 97,8% da meta -->
+        <div class="tl-lbl-anchor" style="left:90%;bottom:15px">
+          <div class="tl-lbl" style="color:var(--purple)">
+            <span class="tt-tag" style="background:#DDD6FE;border-color:var(--pbd)">⬥ Supermeta · 97,8% da meta</span>
+            <span class="tt-val">R$ 955.461 <span class="tt-saving">· folga extra R$21k</span></span>
+          </div>
+        </div>
+
+        <!-- META = 100% -->
+        <div class="tl-lbl-anchor" style="left:92%;bottom:62px">
+          <div class="tl-lbl" style="color:var(--green)">
+            <span class="tt-tag" style="background:#059669;border-color:#047857;color:#fff">🏁 META –8% · LINHA DE CHEGADA · 100%</span>
+            <span class="tt-val" style="font-size:12.5px">R$ 976.694 <span class="tt-saving">· teto do ano</span></span>
+          </div>
+        </div>
+
+        <!-- Mínimo = 102,2% → ESTOURA a meta -->
+        <div class="tl-lbl-anchor" style="left:94%;bottom:110px">
+          <div class="tl-lbl" style="color:var(--red)">
+            <span class="tt-tag" style="background:#FEE2E2;border-color:var(--rbd)">⚠ Mínimo –6% · 102,2% da meta</span>
+            <span class="tt-val">R$ 997.926 <span class="tt-saving" style="color:var(--red)">· estoura a meta em R$21k</span></span>
+          </div>
+        </div>
+
+        <!-- Orçado FY = 108,7% -->
+        <div class="tl-lbl-anchor" style="left:calc(100% - 2px);bottom:158px">
+          <div class="tl-lbl" style="color:var(--gold)">
+            <span class="tt-tag" style="background:#FEF3C7;border-color:var(--gb)">✕ Orçado FY · 108,7% da meta</span>
+            <span class="tt-val">R$ 1.061.623 <span class="tt-saving" style="color:var(--red)">· meta não cumprida</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BARRA -->
+      <div class="tl-bar">
+        <!-- zona de estouro da meta (92% → 100%) -->
+        <div class="tl-danger" data-tip="Zona de estouro da meta&#10;Acima de R$976.694 a meta de –8% não é cumprida&#10;mesmo estando dentro do orçado FY"></div>
+
+        <div class="tl-fill-real" style="width:50.6%">55,0% da meta</div>
+        <div class="tl-fill-proj" style="left:50.6%;width:36.1%"></div>
+
+        <!-- linha de chegada -->
+        <div class="tl-finish" data-tip="🏁 META –8% = R$976.694&#10;Este é o teto do ano&#10;Ficar abaixo = meta cumprida"></div>
+
+        <div class="tl-target super" style="left:90%" data-tip="Supermeta –10% (R$955.461)&#10;97,8% da meta&#10;Folga adicional de R$21.232"></div>
+        <div class="tl-target min"   style="left:94%" data-tip="Mínimo –6% (R$997.926)&#10;102,2% da meta&#10;ATENÇÃO: estoura a meta em R$21.232"></div>
+        <div class="tl-target end"   style="left:calc(100% - 3px)" data-tip="Orçado FY 2026 (R$1.061.623)&#10;108,7% da meta&#10;Entregar o orçado integral = meta não cumprida"></div>
+      </div>
+
+      <!-- CALLOUTS ABAIXO -->
+      <div class="tl-callouts-bottom">
+        <div class="tl-cb-start">Início · R$ 0</div>
+
+        <div class="tl-callout realized" style="left:50.6%">
+          <div class="tl-co-arrow"></div>
+          <div class="tl-co-box">
+            <div class="tl-co-lbl">✓ Você está aqui</div>
+            <div class="tl-co-val">R$ 537.026</div>
+            <div class="tl-co-sub">55,0% da meta · Jan–Jul</div>
+          </div>
+        </div>
+
+        <div class="tl-callout" style="left:86.7%">
+          <div class="tl-co-arrow" style="border-bottom:7px solid var(--green)"></div>
+          <div class="tl-co-box" style="background:var(--grbg);border-color:var(--green);color:var(--green)">
+            <div class="tl-co-lbl">✓ Projeção atual</div>
+            <div class="tl-co-val">R$ 920.616</div>
+            <div class="tl-co-sub">94,3% da meta · folga R$56.078</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEGENDA -->
+    <div class="tl-legend">
+      <div class="tl-leg-item"><span class="tl-leg-swatch" style="background:linear-gradient(90deg,#10B981,#059669)"></span>Consumido Jan–Jul</div>
+      <div class="tl-leg-item"><span class="tl-leg-swatch" style="background:repeating-linear-gradient(135deg,rgba(245,158,11,.35),rgba(245,158,11,.35) 4px,rgba(245,158,11,.55) 4px,rgba(245,158,11,.55) 8px)"></span>Projeção Ago–Dez</div>
+      <div class="tl-leg-item"><span class="tl-leg-swatch" style="background:repeating-linear-gradient(135deg,rgba(220,38,38,.12),rgba(220,38,38,.12) 4px,rgba(220,38,38,.22) 4px,rgba(220,38,38,.22) 8px)"></span>Zona de estouro da meta</div>
+      <div class="tl-leg-item"><span class="tl-leg-line" style="background:#059669;width:4px"></span>🏁 Meta –8% (100%)</div>
+      <div class="tl-leg-item"><span class="tl-leg-line" style="background:#7C3AED"></span>Supermeta</div>
+      <div class="tl-leg-item"><span class="tl-leg-line" style="background:#DC2626"></span>Mínimo (estoura a meta)</div>
+    </div>
+  </div>
+
+  <!-- 3 CARDS POR CENÁRIO -->
+  <div class="g3">
+    <!-- MÍNIMO -->
+    <div class="card bla" style="background:#FFFBEB">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+        <div>
+          <div class="cl" style="color:var(--amber)">Cenário Mínimo</div>
+          <div style="font-size:11px;color:var(--t2);margin-top:2px">redução de 6% do orçado FY</div>
+        </div>
+        <div style="background:var(--amber);color:#fff;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:700">–6%</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+        <div>
+          <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:2px">Target FY</div>
+          <div style="font-size:18px;font-weight:500;color:var(--amber)">R$ 997.926</div>
+        </div>
+        <div>
+          <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:2px">Economia total</div>
+          <div style="font-size:18px;font-weight:500;color:var(--amber)">R$ 63.697</div>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--abd);border-radius:var(--rsm);padding:10px 12px;margin-bottom:8px">
+        <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:3px">Teto mensal Ago–Dez (5 meses)</div>
+        <div style="font-size:17px;font-weight:600;color:var(--t1)">R$ 92.180 / mês</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:2px">vs ritmo atual R$76.718/mês · +20,2% de margem</div>
+      </div>
+      <div style="background:#FEF2F2;border:1px solid var(--rbd);border-radius:var(--rsm);padding:9px 11px">
+        <div style="font-size:10px;font-weight:600;color:var(--red);margin-bottom:2px">Gap vs projeção atual</div>
+        <div style="font-size:13px;font-weight:700;color:var(--red)">economizar +R$ 21.713</div>
+      </div>
+    </div>
+
+    <!-- META -->
+    <div class="card blgr" style="background:#ECFDF5">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+        <div>
+          <div class="cl" style="color:var(--green)">Cenário Meta</div>
+          <div style="font-size:11px;color:var(--t2);margin-top:2px">redução de 8% do orçado FY</div>
+        </div>
+        <div style="background:var(--green);color:#fff;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:700">–8%</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+        <div>
+          <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:2px">Target FY</div>
+          <div style="font-size:18px;font-weight:500;color:var(--green)">R$ 976.694</div>
+        </div>
+        <div>
+          <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:2px">Economia total</div>
+          <div style="font-size:18px;font-weight:500;color:var(--green)">R$ 84.930</div>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--grb);border-radius:var(--rsm);padding:10px 12px;margin-bottom:8px">
+        <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:3px">Teto mensal Ago–Dez (5 meses)</div>
+        <div style="font-size:17px;font-weight:600;color:var(--t1)">R$ 87.933 / mês</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:2px">vs ritmo atual R$76.718/mês · +14,6% de margem</div>
+      </div>
+      <div style="background:#FEF2F2;border:1px solid var(--rbd);border-radius:var(--rsm);padding:9px 11px">
+        <div style="font-size:10px;font-weight:600;color:var(--red);margin-bottom:2px">Gap vs projeção atual</div>
+        <div style="font-size:13px;font-weight:700;color:var(--red)">economizar +R$ 42.946</div>
+      </div>
+    </div>
+
+    <!-- SUPERMETA -->
+    <div class="card blp" style="background:#F5F3FF">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+        <div>
+          <div class="cl" style="color:var(--purple)">Cenário Supermeta</div>
+          <div style="font-size:11px;color:var(--t2);margin-top:2px">redução de 10% do orçado FY</div>
+        </div>
+        <div style="background:var(--purple);color:#fff;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:700">–10%</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+        <div>
+          <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:2px">Target FY</div>
+          <div style="font-size:18px;font-weight:500;color:var(--purple)">R$ 955.461</div>
+        </div>
+        <div>
+          <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:2px">Economia total</div>
+          <div style="font-size:18px;font-weight:500;color:var(--purple)">R$ 106.162</div>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--pbd);border-radius:var(--rsm);padding:10px 12px;margin-bottom:8px">
+        <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:3px">Teto mensal Ago–Dez (5 meses)</div>
+        <div style="font-size:17px;font-weight:600;color:var(--t1)">R$ 83.687 / mês</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:2px">vs ritmo atual R$76.718/mês · +9,1% de margem</div>
+      </div>
+      <div style="background:#FEF2F2;border:1px solid var(--rbd);border-radius:var(--rsm);padding:9px 11px">
+        <div style="font-size:10px;font-weight:600;color:var(--red);margin-bottom:2px">Gap vs projeção atual</div>
+        <div style="font-size:13px;font-weight:700;color:var(--red)">economizar +R$ 64.178</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WATERFALL CHART + ANÁLISE MENSAL -->
+  <div class="g2">
+    <div class="cc" style="margin-bottom:0">
+      <div class="cch">
+        <div class="cct">Cascata orçamentária — Orçado × Realizado × Targets</div>
+        <span class="badge bp">Waterfall</span>
+      </div>
+      <div class="ccs">Visualização da composição do orçado vs cada cenário de meta. Marca vermelha = projeção FY atual.</div>
+      <div class="cw h260"><canvas id="ch-waterfall"></canvas></div>
+    </div>
+    <div class="cc" style="margin-bottom:0">
+      <div class="cch">
+        <div class="cct">Teto mensal por cenário — Mai a Dezembro</div>
+        <span class="badge bb">8 meses restantes</span>
+      </div>
+      <div class="ccs">Quanto pode ser consumido por mês para atingir cada meta (5 meses restantes). Ritmo atual R$76,7k está ABAIXO das 3 metas com folga!</div>
+      <div class="cw h260"><canvas id="ch-monthly-cap"></canvas></div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:13px"></div>
+
+  <!-- TABELA COMPARATIVA -->
+  <div class="cc">
+    <div class="cch">
+      <div><div class="cct">Quadro comparativo — Projeção atual × 3 cenários de meta</div></div>
+      <span class="badge bp">Resumo executivo</span>
+    </div>
+    <div class="ccs">Comparação direta entre o ritmo atual e cada cenário de saving</div>
+    <div class="tw">
+      <table>
+        <thead>
+          <tr>
+            <th>Cenário</th>
+            <th class="tr">% Saving</th>
+            <th class="tr">Target FY</th>
+            <th class="tr">Economia total</th>
+            <th class="tr">Teto/mês Mai–Dez</th>
+            <th class="tr">Δ vs ritmo atual</th>
+            <th class="tr">Gap vs projeção</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#ECFDF5">
+            <td style="font-weight:600">Projeção atual (média Jan–Jul)</td>
+            <td class="tr" style="color:var(--green);font-weight:700">–13,3%</td>
+            <td class="tr">R$ 920.616</td>
+            <td class="tr" style="color:var(--green);font-weight:700">R$ 141.007</td>
+            <td class="tr">R$ 76.718</td>
+            <td class="tr">–</td>
+            <td class="tr">–</td>
+            <td><span class="tbg" style="background:#D1FAE5;color:var(--green)">Superando Supermeta ✓✓</span></td>
+          </tr>
+          <tr style="background:#F0FDF4">
+            <td style="font-weight:700;color:var(--green)">Mínimo</td>
+            <td class="tr" style="color:var(--green);font-weight:700">–6,0%</td>
+            <td class="tr" style="font-weight:600">R$ 997.926</td>
+            <td class="tr" style="color:var(--green);font-weight:600">R$ 63.697</td>
+            <td class="tr">R$ 92.180</td>
+            <td class="tr" style="color:var(--green)">+R$ 15.462 (+20,2%)</td>
+            <td class="tr" style="color:var(--green);font-weight:700">✓ –R$ 77.310 (folga)</td>
+            <td><span class="tbg" style="background:#D1FAE5;color:var(--green)">✓ Atingido</span></td>
+          </tr>
+          <tr style="background:#F0FDF4">
+            <td style="font-weight:700;color:var(--green)">Meta</td>
+            <td class="tr" style="color:var(--green);font-weight:700">–8,0%</td>
+            <td class="tr" style="font-weight:600">R$ 976.694</td>
+            <td class="tr" style="color:var(--green);font-weight:600">R$ 84.930</td>
+            <td class="tr">R$ 87.933</td>
+            <td class="tr" style="color:var(--green)">+R$ 11.215 (+14,6%)</td>
+            <td class="tr" style="color:var(--green);font-weight:700">✓ –R$ 56.078 (folga)</td>
+            <td><span class="tbg" style="background:#D1FAE5;color:var(--green)">✓ Atingido</span></td>
+          </tr>
+          <tr style="background:#F0FDF4">
+            <td style="font-weight:700;color:var(--green)">Supermeta</td>
+            <td class="tr" style="color:var(--green);font-weight:700">–10,0%</td>
+            <td class="tr" style="font-weight:600">R$ 955.461</td>
+            <td class="tr" style="color:var(--green);font-weight:600">R$ 106.162</td>
+            <td class="tr">R$ 83.687</td>
+            <td class="tr" style="color:var(--green)">+R$ 6.969 (+9,1%)</td>
+            <td class="tr" style="color:var(--green);font-weight:700">✓ –R$ 34.845 (folga)</td>
+            <td><span class="tbg" style="background:#D1FAE5;color:var(--green)">✓ Atingido</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PLANO DE AÇÃO POR CATEGORIA -->
+  <div class="cc">
+    <div class="cch">
+      <div><div class="cct">Plano de Ação — Onde buscar saving por categoria</div></div>
+      <span class="badge bgr">Oportunidades</span>
+    </div>
+    <div class="ccs">Categorias com saldo disponível ordenadas por potencial de economia. Foco em contas flexíveis para atingir cada meta.</div>
+    <div class="tw">
+      <table>
+        <thead>
+          <tr>
+            <th>Categoria</th>
+            <th>Tipo</th>
+            <th class="tr">Saldo disponível</th>
+            <th class="tr">Saving 5% sugerido</th>
+            <th class="tr">Saving 10% sugerido</th>
+            <th>Oportunidade</th>
+          </tr>
+        </thead>
+        <tbody id="tbl-plano-acao"></tbody>
+        <tfoot>
+          <tr style="background:var(--slag);font-weight:700">
+            <td>POTENCIAL DE SAVING TOTAL</td>
+            <td></td>
+            <td class="tr" id="pa-total-saldo">—</td>
+            <td class="tr" id="pa-total-5">—</td>
+            <td class="tr" id="pa-total-10">—</td>
+            <td style="font-size:10px;color:var(--t2);font-weight:500">excluindo contas fixas</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <!-- ALERTS FINAIS -->
+  <div class="ag">
+    <div class="alert green">
+      <i class="ti ti-trophy ai"></i>
+      <div>
+        <div class="at">Supermeta (–10%) atingida — a mais ambiciosa do plano ✓✓✓</div>
+        <div class="ad">Média Jan–Jul de R$76,7k/mês projeta FY em R$920.616 (–13,3%). Superamos a Supermeta com R$34.845 de folga. As 3 metas (Mínimo, Meta, Supermeta) simultaneamente batidas pela projeção — resultado excepcional.</div>
+      </div>
+    </div>
+    <div class="alert green">
+      <i class="ti ti-truck ai"></i>
+      <div>
+        <div class="at">Frete zerado em 4 dos 7 meses — economia estrutural</div>
+        <div class="ad">Mar+Abr+Mai+Jul sem frete = R$99.916 preservados de R$140.766 orçados. Apenas Jan (R$29,7k), Fev (R$5k) e Jun (R$6k) tiveram lançamento. Este é o principal fator sustentando o saving de –13,3%.</div>
+      </div>
+    </div>
+    <div class="alert blue">
+      <i class="ti ti-shield-check ai"></i>
+      <div>
+        <div class="at">Fatores estruturais que sustentam a projeção</div>
+        <div class="ad">(1) Frete Leite Express: R$99,9k preservados; (2) Watson estável em R$27,3k/mês; (3) Aluguel Máq. no ritmo linear; (4) Julho eficiente (89% do orçado) confirma controle. Baixo risco de reversão.</div>
+      </div>
+    </div>
+    <div class="alert gold">
+      <i class="ti ti-alert-triangle ai"></i>
+      <div>
+        <div class="at">Riscos monitorar até Dez para preservar a folga</div>
+        <div class="ad">(1) Oximaster em 66,7% consumido (saldo R$38k) — controlar Ago–Dez; (2) Out orçado em R$126k (pico anual) — atenção antecipada; (3) Retomada de compras de cacau em Q4 pode elevar frete de novo.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</main>
+</div>
+
+<script>
+function goto(id,el){document.querySelectorAll('.ni').forEach(b=>b.classList.remove('on'));el.classList.add('on');document.querySelectorAll('.sec').forEach(s=>s.classList.remove('vis'));document.getElementById('sec-'+id).classList.add('vis');}
+function navScroll(id){setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},150);}
+
+const T2='#94A3B8',BD='rgba(226,232,240,.8)';
+const C0={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},animation:{duration:450}};
+const brl=v=>v==null?'–':'R$ '+Math.round(v).toLocaleString('pt-BR');
+const brlk=v=>'R$'+Math.round(v/1000)+'k';
+const MONTHS=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+
+/* ---- ACCOUNT DATA ---- */
+const ACCS=[{"d":"Ajuste de Inventário","o":4000,"r":1696.28,"jr":0.0,"fr":115.5,"mr":1.04,"ar":1579.73,"mar":0,"jur":0,"jlr":0.01,"ago":1000,"frete":false,"sem":"🟢","p":42},{"d":"Vigilância e Segurança","o":11640,"r":6496.48,"jr":928.16,"fr":928.0,"mr":928.0,"ar":928.16,"mar":928.16,"jur":928.0,"jlr":928.0,"ago":970,"frete":false,"sem":"🟢","p":56},{"d":"Outros Serv. Terc. — CIC Treinamentos","o":4000,"r":3980.0,"jr":0,"fr":0,"mr":0,"ar":0,"mar":3980.0,"jur":0,"jlr":0,"ago":0,"frete":false,"sem":"🔴","p":100},{"d":"03 ARCOS / RFA / GS ARAUJO / CAL SERVICE / GSAAS SERVIÇOS / AGÍL SOLUÇÕES / NACIF Engenharia","o":24718,"r":9484.0,"jr":0.0,"fr":5684.0,"mr":1216.0,"ar":1500.0,"mar":0,"jur":1084.0,"jlr":0.0,"ago":4744,"frete":false,"sem":"🟢","p":38},{"d":"Laudos Técnicos (Bioagri/CIC/Eurofins)","o":16928,"r":6115.25,"jr":635.25,"fr":500.0,"mr":800.0,"ar":1034.0,"mar":920.0,"jur":1034.0,"jlr":1192.0,"ago":1034,"frete":false,"sem":"🟢","p":36},{"d":"Armazenagem CD Bahia (Dayse/Joel/Almir)","o":81456,"r":41875.74,"jr":5958.0,"fr":6058.96,"mr":5968.21,"ar":5968.21,"mar":5968.0,"jur":5968.0,"jlr":5986.36,"ago":6788,"frete":false,"sem":"🟢","p":51},{"d":"Manut. e Conservação Predial","o":10000,"r":580.0,"jr":0,"fr":0,"mr":580.0,"ar":0,"mar":0,"jur":0,"jlr":0,"ago":0,"frete":false,"sem":"🟢","p":6},{"d":"Manut. de Equipamentos (Extintores/Bruno)","o":5152,"r":3655.0,"jr":0,"fr":1485.0,"mr":0,"ar":1800.0,"mar":0,"jur":0,"jlr":370.0,"ago":1800,"frete":false,"sem":"🟡","p":71},{"d":"PREFEITURA ALVARÁ FUNCIONAMENTO/ IPTU/ ALVARÁ SANITARIO","o":35402,"r":12615.18,"jr":9022.0,"fr":341.64,"mr":0.0,"ar":2129.77,"mar":0,"jur":0,"jlr":1121.77,"ago":0,"frete":false,"sem":"🟢","p":36},{"d":"Material de Escritório (Ventura)","o":1250,"r":0.0,"jr":0,"fr":0.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"ago":250,"frete":false,"sem":"🟢","p":0},{"d":"Serv. e Mat. de Limpeza (Smartlog)","o":74340,"r":42895.96,"jr":6299.0,"fr":6195.0,"mr":6195.0,"ar":5621.96,"mar":6195.0,"jur":6195.0,"jlr":6195.0,"ago":6195,"frete":false,"sem":"🟢","p":58},{"d":"Copa, Cozinha e Refeições (Mix Mateus)","o":7440,"r":2458.02,"jr":0.0,"fr":0.0,"mr":647.97,"ar":374.64,"mar":394.34,"jur":543.87,"jlr":497.2,"ago":620,"frete":false,"sem":"🟢","p":33},{"d":"Confraternização (Reunião Produtores)","o":5550,"r":2924.0,"jr":2302.0,"fr":622.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"ago":0,"frete":false,"sem":"🟢","p":53},{"d":"Outros lançamentos","o":0,"r":660.0,"jr":0,"fr":0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":660.0,"ago":0,"frete":false,"sem":"🔴","p":0},{"d":"Roupas e Uniformes","o":600,"r":0.0,"jr":0,"fr":0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"ago":0,"frete":false,"sem":"🟢","p":0},{"d":"Aluguel Máq. e Equipamentos","o":66084,"r":37371.59,"jr":5214.99,"fr":5214.99,"mr":5324.99,"ar":5214.99,"mar":5214.99,"jur":5214.99,"jlr":5971.65,"ago":5507,"frete":false,"sem":"🟢","p":57},{"d":"Transporte Bahia — Fretes","o":140766,"r":40850.05,"jr":29718.05,"fr":5082.0,"mr":0.0,"ar":0.0,"mar":0.0,"jur":6050.0,"jlr":0.0,"ago":17972,"frete":true,"sem":"🟢","p":29},{"d":"OXIMASTER / LEVERY PALLETS  / CENY EMERY / STRECH FILM/ BIORENTA EMBALAGENS/ ETIQUEPRESS","o":114836,"r":76596.74,"jr":14657.48,"fr":21118.11,"mr":0,"ar":1188.39,"mar":1200.0,"jur":37885.0,"jlr":547.76,"ago":680,"frete":false,"sem":"🟡","p":67},{"d":"Aluguel Imóvel Watson (Armazenagem)","o":373965,"r":191168.6,"jr":27309.72,"fr":27310.0,"mr":27309.72,"ar":27309.72,"mar":27309.72,"jur":27310.0,"jlr":27309.72,"ago":30779,"frete":false,"sem":"🟢","p":51},{"d":"Outros lançamentos","o":0,"r":12792.38,"jr":0,"fr":2132.0,"mr":2132.0,"ar":2132.0,"mar":2132.0,"jur":2132.0,"jlr":2132.38,"ago":0,"frete":false,"sem":"🔴","p":0},{"d":"Prêmio de Seguro","o":24768,"r":13854.54,"jr":2100.64,"fr":1896.99,"mr":2100.64,"ar":2032.49,"mar":2100.0,"jur":2032.49,"jlr":1591.29,"ago":2064,"frete":false,"sem":"🟢","p":56},{"d":"Água e Saneamento","o":2844,"r":2010.75,"jr":225.82,"fr":225.0,"mr":225.82,"ar":656.6,"mar":225.82,"jur":225.87,"jlr":225.82,"ago":237,"frete":false,"sem":"🟡","p":71},{"d":"Energia Elétrica","o":16800,"r":8265.64,"jr":1104.0,"fr":1177.0,"mr":1244.29,"ar":1394.06,"mar":1032.63,"jur":1222.17,"jlr":1091.49,"ago":1400,"frete":false,"sem":"🟢","p":49},{"d":"Desintetização — Ecolab Química","o":15792,"r":9674.07,"jr":1448.0,"fr":1183.85,"mr":1316.0,"ar":1316.0,"mar":1473.92,"jur":1394.96,"jlr":1541.34,"ago":1316,"frete":false,"sem":"🟡","p":61},{"d":"Manut. Refrigeração (Refrismaq)","o":2612,"r":0.0,"jr":0,"fr":0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"ago":0,"frete":false,"sem":"🟢","p":0},{"d":"Combustível e Lubrificantes","o":700,"r":953.83,"jr":253.83,"fr":0,"mr":700.0,"ar":0,"mar":0,"jur":0,"jlr":0,"ago":0,"frete":false,"sem":"🔴","p":136},{"d":"Outros lançamentos","o":0,"r":574.12,"jr":0,"fr":0,"mr":0,"ar":0,"mar":0,"jur":574.12,"jlr":0,"ago":0,"frete":false,"sem":"🔴","p":0},{"d":"Outros lançamentos","o":0,"r":103.0,"jr":103.0,"fr":0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"ago":0,"frete":false,"sem":"🔴","p":0},{"d":"Internet (Sigaon)","o":1260,"r":699.3,"jr":99.9,"fr":99.9,"mr":99.9,"ar":99.9,"mar":99.9,"jur":99.9,"jlr":99.9,"ago":105,"frete":false,"sem":"🟢","p":55},{"d":"Materiais TI / Computador","o":18720,"r":6675.23,"jr":898.88,"fr":1047.09,"mr":1197.09,"ar":2139.17,"mar":892.86,"jur":327.17,"jlr":172.97,"ago":1560,"frete":false,"sem":"🟢","p":36}];
+
+/* MONTHLY TOTALS */
+const ORC_M=[118704,126055,88859,70519,72595,103017,65059,85021,68079,126253,69864,67598];
+const REAL_M=[108278.72,88417.03,57986.67,64419.79,60067.34,100221.54,57634.66,0,0,0,0,0];
+const REAL_2025_M=[80053.69,76230.86,80072.67,62395.52,67592.73,76165.64,18147.57,90987.12,98256.84,72967.88,69852.88,62947.88];
+const PROJ_M=[null,null,null,null,null,null,null,76718,76718,76718,76718,76718];
+
+/* ① SAZONALIDADE */
+new Chart(document.getElementById('ch-sazon'),{type:'bar',
+  data:{labels:MONTHS,datasets:[
+    {label:'2026 Orçado',data:ORC_M,backgroundColor:'rgba(147,197,253,.5)',borderColor:'#93C5FD',borderWidth:1.5,borderRadius:3,order:3},
+    {label:'2026 Realizado',data:REAL_M.map(v=>v||null),backgroundColor:'rgba(110,231,183,.8)',borderColor:'#6EE7B7',borderWidth:1.5,borderRadius:3,order:3},
+    {label:'2026 Projeção',data:PROJ_M,backgroundColor:'rgba(253,211,77,.45)',borderColor:'#FCD34D',borderWidth:1.5,borderRadius:3,order:3},
+    {type:'line',label:'2025 Realizado',data:REAL_2025_M,borderColor:'#7C3AED',backgroundColor:'rgba(124,58,237,.08)',borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#7C3AED',tension:.3,fill:false,order:1}
+  ]},
+  options:{...C0,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+brl(c.raw)}}},
+    scales:{x:{ticks:{color:T2,font:{size:9},autoSkip:false},grid:{display:false},border:{display:false}},
+      y:{ticks:{color:T2,font:{size:9},callback:v=>brlk(v)},grid:{color:BD},border:{display:false}}}}
+});
+
+/* ② CENÁRIOS CUMULATIVOS */
+function cumArr(monthly){let s=0;return monthly.map(v=>v==null?null:(s+=v,s));}
+const cumReal=cumArr([108279,88417,57987,64420,60067,100222,57635,null,null,null,null,null]);
+const cumOtim=cumArr([108279,88417,57987,64420,60067,100222,57635,71600,71600,71600,71600,71600]);
+const cumBase=cumArr([108279,88417,57987,64420,60067,100222,57635,76718,76718,76718,76718,76718]);
+const cumPess=cumArr([108279,88417,57987,64420,60067,100222,57635,88600,88600,88600,88600,88600]);
+const cumOrc=ORC_M.map((v,i,a)=>a.slice(0,i+1).reduce((s,x)=>s+x,0));
+new Chart(document.getElementById('ch-cen'),{type:'line',
+  data:{labels:MONTHS,datasets:[
+    {label:'Budget',data:cumOrc,borderColor:'#CBD5E1',borderDash:[4,4],borderWidth:1.5,pointRadius:0,fill:false,tension:.3},
+    {label:'Realizado',data:cumReal,borderColor:'#6EE7B7',borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#6EE7B7',fill:false,tension:.3},
+    {label:'Otimista',data:cumOtim,borderColor:'#059669',borderDash:[3,3],borderWidth:2,pointRadius:0,fill:false,tension:.3},
+    {label:'Base',data:cumBase,borderColor:'#D97706',borderWidth:2.5,pointRadius:0,fill:false,tension:.3},
+    {label:'Pessimista',data:cumPess,borderColor:'#DC2626',borderDash:[3,3],borderWidth:2,pointRadius:0,fill:false,tension:.3}
+  ]},
+  options:{...C0,plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,callbacks:{label:c=>c.dataset.label+': '+brl(c.raw)}}},
+    scales:{x:{ticks:{color:T2,font:{size:9},autoSkip:false},grid:{display:false},border:{display:false}},
+      y:{ticks:{color:T2,font:{size:9},callback:v=>brlk(v)},grid:{color:BD},border:{display:false}}}}
+});
+
+/* ③ TOP 5 — SALDO-BASED (correct approach)
+   Risk  = accounts that consumed the highest % of their FY budget → saldo may run out
+   Economy = accounts with largest absolute saldo remaining → contributing to FY favorability
+   We do NOT compare to a flat 33.3% pace — that penalizes seasonal/front-loaded spend */
+const withSaldo = ACCS.filter(a => a.o > 0).map(a => ({
+  ...a,
+  saldo: a.o - a.r,
+  pctConsumed: Math.round(a.r / a.o * 100)
+}));
+
+/* Risk: sorted by % consumed desc — most of budget used up first */
+const byRisk = [...withSaldo].sort((a,b) => b.pctConsumed - a.pctConsumed).slice(0,5);
+/* Economy: sorted by absolute saldo desc — most budget remaining */
+const byEcon = [...withSaldo].sort((a,b) => b.saldo - a.saldo).slice(0,5);
+
+const mxR = byRisk[0]?.pctConsumed || 1;
+const mxE = byEcon[0]?.saldo || 1;
+
+const r5 = document.getElementById('top5-risco');
+byRisk.forEach((a,i) => {
+  const w = Math.round(a.pctConsumed / mxR * 100);
+  const isOver = a.r > a.o;
+  const bc = isOver ? '#DC2626' : a.pctConsumed > 60 ? '#D97706' : '#64748B';
+  const saldoStr = isOver
+    ? `<span style="color:var(--red);font-size:9px;font-weight:700">ESTOUROU</span>`
+    : `<span style="color:var(--t2);font-size:9px">saldo R$${Math.round(a.saldo/1000*10)/10}k</span>`;
+  r5.innerHTML += `<div class="t5">
+    <span class="t5rk" style="color:${bc}">#${i+1}</span>
+    <span class="t5nm" title="${a.d}">${a.d.length>30?a.d.slice(0,28)+'…':a.d}</span>
+    <div class="t5bg"><div class="t5bf" style="width:${w}%;background:${bc}"></div></div>
+    <div style="text-align:right;min-width:80px">
+      <div style="font-size:11px;font-weight:700;color:${bc}">${a.pctConsumed}% consumido</div>
+      <div>${saldoStr}</div>
+    </div>
+  </div>`;
+});
+
+const e5 = document.getElementById('top5-econ');
+byEcon.forEach((a,i) => {
+  const w = Math.round(a.saldo / mxE * 100);
+  const pctLeft = Math.round((1 - a.r/a.o)*100);
+  e5.innerHTML += `<div class="t5">
+    <span class="t5rk" style="color:var(--green)">#${i+1}</span>
+    <span class="t5nm" title="${a.d}">${a.d.length>30?a.d.slice(0,28)+'…':a.d}</span>
+    <div class="t5bg"><div class="t5bf" style="width:${w}%;background:#059669"></div></div>
+    <div style="text-align:right;min-width:80px">
+      <div style="font-size:11px;font-weight:700;color:var(--green)">${brl(a.saldo)}</div>
+      <div style="font-size:9px;color:var(--t2)">${pctLeft}% do FY livre</div>
+    </div>
+  </div>`;
+});
+
+/* MENSAL */
+new Chart(document.getElementById('ch-mensal'),{type:'bar',
+  data:{labels:MONTHS,datasets:[
+    {label:'Orçado',data:ORC_M,backgroundColor:'rgba(147,197,253,.55)',borderColor:'#93C5FD',borderWidth:1.5,borderRadius:3},
+    {label:'Realizado',data:REAL_M.map(v=>v||null),backgroundColor:'rgba(110,231,183,.75)',borderColor:'#6EE7B7',borderWidth:1.5,borderRadius:3},
+    {label:'Projeção',data:PROJ_M,backgroundColor:'rgba(253,211,77,.45)',borderColor:'#FCD34D',borderWidth:1.5,borderRadius:3}
+  ]},
+  options:{...C0,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+brl(c.raw)}}},
+    scales:{x:{ticks:{color:T2,font:{size:9},autoSkip:false},grid:{display:false},border:{display:false}},
+      y:{ticks:{color:T2,font:{size:9},callback:v=>brlk(v)},grid:{color:BD},border:{display:false}}}}
+});
+
+/* FRETE */
+new Chart(document.getElementById('ch-frete'),{type:'bar',
+  data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun','Jul'],datasets:[
+    {label:'Orçado',data:[36543,7936,5600,0,7936,5600,5600],backgroundColor:'rgba(147,197,253,.5)',borderColor:'#93C5FD',borderWidth:1.5,borderRadius:3},
+    {label:'Realizado',data:[29718,5082,0,0,0,6050,0],
+      backgroundColor:['rgba(217,119,6,.7)','rgba(217,119,6,.7)','rgba(5,150,105,.85)','rgba(5,150,105,.85)','rgba(5,150,105,.85)','rgba(217,119,6,.7)','rgba(5,150,105,.85)'],
+      borderColor:['#D97706','#D97706','#059669','#059669','#059669','#D97706','#059669'],borderWidth:1.5,borderRadius:3}
+  ]},
+  options:{...C0,plugins:{legend:{display:true,labels:{font:{size:10},color:T2,boxWidth:10,padding:10}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+brl(c.raw)}}},
+    scales:{x:{ticks:{color:T2,font:{size:10}},grid:{display:false},border:{display:false}},
+      y:{ticks:{color:T2,font:{size:9},callback:v=>brlk(v)},grid:{color:BD},border:{display:false}}}}
+});
+
+/* ⑤ SALDO DISPONÍVEL POR CATEGORIA
+   Metric: % of FY budget REMAINING (saldo / orçado FY)
+   Sorted: highest saldo% first (most preserved = most efficient)
+   Colors: Green >60% remaining, Yellow 30-60%, Red <30% or overspent
+   NO pace/33.3% line — we compare against budget exhaustion, not time elapsed */
+const EF = [
+  {n:'Manut. e Conservação Predial',    orc:10000,  real:580},
+  {n:'Fretes Carregamentos (Leite Exp.)',orc:140766, real:40850},
+  {n:'Análises de Cacau (Bioagri…)',    orc:16928,  real:6115},
+  {n:'Taxas e Impostos',                orc:35402,  real:12615},
+  {n:'Energia Elétrica',                orc:16800,  real:8266},
+  {n:'Aluguel Watson (Armazenagem)',     orc:373965, real:191169},
+  {n:'Armazenagem Terceiros (Dayse…)',  orc:81456,  real:41876},
+  {n:'Aluguel Máq/Equip (Eurolift)',    orc:66084,  real:37372},
+  {n:'Limpeza/Manutenção (Smartlog)',   orc:74340,  real:42896},
+  {n:'Prêmio de Seguro',                 orc:24768,  real:13854},
+  {n:'Desintetização (Ecolab)',         orc:15792,  real:9674},
+  {n:'Confraternização',                orc:5550,   real:2924},
+  {n:'Outras Desp. Consumo (Oximaster…)',orc:114836,real:76597},
+  {n:'Manut. de Equipamentos',          orc:5152,   real:3655},
+  {n:'CIC Treinamentos',                 orc:4000,   real:3980},
+  {n:'Combustível e Lubrificantes',     orc:700,    real:954},
+].map(d => ({...d, saldo: d.orc - d.real, saldoPct: Math.round((d.orc - d.real) / d.orc * 100)}))
+ .sort((a,b) => b.saldoPct - a.saldoPct);
+
+const efl = document.getElementById('ef-list');
+let cntG = 0, cntY = 0, cntR = 0;
+const MAX_SALDO = 100; // % scale
+
+EF.forEach(d => {
+  const isOver  = d.saldo < 0;
+  const isGreen = !isOver && d.saldoPct > 60;
+  const isYellow= !isOver && d.saldoPct >= 30 && d.saldoPct <= 60;
+  const isRed   = isOver || d.saldoPct < 30;
+
+  if (isGreen) cntG++; else if (isYellow) cntY++; else cntR++;
+
+  const bc    = isRed ? '#DC2626' : isYellow ? '#D97706' : '#059669';
+  const pctW  = isOver ? 0 : Math.min(d.saldoPct, 100);
+  const saldoLabel = isOver
+    ? `<span style="font-size:10px;color:var(--red);font-weight:700">ESTOURADO –${brl(Math.abs(d.saldo))}</span>`
+    : `<span style="font-size:10px;color:${bc};font-weight:700">${brl(d.saldo)} disponível</span>`;
+
+  efl.innerHTML += `<div class="efr">
+    <div class="efnm">${d.n}</div>
+    <div class="efbg" style="flex:1">
+      <div class="efbf" style="width:${pctW}%;background:${bc}"></div>
+    </div>
+    <div class="efpct" style="color:${bc};min-width:42px">${isOver ? '< 0' : d.saldoPct + '%'}</div>
+    <div class="efdl" style="min-width:140px;text-align:right">${saldoLabel}</div>
+  </div>`;
+});
+
+// Update counters
+document.getElementById('cnt-green').textContent  = cntG + ' de ' + EF.length;
+document.getElementById('cnt-yellow').textContent = cntY + ' de ' + EF.length;
+document.getElementById('cnt-red').textContent    = cntR + ' de ' + EF.length;
+
+/* ⑥ TABELA SEMÁFORO — saldo-based thresholds
+   🔴 > 80% consumido do FY (ou já estourou)  → saldo crítico
+   🟡 60–80% consumido                         → atenção
+   🟢 ≤ 60% consumido                          → saldo folgado
+   Coluna "Saldo" = quanto resta do budget anual (não pace vs 33,3%) */
+const tb = document.getElementById('tbl-contas');
+ACCS.forEach(a => {
+  const p = a.p; // % consumed
+  const f = a.frete;
+  const isOver = a.r > a.o && a.o > 0;
+  // New thresholds: red >80%, yellow 60-80%, green <=60%
+  const sem = isOver ? '🔴' : p > 80 ? '🔴' : p > 60 ? '🟡' : '🟢';
+  const bc  = isOver || p > 80 ? '#DC2626' : p > 60 ? '#D97706' : '#059669';
+  const bg  = isOver || p > 80 ? '#FEE2E2' : p > 60 ? '#FEF3C7' : '#D1FAE5';
+  const tc  = isOver || p > 80 ? 'var(--red)' : p > 60 ? 'var(--amber)' : 'var(--green)';
+  const rowBg = f ? '#F0FDF4' : isOver ? '#FFF0F0' : p > 80 ? '#FFF5F5' : p > 60 ? '#FFFDF0' : '';
+
+  // Saldo column — remaining budget in R$
+  const saldo = a.o > 0 ? a.o - a.r : null;
+  let saldoStr;
+  if (saldo === null) {
+    saldoStr = '<span style="color:var(--t3);font-size:9px">—</span>';
+  } else if (saldo < 0) {
+    saldoStr = `<span style="color:var(--red);font-size:9px;font-weight:700">–${brl(Math.abs(saldo))}</span>`;
+  } else {
+    saldoStr = `<span style="color:${bc};font-size:9px;font-weight:600">${brl(saldo)}</span>`;
+  }
+
+  const fTag = f ? ` <span style="font-size:8.5px;background:#D1FAE5;color:#059669;padding:1px 5px;border-radius:4px;font-weight:700;margin-left:3px">eficiência</span>` : '';
+
+  tb.innerHTML += `<tr style="background:${rowBg}">
+    <td style="text-align:center;font-size:13px">${sem}</td>
+    <td style="font-size:11px;font-weight:500">${a.d}${fTag}</td>
+    <td class="tr" style="font-size:10.5px">${a.o > 0 ? a.o.toLocaleString('pt-BR') : '—'}</td>
+    <td class="tr" style="font-size:10.5px;font-weight:600;color:${f ? '#059669' : tc}">${a.r.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</td>
+    <td class="tr">${a.o > 0 ? `<span class="tbg" style="background:${bg};color:${bc}">${p}%</span>` : '<span class="tbg" style="background:#F1F5F9;color:#94A3B8">—</span>'}</td>
+    <td>${a.o > 0 ? `<div class="pt"><div class="pf" style="width:${Math.min(p,100)}%;background:${f ? '#059669' : bc}"></div></div>` : ''}</td>
+    <td class="tr" style="font-size:10px;color:#94A3B8">${a.jr.toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0})}</td>
+    <td class="tr" style="font-size:10px;color:#94A3B8">${a.fr.toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0})}</td>
+    <td class="tr" style="font-size:10px;${f && a.mr === 0 ? 'color:#059669;font-weight:700' : ''}">${f && a.mr === 0 ? 'R$0 ✓' : a.mr.toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0})}</td>
+    <td class="tr" style="font-size:10px;${f && a.ar === 0 ? 'color:#059669;font-weight:700' : ''}">${f && a.ar === 0 ? 'R$0 ✓' : a.ar.toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0})}</td>
+    <td class="tr" style="font-size:10px;color:#94A3B8">${a.mo > 0 ? a.mo.toLocaleString('pt-BR') : '—'}</td>
+    <td class="tr">${saldoStr}</td>
+  </tr>`;
+});
+
+/* DRE */
+const dreD=[
+  {n:'Armazenagem CD Bahia',v:373965,p:35.2,c:'#1D4ED8'},{n:'Fretes Carregamentos',v:140766,p:13.3,c:'#B45309'},
+  {n:'Materiais de Consumo',v:114836,p:10.8,c:'#7C3AED'},{n:"Armazenagem CD's Terceiros",v:81456,p:7.7,c:'#059669'},
+  {n:'Limpeza / Manutenção / Jardim',v:74340,p:7.0,c:'#0891B2'},{n:'Aluguel Máq. e Equipamentos',v:66084,p:6.2,c:'#D97706'},
+  {n:'Manut. Máquinários / Estrutural',v:39870,p:3.8,c:'#DC2626'},{n:'Taxas e Impostos',v:35402,p:3.3,c:'#64748B'},
+  {n:'Análises de Cacau',v:16928,p:1.6,c:'#0F766E'},{n:'Energia Elétrica',v:16800,p:1.6,c:'#CA8A04'},
+  {n:'Desintetização',v:15792,p:1.5,c:'#9333EA'},{n:'Outros',v:85384,p:8.0,c:'#94A3B8'}
+];
+const dl=document.getElementById('dre-list');
+dreD.forEach((d,i)=>{const w=Math.round(d.p/35.2*100);dl.innerHTML+=`<div class="dr"><span class="drk">${i+1}</span><span class="drn">${d.n}</span><div class="drb"><div class="drbf" style="width:${w}%;background:${d.c}"></div></div><span class="drp" style="color:${d.c}">${d.p}%</span><span class="drv">R$ ${d.v.toLocaleString('pt-BR')}</span></div>`;});
+new Chart(document.getElementById('ch-dre-donut'),{type:'doughnut',data:{labels:dreD.map(d=>d.n),datasets:[{data:dreD.map(d=>d.v),backgroundColor:dreD.map(d=>d.c),borderColor:'#fff',borderWidth:2,hoverOffset:6}]},options:{...C0,cutout:'58%',plugins:{legend:{display:true,position:'bottom',labels:{font:{size:9},color:T2,padding:8,boxWidth:10}},tooltip:{callbacks:{label:c=>dreD[c.dataIndex].p+'% — '+brl(c.raw)}}}}});
+new Chart(document.getElementById('ch-dre-bar'),{type:'bar',data:{labels:dreD.map(d=>d.n.length>28?d.n.slice(0,26)+'…':d.n),datasets:[{data:dreD.map(d=>d.v),backgroundColor:dreD.map(d=>d.c+'bb'),borderColor:dreD.map(d=>d.c),borderWidth:1.5,borderRadius:3}]},options:{...C0,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>dreD[c.dataIndex].p+'% — '+brl(c.raw)}}},scales:{x:{ticks:{color:T2,font:{size:9},callback:v=>brlk(v)},grid:{color:BD},border:{display:false}},y:{ticks:{color:T2,font:{size:9}},grid:{display:false},border:{display:false}}}}});
+let cP=0;const pCum=dreD.map(d=>{cP+=d.p;return Math.round(cP*10)/10});
+new Chart(document.getElementById('ch-pareto'),{type:'bar',data:{labels:dreD.map(d=>d.n.length>18?d.n.slice(0,16)+'…':d.n),datasets:[{type:'bar',label:'Valor orçado',data:dreD.map(d=>d.v),backgroundColor:dreD.map(d=>d.c+'99'),borderColor:dreD.map(d=>d.c),borderWidth:1.5,borderRadius:3,yAxisID:'y',order:2},{type:'line',label:'% Acumulado',data:pCum,borderColor:'#DC2626',backgroundColor:'rgba(220,38,38,.08)',pointRadius:3,pointBackgroundColor:'#DC2626',tension:.3,fill:true,yAxisID:'y2',borderWidth:2,order:1}]},options:{...C0,plugins:{legend:{display:true,labels:{font:{size:9},color:T2,boxWidth:10,padding:10}},tooltip:{callbacks:{label:c=>c.dataset.label==='Valor orçado'?brl(c.raw):c.raw+'%'}}},scales:{x:{ticks:{color:T2,font:{size:8.5},maxRotation:35,autoSkip:false},grid:{display:false},border:{display:false}},y:{position:'left',ticks:{color:T2,font:{size:9},callback:v=>brlk(v)},grid:{color:BD},border:{display:false}},y2:{position:'right',min:0,max:100,ticks:{color:'#DC2626',font:{size:9},callback:v=>v+'%'},grid:{display:false},border:{display:false}}}}});
+
+/* ============ META BUDGET 2026 — CHARTS & ACTION PLAN ============ */
+
+/* WATERFALL CHART — cascade orçamentária */
+const BUDGET=1061623, REAL=537026, PROJ=920616;
+const MIN_TARGET=997926, META_TARGET=976694, SUPER_TARGET=955461;
+
+new Chart(document.getElementById('ch-waterfall'),{
+  type:'bar',
+  data:{
+    labels:['Orçado FY','Realizado\nJan–Jul','Saldo\nAgo–Dez','Projeção\nFY','Mínimo\n–6%','Meta\n–8%','Supermeta\n–10%'],
+    datasets:[{
+      data:[BUDGET, REAL, BUDGET-REAL, PROJ, MIN_TARGET, META_TARGET, SUPER_TARGET],
+      backgroundColor:['rgba(180,83,9,.85)','rgba(217,119,6,.75)','rgba(29,78,216,.7)','rgba(5,150,105,.9)','rgba(217,119,6,.85)','rgba(5,150,105,.85)','rgba(124,58,237,.85)'],
+      borderColor:['#B45309','#D97706','#1D4ED8','#059669','#D97706','#059669','#7C3AED'],
+      borderWidth:1.5,borderRadius:4
+    }]
+  },
+  options:{...C0,
+    plugins:{
+      legend:{display:false},
+      tooltip:{callbacks:{label:c=>brl(c.raw)}},
+      annotation:{}
+    },
+    scales:{
+      x:{ticks:{color:T2,font:{size:9.5},autoSkip:false},grid:{display:false},border:{display:false}},
+      y:{ticks:{color:T2,font:{size:9},callback:v=>brlk(v)},grid:{color:BD},border:{display:false}}
+    }
+  }
+});
+
+/* MONTHLY CAP CHART — teto mensal por cenário */
+new Chart(document.getElementById('ch-monthly-cap'),{
+  type:'bar',
+  data:{
+    labels:['Ritmo atual','Mínimo –6%','Meta –8%','Supermeta –10%'],
+    datasets:[{
+      data:[76718, 92180, 87933, 83687],
+      backgroundColor:['rgba(100,116,139,.5)','rgba(217,119,6,.8)','rgba(5,150,105,.85)','rgba(124,58,237,.85)'],
+      borderColor:['#64748B','#D97706','#059669','#7C3AED'],
+      borderWidth:1.5,
+      borderRadius:5,
+      barPercentage:.6
+    }]
+  },
+  options:{...C0,
+    indexAxis:'y',
+    plugins:{
+      legend:{display:false},
+      tooltip:{callbacks:{label:c=>brl(c.raw)+' / mês'}}
+    },
+    scales:{
+      x:{
+        ticks:{color:T2,font:{size:9},callback:v=>brlk(v)},
+        grid:{color:BD},
+        border:{display:false},
+        min:70000,max:95000
+      },
+      y:{ticks:{color:T2,font:{size:10}},grid:{display:false},border:{display:false}}
+    }
+  }
+});
+
+/* PLANO DE AÇÃO — categorias com potencial de saving */
+const PLANO_ACAO=[
+  {n:'Outras Desp. Consumo (Oximaster…)', tipo:'Flexível', saldo:57096, op:'Controlar consumo · não retomar pace Jan–Fev', cor:'#059669'},
+  {n:'Armazenagem CD Bahia (Dayse…)',     tipo:'Negociável', saldo:57503, op:'Avaliar volume contratado vs operação real', cor:'#D97706'},
+  {n:'Limpeza/Manutenção (Smartlog)',     tipo:'Contratual', saldo:50029, op:'Renegociação de contrato anual', cor:'#1D4ED8'},
+  {n:'Aluguel Máq/Equip (Eurolift)',      tipo:'Contratual', saldo:45114, op:'Revisar equipamentos efetivamente em uso', cor:'#1D4ED8'},
+  {n:'Outros Serv. Terceiros (03 Arcos…)',tipo:'Flexível', saldo:16318,  op:'Consolidar fornecedores · obter desconto', cor:'#059669'},
+  {n:'Materiais TI / Computador',         tipo:'Flexível', saldo:13438,  op:'Compras planejadas · evitar urgências', cor:'#059669'},
+  {n:'Materiais de Escritório (Ventura)', tipo:'Flexível', saldo:1250,   op:'Padronização de itens · compra única', cor:'#059669'},
+  {n:'Copa/Cozinha (Mix Mateus)',         tipo:'Flexível', saldo:6417,   op:'Revisão lista de compras mensal', cor:'#059669'},
+  {n:'Manut. Predial',                    tipo:'Sob demanda', saldo:9420, op:'Priorizar apenas manutenções críticas', cor:'#64748B'},
+  {n:'Confraternização',                  tipo:'Discricionário', saldo:2626, op:'Avaliar frequência de eventos', cor:'#64748B'}
+];
+
+const tbpa = document.getElementById('tbl-plano-acao');
+let totSaldo=0, tot5=0, tot10=0;
+PLANO_ACAO.forEach(p=>{
+  const s5  = Math.round(p.saldo*0.05);
+  const s10 = Math.round(p.saldo*0.10);
+  totSaldo += p.saldo;
+  tot5 += s5;
+  tot10 += s10;
+  const tipoTag = p.tipo==='Flexível'   ? `<span class="tbg" style="background:#D1FAE5;color:#059669">Flexível</span>` :
+                  p.tipo==='Contratual' ? `<span class="tbg" style="background:#DBEAFE;color:#1D4ED8">Contratual</span>` :
+                  p.tipo==='Negociável' ? `<span class="tbg" style="background:#FEF3C7;color:#D97706">Negociável</span>` :
+                  p.tipo==='Sob demanda'? `<span class="tbg" style="background:#F1F5F9;color:#64748B">Sob demanda</span>` :
+                                          `<span class="tbg" style="background:#F1F5F9;color:#64748B">Discricionário</span>`;
+  tbpa.innerHTML += `<tr>
+    <td style="font-size:11.5px;font-weight:500">${p.n}</td>
+    <td>${tipoTag}</td>
+    <td class="tr" style="font-size:11px;font-weight:600">${brl(p.saldo)}</td>
+    <td class="tr" style="font-size:11px;color:#D97706;font-weight:600">${brl(s5)}</td>
+    <td class="tr" style="font-size:11px;color:#7C3AED;font-weight:600">${brl(s10)}</td>
+    <td style="font-size:11px;color:var(--t2)">${p.op}</td>
+  </tr>`;
+});
+document.getElementById('pa-total-saldo').innerHTML = `<span style="color:var(--t1)">${brl(totSaldo)}</span>`;
+document.getElementById('pa-total-5').innerHTML = `<span style="color:#D97706">${brl(tot5)}</span>`;
+document.getElementById('pa-total-10').innerHTML = `<span style="color:#7C3AED">${brl(tot10)}</span>`;
+
+/* ============================================
+   DYNAMIC INTERACTIONS — JS
+   ============================================ */
+
+/* Animated entry: bars grow from 0 → final width when scrolled into view */
+const barSelectors = '.pf, .pf8, .drbf, .efbf, .t5bf, .fmbf, .frete-mes-bar-f, .tl-fill-real, .tl-fill-proj';
+const barEls = document.querySelectorAll(barSelectors);
+
+// Snapshot final widths then reset to 0
+const initialWidths = new Map();
+barEls.forEach(el => {
+  const w = el.style.width || getComputedStyle(el).width;
+  if (w && w !== '0%' && w !== '0px') {
+    initialWidths.set(el, w);
+    el.style.width = '0%';
+  }
+});
+
+// Observe and animate when visible
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && initialWidths.has(entry.target)) {
+      const targetWidth = initialWidths.get(entry.target);
+      requestAnimationFrame(() => {
+        entry.target.style.width = targetWidth;
+      });
+      barObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+barEls.forEach(el => barObserver.observe(el));
+
+/* Sortable table for the accounts list */
+(function makeSortable() {
+  const table = document.querySelector('#tbl-contas')?.closest('table');
+  if (!table) return;
+
+  const headers = table.querySelectorAll('th.sortable');
+  let currentSort = { col: null, dir: 'asc' };
+
+  // Parse value for sorting: handles "R$ 1.234,56" and percentages
+  function parseValue(text, type) {
+    if (type === 'num') {
+      const cleaned = text.replace(/[^\d,.\-]/g, '').replace(/\./g, '').replace(',', '.');
+      const v = parseFloat(cleaned);
+      return isNaN(v) ? -Infinity : v;
+    }
+    return text.toLowerCase().trim();
+  }
+
+  // Map ACCS data to row index so we can sort by data, not DOM text
+  const tbody = document.getElementById('tbl-contas');
+  const allRows = Array.from(tbody.querySelectorAll('tr'));
+  const rowDataMap = new Map();
+  allRows.forEach((row, idx) => {
+    if (idx < ACCS.length) {
+      const a = ACCS[idx];
+      rowDataMap.set(row, {
+        ...a,
+        saldo: a.o > 0 ? a.o - a.r : -999999
+      });
+    }
+  });
+
+  headers.forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.col;
+      const type = th.dataset.type;
+      const dir = (currentSort.col === col && currentSort.dir === 'asc') ? 'desc' : 'asc';
+
+      // Update header classes
+      headers.forEach(h => h.classList.remove('asc', 'desc'));
+      th.classList.add(dir);
+
+      // Sort rows by ACCS data
+      const sortedRows = [...allRows].sort((rowA, rowB) => {
+        const a = rowDataMap.get(rowA);
+        const b = rowDataMap.get(rowB);
+        if (!a || !b) return 0;
+        let av = a[col], bv = b[col];
+        if (type === 'text') {
+          av = String(av).toLowerCase();
+          bv = String(bv).toLowerCase();
+          return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+        }
+        av = Number(av) || 0;
+        bv = Number(bv) || 0;
+        return dir === 'asc' ? av - bv : bv - av;
+      });
+
+      // Re-append in new order with subtle animation
+      tbody.style.opacity = '0.5';
+      setTimeout(() => {
+        sortedRows.forEach(r => tbody.appendChild(r));
+        tbody.style.opacity = '1';
+      }, 100);
+
+      currentSort = { col, dir };
+    });
+  });
+})();
+
+/* Smooth scroll for KPI focus when hovering long enough — adds tactile feel */
+document.querySelectorAll('.card[data-tip]').forEach(card => {
+  card.style.cursor = 'help';
+});
+
+
+/* === VISÃO MENSAL - Filtro dinâmico por mês === */
+const MONTHLY_DATA=[{"n":"Ajuste de Inventário","o":[1000.0,0.0,0.0,1000.0,0.0,0.0,0.0,1000.0,0.0,0.0,0.0,1000.0],"r":[0.0,115.5,1.04,1579.73,0,0,0.01,0,0,0,0,0]},{"n":"Vigilância e Segurança","o":[970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0],"r":[928.16,928.0,928.0,928.16,928.16,928.0,928.0,0,0,0,0,0]},{"n":"Outros Serv. Terc. — CIC Treinamentos","o":[0.0,0.0,0.0,0.0,4000.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,3980.0,0,0,0,0,0,0,0]},{"n":"03 ARCOS / RFA / GS ARAUJO / CAL SERVICE / GSAAS SERVIÇOS / AGÍL SOLUÇÕES / NACIF Engenharia","o":[884.0,5684.0,3384.0,1084.0,884.0,1084.0,884.0,4744.0,3184.0,884.0,1134.0,884.0],"r":[0.0,5684.0,1216.0,1500.0,0,1084.0,0.0,0,0,0,0,0]},{"n":"Laudos Técnicos (Bioagri/CIC/Eurofins)","o":[1034.0,1034.0,1034.0,1034.0,1034.0,1034.0,1034.0,1034.0,1754.0,4834.0,1034.0,1034.0],"r":[635.25,500.0,800.0,1034.0,920.0,1034.0,1192.0,0,0,0,0,0]},{"n":"Armazenagem CD Bahia (Dayse/Joel/Almir)","o":[6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0],"r":[5958.0,6058.96,5968.21,5968.21,5968.0,5968.0,5986.36,0,0,0,0,0]},{"n":"Manut. e Conservação Predial","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10000.0,0.0,0.0],"r":[0,0,580.0,0,0,0,0,0,0,0,0,0]},{"n":"Manut. de Equipamentos (Extintores/Bruno)","o":[0.0,1552.0,0.0,1800.0,0.0,0.0,0.0,1800.0,0.0,0.0,0.0,0.0],"r":[0,1485.0,0,1800.0,0,0,370.0,0,0,0,0,0]},{"n":"PREFEITURA ALVARÁ FUNCIONAMENTO/ IPTU/ ALVARÁ SANITARIO","o":[9022.0,4800.0,20000.0,1580.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[9022.0,341.64,0.0,2129.77,0,0,1121.77,0,0,0,0,0]},{"n":"Material de Escritório (Ventura)","o":[0.0,800.0,0.0,200.0,0.0,0.0,0.0,250.0,0.0,0.0,0.0,0.0],"r":[0,0.0,0,0,0,0,0,0,0,0,0,0]},{"n":"Serv. e Mat. de Limpeza (Smartlog)","o":[6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0],"r":[6299.0,6195.0,6195.0,5621.96,6195.0,6195.0,6195.0,0,0,0,0,0]},{"n":"Copa, Cozinha e Refeições (Mix Mateus)","o":[620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0],"r":[0.0,0.0,647.97,374.64,394.34,543.87,497.2,0,0,0,0,0]},{"n":"Confraternização (Reunião Produtores)","o":[0.0,5550.0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[2302.0,622.0,0,0,0,0,0,0,0,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,0,0,660.0,0,0,0,0,0]},{"n":"Roupas e Uniformes","o":[0.0,0.0,600.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,0,0,0,0,0,0,0,0]},{"n":"Aluguel Máq. e Equipamentos","o":[5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0],"r":[5214.99,5214.99,5324.99,5214.99,5214.99,5214.99,5971.65,0,0,0,0,0]},{"n":"Transporte Bahia — Fretes","o":[36543.0,7936.0,5600.0,5600.0,7936.0,5600.0,5600.0,17972.0,5600.0,28843.0,7936.0,5600.0],"r":[29718.05,5082.0,0.0,0.0,0.0,6050.0,0.0,0,0,0,0,0]},{"n":"OXIMASTER / LEVERY PALLETS  / CENY EMERY / STRECH FILM/ BIORENTA EMBALAGENS/ ETIQUEPRESS","o":[12680.0,41158.0,0.0,680.0,1200.0,37758.0,0.0,680.0,0.0,20000.0,680.0,0.0],"r":[14657.48,21118.11,0,1188.39,1200.0,37885.0,547.76,0,0,0,0,0]},{"n":"Aluguel Imóvel Watson (Armazenagem)","o":[30779.0,30779.0,30779.0,30779.0,30779.0,30779.0,30779.0,30779.0,30779.0,32318.0,32318.0,32318.0],"r":[27309.72,27310.0,27309.72,27309.72,27309.72,27310.0,27309.72,0,0,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,2132.0,2132.0,2132.0,2132.0,2132.0,2132.38,0,0,0,0,0]},{"n":"Prêmio de Seguro","o":[2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0],"r":[2100.64,1896.99,2100.64,2032.49,2100.0,2032.49,1591.29,0,0,0,0,0]},{"n":"Água e Saneamento","o":[237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0],"r":[225.82,225.0,225.82,656.6,225.82,225.87,225.82,0,0,0,0,0]},{"n":"Energia Elétrica","o":[1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0],"r":[1104.0,1177.0,1244.29,1394.06,1032.63,1222.17,1091.49,0,0,0,0,0]},{"n":"Desintetização — Ecolab Química","o":[1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0],"r":[1448.0,1183.85,1316.0,1316.0,1473.92,1394.96,1541.34,0,0,0,0,0]},{"n":"Manut. Refrigeração (Refrismaq)","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2612.0,0.0,0.0],"r":[0,0,0,0,0,0,0,0,0,0,0,0]},{"n":"Combustível e Lubrificantes","o":[0.0,0.0,700.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[253.83,0,700.0,0,0,0,0,0,0,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,0,574.12,0,0,0,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[103.0,0,0,0,0,0,0,0,0,0,0,0]},{"n":"Internet (Sigaon)","o":[105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0],"r":[99.9,99.9,99.9,99.9,99.9,99.9,99.9,0,0,0,0,0]},{"n":"Materiais TI / Computador","o":[1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0],"r":[898.88,1047.09,1197.09,2139.17,892.86,327.17,172.97,0,0,0,0,0]}];
+
+const MV_MONTHS = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const MV_SHORT  = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+const MV_REALIZED_UNTIL = 6;  // Jul is last month with data (index 6)
+let MV_CURRENT = 6;             // Default: Jul (most recent)
+let mvChart = null;
+
+// Render month chips — future months now ENABLED (modo planejamento)
+function mvRenderChips(){
+  const wrap = document.getElementById('mv-chips');
+  if(!wrap) return;
+  wrap.innerHTML = MV_MONTHS.map((m,i)=>{
+    const isFuture = i > MV_REALIZED_UNTIL;
+    const isActive = i === MV_CURRENT;
+    const sub = isFuture
+      ? '<span class="mv-chip-sub">Plano</span>'
+      : '<span class="mv-chip-sub">Real</span>';
+    const futureCls = isFuture ? ' mv-chip-future' : '';
+    return `<button class="mv-chip${futureCls} ${isActive?'on':''}" onclick="mvSelectMonth(${i})">${MV_SHORT[i]}${sub}</button>`;
+  }).join('');
+}
+
+function mvSelectMonth(idx){
+  MV_CURRENT = idx;
+  document.querySelectorAll('.mv-chip').forEach((c,i)=>c.classList.toggle('on', i===idx));
+  mvUpdate();
+}
+
+const mvBRL = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
+const mvBRLd = v => 'R$ ' + Number(v).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+
+// Média mensal atual (Jan-Jul) para comparação de planejamento
+const MV_MEDIA_ATUAL = 76718;
+
+function mvUpdate(){
+  const m = MV_CURRENT;
+  const monthName = MV_MONTHS[m];
+  const isFuture = m > MV_REALIZED_UNTIL;
+
+  document.getElementById('mv-month-name').textContent = monthName;
+  document.getElementById('mv-chart-badge').textContent = monthName;
+
+  // Banner de modo
+  const banner = document.getElementById('mv-mode-banner');
+  if(banner){
+    if(isFuture){
+      banner.style.display = 'flex';
+      banner.className = 'mv-banner plan';
+      banner.innerHTML = `<i class="ti ti-calendar-plus"></i><div><strong>Modo planejamento</strong> — ${monthName} ainda não tem realizado lançado. Os valores abaixo mostram o que está <strong>orçado e previsto executar</strong> neste mês.</div>`;
+    } else {
+      banner.style.display = 'none';
+    }
+  }
+
+  // Aggregate
+  let totOrc = 0, totReal = 0;
+  const accts = MONTHLY_DATA.map(a => ({
+    n: a.n,
+    o: a.o[m] || 0,
+    r: a.r[m] || 0,
+    delta: (a.o[m] || 0) - (a.r[m] || 0)
+  }));
+  accts.forEach(a => { totOrc += a.o; totReal += a.r; });
+
+  const saldo = totOrc - totReal;
+  const pct = totOrc > 0 ? (totReal / totOrc * 100) : 0;
+
+  // ===== KPIs — semântica muda conforme o modo =====
+  const elOrcLbl   = document.querySelector('#mv-orc').closest('.mv-kpi').querySelector('.mv-kpi-lbl');
+  const elOrcSub   = document.querySelector('#mv-orc').closest('.mv-kpi').querySelector('.mv-kpi-sub');
+  const elRealCard = document.querySelector('#mv-real').closest('.mv-kpi');
+  const elRealLbl  = elRealCard.querySelector('.mv-kpi-lbl');
+  const elSaldoCard= document.querySelector('#mv-saldo').closest('.mv-kpi');
+  const elSaldoLbl = elSaldoCard.querySelector('.mv-kpi-lbl');
+  const elPctCard  = document.querySelector('#mv-pct').closest('.mv-kpi');
+  const elPctLbl   = elPctCard.querySelector('.mv-kpi-lbl');
+
+  if(isFuture){
+    // --- MODO PLANEJAMENTO ---
+    elOrcLbl.textContent = 'Orçado do mês';
+    document.getElementById('mv-orc').textContent = mvBRL(totOrc);
+    elOrcSub.textContent = 'Previsto no budget FY para ' + monthName;
+
+    elRealLbl.textContent = 'A executar';
+    document.getElementById('mv-real').textContent = mvBRL(totOrc);
+    document.getElementById('mv-real').style.color = 'var(--blue)';
+    elRealCard.className = 'mv-kpi blue';
+    document.getElementById('mv-real-sub').textContent = 'Valor total a ser realizado';
+
+    elSaldoLbl.textContent = 'vs média atual (R$76,7k)';
+    const difMedia = totOrc - MV_MEDIA_ATUAL;
+    document.getElementById('mv-saldo').textContent = (difMedia>=0?'+':'') + mvBRL(difMedia);
+    document.getElementById('mv-saldo').style.color = difMedia > 0 ? 'var(--amber)' : 'var(--green)';
+    elSaldoCard.className = difMedia > 0 ? 'mv-kpi amber' : 'mv-kpi green';
+    document.getElementById('mv-saldo-sub').textContent = difMedia > 0
+      ? 'Mês mais pesado que o ritmo atual ⚠'
+      : 'Mês mais leve que o ritmo atual ✓';
+
+    elPctLbl.textContent = '% do budget FY';
+    const pctFY = totOrc / 1061623 * 100;
+    document.getElementById('mv-pct').textContent = pctFY.toFixed(1).replace('.',',') + '%';
+    document.getElementById('mv-pct').style.color = pctFY > 10 ? 'var(--red)' : pctFY > 8 ? 'var(--amber)' : 'var(--blue)';
+    elPctCard.className = pctFY > 10 ? 'mv-kpi red' : pctFY > 8 ? 'mv-kpi amber' : 'mv-kpi blue';
+    document.getElementById('mv-pct-sub').textContent = pctFY > 10 ? 'Mês de alta concentração ⚠' : pctFY > 8 ? 'Concentração moderada' : 'Peso normal no FY';
+
+  } else {
+    // --- MODO REALIZADO ---
+    elOrcLbl.textContent = 'Orçado do mês';
+    document.getElementById('mv-orc').textContent = mvBRL(totOrc);
+    elOrcSub.textContent = 'Total previsto no budget FY';
+
+    elRealLbl.textContent = 'Realizado do mês';
+    document.getElementById('mv-real').textContent = mvBRL(totReal);
+    document.getElementById('mv-real').style.color = 'var(--green)';
+    elRealCard.className = 'mv-kpi green';
+    document.getElementById('mv-real-sub').textContent = 'Total consumido';
+
+    elSaldoLbl.textContent = 'Diferença (saldo)';
+    document.getElementById('mv-saldo').textContent = (saldo>=0?'+':'') + mvBRL(saldo);
+    document.getElementById('mv-saldo').style.color = saldo >= 0 ? 'var(--green)' : 'var(--red)';
+    elSaldoCard.className = saldo >= 0 ? 'mv-kpi green' : 'mv-kpi red';
+    document.getElementById('mv-saldo-sub').textContent = saldo >= 0 ? 'Sobrou budget · abaixo do orçado ✓' : 'Estouro do orçado';
+
+    elPctLbl.textContent = '% Executado';
+    document.getElementById('mv-pct').textContent = pct.toFixed(1).replace('.',',') + '%';
+    document.getElementById('mv-pct').style.color = pct > 100 ? 'var(--red)' : pct > 90 ? 'var(--amber)' : 'var(--green)';
+    elPctCard.className = pct > 100 ? 'mv-kpi red' : pct > 90 ? 'mv-kpi amber' : 'mv-kpi green';
+    document.getElementById('mv-pct-sub').textContent = pct > 100 ? 'Estouro do orçado mensal' : pct > 90 ? 'Próximo do limite' : 'Consumo controlado';
+  }
+
+  // ===== TABELA =====
+  const filtered = isFuture
+    ? accts.filter(a => a.o > 0).sort((a,b) => b.o - a.o)
+    : accts.filter(a => a.r > 0 || a.o > 0).sort((a,b) => b.r - a.r);
+
+  document.getElementById('mv-count-badge').textContent = filtered.length + (isFuture ? ' contas a executar' : ' contas');
+
+  // Cabeçalho da tabela adapta
+  const thead = document.getElementById('mv-thead');
+  if(thead){
+    thead.innerHTML = isFuture
+      ? `<div>Conta</div><div class="tr">Orçado</div><div class="tr">% do mês</div><div class="mv-tbg" style="background:transparent">Peso</div><div class="tr">Acum. FY</div>`
+      : `<div>Conta</div><div class="tr">Orçado</div><div class="tr">Realizado</div><div class="mv-tbg" style="background:transparent">%</div><div class="tr">Δ Saldo</div>`;
+  }
+
+  const tbl = document.getElementById('mv-tbl');
+  if(filtered.length === 0){
+    tbl.innerHTML = '<div class="mv-empty">' + (isFuture ? 'Nenhuma conta orçada para este mês' : 'Nenhuma conta com movimentação neste mês') + '</div>';
+  } else if(isFuture){
+    // Tabela de planejamento
+    tbl.innerHTML = filtered.map(a => {
+      const share = totOrc > 0 ? (a.o/totOrc*100) : 0;
+      const acctFY = MONTHLY_DATA.find(x => x.n === a.n);
+      const orcFY = acctFY ? acctFY.o.reduce((s,v)=>s+v,0) : 0;
+      const realFY = acctFY ? acctFY.r.reduce((s,v)=>s+v,0) : 0;
+      const consumedPct = orcFY > 0 ? (realFY/orcFY*100) : 0;
+      const pesoColor = share > 30 ? '#DC2626' : share > 10 ? '#D97706' : '#1D4ED8';
+      const pesoBg    = share > 30 ? '#FEE2E2' : share > 10 ? '#FEF3C7' : '#DBEAFE';
+      const cColor = consumedPct > 80 ? 'var(--red)' : consumedPct > 60 ? 'var(--amber)' : 'var(--green)';
+      return `<div class="mv-table-row">
+        <div style="font-size:11px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${a.n}">${a.n}</div>
+        <div class="tr" style="font-weight:600;color:var(--blue)">${mvBRL(a.o)}</div>
+        <div class="tr" style="color:var(--t2)">${share.toFixed(1).replace('.',',')}%</div>
+        <div class="mv-tbg" style="background:${pesoBg};color:${pesoColor}">${share > 30 ? 'Alto' : share > 10 ? 'Médio' : 'Baixo'}</div>
+        <div class="tr" style="color:${cColor};font-weight:600;font-size:10px">${orcFY > 0 ? consumedPct.toFixed(0)+'% usado' : '—'}</div>
+      </div>`;
+    }).join('');
+  } else {
+    // Tabela de realizado (original)
+    tbl.innerHTML = filtered.map(a => {
+      const p = a.o > 0 ? (a.r/a.o*100) : (a.r > 0 ? 999 : 0);
+      const bc = p > 100 ? '#DC2626' : p > 90 ? '#D97706' : p >= 1 ? '#059669' : '#94A3B8';
+      const bg = p > 100 ? '#FEE2E2' : p > 90 ? '#FEF3C7' : p >= 1 ? '#D1FAE5' : '#F1F5F9';
+      const dcolor = a.delta < 0 ? 'var(--red)' : a.delta > 0 ? 'var(--green)' : 'var(--t3)';
+      const dprefix = a.delta > 0 ? '+' : '';
+      const pctStr = a.o > 0 ? p.toFixed(0)+'%' : '—';
+      return `<div class="mv-table-row">
+        <div style="font-size:11px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${a.n}">${a.n}</div>
+        <div class="tr" style="color:var(--t2)">${a.o > 0 ? mvBRL(a.o) : '—'}</div>
+        <div class="tr" style="font-weight:600">${a.r > 0 ? mvBRLd(a.r) : '—'}</div>
+        <div class="mv-tbg" style="background:${bg};color:${bc}">${pctStr}</div>
+        <div class="tr" style="color:${dcolor};font-weight:600">${dprefix}${mvBRL(a.delta)}</div>
+      </div>`;
+    }).join('');
+  }
+
+  // ===== CHART =====
+  const top10 = filtered.slice(0,10);
+  const labels = top10.map(a => a.n.length > 22 ? a.n.slice(0,20)+'…' : a.n);
+
+  if(mvChart){ mvChart.destroy(); }
+  const ctx = document.getElementById('ch-mv');
+  if(ctx){
+    const datasets = isFuture
+      ? [{label:'Orçado (a executar)', data: top10.map(a=>a.o), backgroundColor:'rgba(29,78,216,.55)', borderColor:'#1D4ED8', borderWidth:1.5, borderRadius:3}]
+      : [
+          {label:'Orçado', data: top10.map(a=>a.o), backgroundColor:'rgba(147,197,253,.55)', borderColor:'#93C5FD', borderWidth:1.5, borderRadius:3},
+          {label:'Realizado', data: top10.map(a=>a.r), backgroundColor:'rgba(110,231,183,.8)', borderColor:'#059669', borderWidth:1.5, borderRadius:3}
+        ];
+    mvChart = new Chart(ctx, {
+      type: 'bar',
+      data: {labels, datasets},
+      options: {
+        ...C0,
+        indexAxis: 'y',
+        plugins: {
+          legend: {display:true, labels:{font:{size:10},color:T2,boxWidth:10,padding:8}},
+          tooltip: {callbacks:{label: c => c.dataset.label + ': ' + mvBRL(c.raw)}}
+        },
+        scales: {
+          x: {ticks:{color:T2,font:{size:9},callback: v => brlk(v)}, grid:{color:BD}, border:{display:false}},
+          y: {ticks:{color:T2,font:{size:9.5}}, grid:{display:false}, border:{display:false}}
+        }
+      }
+    });
+  }
+
+  // ===== DESTAQUES =====
+  const c1 = document.getElementById('mv-hl1-name').closest('.mv-hl-card');
+  const c2 = document.getElementById('mv-hl2-name').closest('.mv-hl-card');
+  const c3 = document.getElementById('mv-hl3-name').closest('.mv-hl-card');
+  const l1 = c1.querySelector('.mv-hl-lbl');
+  const l2 = c2.querySelector('.mv-hl-lbl');
+  const l3 = c3.querySelector('.mv-hl-lbl');
+
+  if(isFuture){
+    // --- Destaques de planejamento ---
+    c1.className = 'mv-hl-card blue'; l1.style.color = 'var(--blue)';
+    l1.innerHTML = '<i class="ti ti-arrow-up-right" style="vertical-align:-1px"></i> Maior compromisso do mês';
+    const big = filtered[0];
+    if(big){
+      document.getElementById('mv-hl1-name').textContent = big.n;
+      document.getElementById('mv-hl1-val').textContent = mvBRL(big.o);
+      document.getElementById('mv-hl1-val').style.color = 'var(--blue)';
+      document.getElementById('mv-hl1-sub').textContent = (big.o/totOrc*100).toFixed(0) + '% do orçado de ' + monthName;
+    }
+
+    c2.className = 'mv-hl-card green'; l2.style.color = 'var(--green)';
+    l2.innerHTML = '<i class="ti ti-list-check" style="vertical-align:-1px"></i> Contas a executar';
+    document.getElementById('mv-hl2-name').textContent = filtered.length + ' contas orçadas';
+    document.getElementById('mv-hl2-val').textContent = mvBRL(totOrc);
+    document.getElementById('mv-hl2-val').style.color = 'var(--green)';
+    const top3sum = filtered.slice(0,3).reduce((s,a)=>s+a.o,0);
+    document.getElementById('mv-hl2-sub').textContent = 'Top 3 concentram ' + (top3sum/totOrc*100).toFixed(0) + '% do mês';
+
+    c3.className = 'mv-hl-card red'; l3.style.color = 'var(--red)';
+    l3.innerHTML = '<i class="ti ti-alert-circle" style="vertical-align:-1px"></i> Contas com saldo apertado';
+    // Contas cujo saldo FY restante é menor que o orçado deste mês
+    const risky = filtered.filter(a => {
+      const acc = MONTHLY_DATA.find(x => x.n === a.n);
+      if(!acc) return false;
+      const orcFY = acc.o.reduce((s,v)=>s+v,0);
+      const realFY = acc.r.reduce((s,v)=>s+v,0);
+      return orcFY > 0 && (orcFY - realFY) < a.o;
+    });
+    if(risky.length > 0){
+      document.getElementById('mv-hl3-name').textContent = risky.length + ' conta(s) em atenção';
+      document.getElementById('mv-hl3-val').textContent = risky[0].n.slice(0,24);
+      document.getElementById('mv-hl3-val').style.color = 'var(--red)';
+      document.getElementById('mv-hl3-val').style.fontSize = '12px';
+      document.getElementById('mv-hl3-sub').textContent = 'saldo FY insuficiente p/ o previsto no mês';
+    } else {
+      document.getElementById('mv-hl3-name').textContent = 'Nenhuma restrição';
+      document.getElementById('mv-hl3-val').textContent = 'Saldo OK ✓';
+      document.getElementById('mv-hl3-val').style.color = 'var(--green)';
+      document.getElementById('mv-hl3-val').style.fontSize = '15px';
+      document.getElementById('mv-hl3-sub').textContent = 'Todas as contas com saldo FY suficiente';
+    }
+
+  } else {
+    // --- Destaques de realizado (original) ---
+    c1.className = 'mv-hl-card red'; l1.style.color = 'var(--red)';
+    l1.innerHTML = '<i class="ti ti-trending-up" style="vertical-align:-1px"></i> Maior gasto do mês';
+    const hi = filtered.length > 0 ? filtered[0] : null;
+    document.getElementById('mv-hl1-val').style.color = 'var(--red)';
+    if(hi){
+      document.getElementById('mv-hl1-name').textContent = hi.n;
+      document.getElementById('mv-hl1-val').textContent = mvBRLd(hi.r);
+      document.getElementById('mv-hl1-sub').textContent = hi.o > 0 ? 'vs orçado ' + mvBRL(hi.o) + ' (' + (hi.r/hi.o*100).toFixed(0) + '%)' : 'sem orçado previsto';
+    } else {
+      document.getElementById('mv-hl1-name').textContent = '—';
+      document.getElementById('mv-hl1-val').textContent = 'R$ 0';
+      document.getElementById('mv-hl1-sub').textContent = 'Sem lançamentos';
+    }
+
+    c2.className = 'mv-hl-card green'; l2.style.color = 'var(--green)';
+    l2.innerHTML = '<i class="ti ti-trending-down" style="vertical-align:-1px"></i> Maior economia (orçado × real)';
+    const savings = accts.filter(a => a.o > 0 && a.r < a.o).sort((a,b) => b.delta - a.delta);
+    document.getElementById('mv-hl2-val').style.color = 'var(--green)';
+    if(savings.length > 0 && savings[0].delta > 0){
+      const s = savings[0];
+      document.getElementById('mv-hl2-name').textContent = s.n;
+      document.getElementById('mv-hl2-val').textContent = mvBRL(s.delta);
+      document.getElementById('mv-hl2-sub').textContent = 'orçado ' + mvBRL(s.o) + ' · real ' + mvBRL(s.r);
+    } else {
+      document.getElementById('mv-hl2-name').textContent = '—';
+      document.getElementById('mv-hl2-val').textContent = 'R$ 0';
+      document.getElementById('mv-hl2-sub').textContent = 'Nenhuma economia no mês';
+    }
+
+    c3.className = 'mv-hl-card blue'; l3.style.color = 'var(--blue)';
+    l3.innerHTML = '<i class="ti ti-alert-circle" style="vertical-align:-1px"></i> Maior estouro do mês';
+    document.getElementById('mv-hl3-val').style.fontSize = '15px';
+    const overs = accts.filter(a => a.r > a.o && (a.o > 0 || a.r > 0)).sort((a,b) => (b.r-b.o) - (a.r-a.o));
+    if(overs.length > 0){
+      const o = overs[0];
+      const excess = o.r - o.o;
+      document.getElementById('mv-hl3-name').textContent = o.n;
+      document.getElementById('mv-hl3-val').textContent = '+' + mvBRL(excess);
+      document.getElementById('mv-hl3-val').style.color = 'var(--blue)';
+      document.getElementById('mv-hl3-sub').textContent = o.o > 0 ? 'estouro de ' + (excess/o.o*100).toFixed(0) + '% sobre o orçado' : 'gasto sem orçamento previsto';
+    } else {
+      document.getElementById('mv-hl3-name').textContent = 'Nenhum estouro';
+      document.getElementById('mv-hl3-val').textContent = 'R$ 0';
+      document.getElementById('mv-hl3-val').style.color = 'var(--green)';
+      document.getElementById('mv-hl3-sub').textContent = 'Todas as contas dentro do orçado ✓';
+    }
+  }
+}
+
+// Initialize
+mvRenderChips();
+setTimeout(() => mvUpdate(), 200);
+
+
+/* Reveal sections with stagger when switching nav */
+const originalGoto = window.goto;
+window.goto = function(id, el) {
+  originalGoto(id, el);
+  const sec = document.getElementById('sec-' + id);
+  if (sec) {
+    // Re-trigger bar animations for this section
+    const sectionBars = sec.querySelectorAll(barSelectors);
+    sectionBars.forEach(b => {
+      if (initialWidths.has(b)) {
+        b.style.width = '0%';
+        setTimeout(() => {
+          b.style.width = initialWidths.get(b);
+        }, 50);
+      }
+    });
+  }
+};
+/* ================= MODO APRESENTAÇÃO ================= */
+let presIdx = 0;
+const presTotal = 4;
+
+function presRenderDots(){
+  const d = document.getElementById('pres-dots');
+  if(!d) return;
+  d.innerHTML = Array.from({length:presTotal},(_,i)=>
+    `<button class="pres-dot ${i===presIdx?'on':''}" onclick="presSet(${i})"></button>`).join('');
+}
+function presSet(i){
+  presIdx = Math.max(0, Math.min(presTotal-1, i));
+  document.querySelectorAll('.pres-slide').forEach((s,k)=>s.classList.toggle('on', k===presIdx));
+  document.getElementById('pres-count').textContent = (presIdx+1)+' / '+presTotal;
+  document.getElementById('pres-prev').disabled = presIdx===0;
+  document.getElementById('pres-next').disabled = presIdx===presTotal-1;
+  presRenderDots();
+}
+function presGo(d){ presSet(presIdx+d); }
+function presOpen(){
+  document.getElementById('pres').classList.add('open');
+  presSet(0);
+  setTimeout(presBuildCharts, 120);
+  if(document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(()=>{});
+}
+function presClose(){
+  document.getElementById('pres').classList.remove('open');
+  if(document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(()=>{});
+}
+document.addEventListener('keydown', e=>{
+  const open = document.getElementById('pres')?.classList.contains('open');
+  if(!open) return;
+  if(e.key==='Escape') presClose();
+  if(e.key==='ArrowRight'||e.key===' ') { e.preventDefault(); presGo(1); }
+  if(e.key==='ArrowLeft') presGo(-1);
+});
+presRenderDots();
+
+/* ============ GRÁFICOS DO MODO APRESENTAÇÃO ============ */
+const PT='#94A3B8', PG='rgba(51,65,85,.55)';
+const pBRL = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
+const pK   = v => 'R$' + Math.round(v/1000) + 'k';
+let presCharts = {};
+
+function presBuildCharts(){
+  if(presCharts.built) return;
+  presCharts.built = true;
+  const M=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+
+  // ---- 1. CURVA DE QUEIMA ACUMULADA ----
+  const cOrc =[118704,244759,333618,404137,476732,579749,644808,729829,797908,924161,994025,1061623];
+  const cReal=[108279,196696,254682,319102,379170,479391,537026,null,null,null,null,null];
+  const cProj=[null,null,null,null,null,null,537026,613744,690462,767180,843898,920616];
+  const cMeta=Array(12).fill(976694);
+
+  new Chart(document.getElementById('pch-burn'),{
+    type:'line',
+    data:{labels:M,datasets:[
+      {label:'Meta (–8%)',data:cMeta,borderColor:'#10B981',borderDash:[7,5],borderWidth:2,pointRadius:0,fill:false},
+      {label:'Orçado acum.',data:cOrc,borderColor:'#64748B',borderDash:[4,4],borderWidth:2,pointRadius:0,fill:false,tension:.25},
+      {label:'Realizado acum.',data:cReal,borderColor:'#10B981',backgroundColor:'rgba(16,185,129,.13)',borderWidth:3,pointRadius:3.5,pointBackgroundColor:'#10B981',fill:true,tension:.25},
+      {label:'Projeção acum.',data:cProj,borderColor:'#FBBF24',borderDash:[6,4],borderWidth:2.5,pointRadius:2.5,pointBackgroundColor:'#FBBF24',fill:false,tension:.25}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:true,labels:{color:PT,font:{size:10},boxWidth:11,padding:9,usePointStyle:true,pointStyle:'line'}},
+        tooltip:{callbacks:{label:c=>c.raw==null?null:c.dataset.label+': '+pBRL(c.raw)}}},
+      scales:{x:{ticks:{color:PT,font:{size:9.5}},grid:{display:false},border:{color:'#1E293B'}},
+              y:{ticks:{color:PT,font:{size:9.5},callback:pK},grid:{color:PG},border:{display:false}}}}
+  });
+
+  // ---- 2. WATERFALL DO SAVING ----
+  const wLab=['Orçado FY','Frete','Watson','Impostos','Armaz. 3ºs','Predial','Serv. 3ºs','Demais','Projeção'];
+  const wStep=[0,-70737,-46247,-13776,-9669,-9006,-8460,16888,0];
+  let run=1061623; const wBase=[]; const wBar=[];
+  wLab.forEach((l,i)=>{
+    if(i===0){ wBase.push(0); wBar.push(1061623); }
+    else if(i===wLab.length-1){ wBase.push(0); wBar.push(920616); }
+    else {
+      const s=wStep[i];
+      if(s<0){ wBase.push(run+s); wBar.push(-s); run=run+s; }
+      else { wBase.push(run); wBar.push(s); run=run+s; }
+    }
+  });
+  new Chart(document.getElementById('pch-water'),{
+    type:'bar',
+    data:{labels:wLab,datasets:[
+      {label:'base',data:wBase,backgroundColor:'transparent',stack:'w'},
+      {label:'valor',data:wBar,stack:'w',borderRadius:3,
+        backgroundColor:wLab.map((l,i)=> i===0?'#B45309' : i===wLab.length-1?'#10B981' : wStep[i]<0?'rgba(16,185,129,.72)':'rgba(239,68,68,.72)'),
+        borderColor:wLab.map((l,i)=> i===0?'#B45309' : i===wLab.length-1?'#10B981' : wStep[i]<0?'#10B981':'#EF4444'),borderWidth:1.5}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},
+        tooltip:{filter:c=>c.datasetIndex===1,callbacks:{label:c=>{const i=c.dataIndex;
+          if(i===0) return 'Orçado FY: '+pBRL(1061623);
+          if(i===wLab.length-1) return 'Projeção: '+pBRL(920616);
+          return (wStep[i]<0?'Economia ':'Acréscimo ')+pBRL(Math.abs(wStep[i]));}}}},
+      scales:{x:{stacked:true,ticks:{color:PT,font:{size:9},maxRotation:38,minRotation:38},grid:{display:false},border:{color:'#1E293B'}},
+              y:{stacked:true,min:850000,ticks:{color:PT,font:{size:9.5},callback:pK},grid:{color:PG},border:{display:false}}}}
+  });
+
+  // ---- 3. AGO-DEZ vs TETO ----
+  new Chart(document.getElementById('pch-rest'),{
+    type:'bar',
+    data:{labels:['Agosto','Setembro','Outubro','Novembro','Dezembro'],datasets:[
+      {label:'Orçado do mês',data:[85021,68079,126253,69864,67598],borderRadius:5,barPercentage:.62,
+        backgroundColor:['rgba(59,130,246,.65)','rgba(59,130,246,.65)','rgba(239,68,68,.75)','rgba(59,130,246,.65)','rgba(59,130,246,.65)'],
+        borderColor:['#3B82F6','#3B82F6','#EF4444','#3B82F6','#3B82F6'],borderWidth:1.5},
+      {type:'line',label:'Teto da meta (R$87.934)',data:Array(5).fill(87934),borderColor:'#10B981',borderWidth:2.5,pointRadius:0,fill:false},
+      {type:'line',label:'Ritmo atual (R$76.718)',data:Array(5).fill(76718),borderColor:'#94A3B8',borderDash:[6,4],borderWidth:2,pointRadius:0,fill:false}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true,labels:{color:PT,font:{size:10},boxWidth:11,padding:9,usePointStyle:true,pointStyle:'line'}},
+        tooltip:{callbacks:{label:c=>c.dataset.label+': '+pBRL(c.raw)}}},
+      scales:{x:{ticks:{color:PT,font:{size:10}},grid:{display:false},border:{color:'#1E293B'}},
+              y:{ticks:{color:PT,font:{size:9.5},callback:pK},grid:{color:PG},border:{display:false}}}}
+  });
+
+  // ---- 4. BULLET CENÁRIOS ----
+  new Chart(document.getElementById('pch-scen'),{
+    type:'bar',
+    data:{labels:['Mínimo –6%','Meta –8%','Supermeta –10%'],datasets:[
+      {label:'Target do cenário',data:[997926,976694,955461],borderRadius:4,barPercentage:.55,
+        backgroundColor:['rgba(251,191,36,.6)','rgba(16,185,129,.6)','rgba(167,139,250,.6)'],
+        borderColor:['#FBBF24','#10B981','#A78BFA'],borderWidth:1.5},
+      {type:'line',label:'Projeção atual (R$920.616)',data:[920616,920616,920616],borderColor:'#EF4444',borderWidth:2.5,pointRadius:0,fill:false}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{display:true,labels:{color:PT,font:{size:10},boxWidth:11,padding:9,usePointStyle:true,pointStyle:'line'}},
+        tooltip:{callbacks:{label:c=>c.dataset.label+': '+pBRL(c.raw)}}},
+      scales:{x:{min:880000,ticks:{color:PT,font:{size:9.5},callback:pK},grid:{color:PG},border:{display:false}},
+              y:{ticks:{color:PT,font:{size:10}},grid:{display:false},border:{color:'#1E293B'}}}}
+  });
+
+  // ---- 5. FRETE MENSAL ----
+  new Chart(document.getElementById('pch-frete'),{
+    type:'bar',
+    data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun','Jul'],datasets:[
+      {label:'Orçado',data:[36543,7936,5600,5600,7936,5600,5600],backgroundColor:'rgba(100,116,139,.35)',borderColor:'#64748B',borderWidth:1,borderRadius:3},
+      {label:'Realizado',data:[29718,5082,0,0,0,6050,0],borderRadius:3,
+        backgroundColor:['rgba(251,191,36,.75)','rgba(251,191,36,.75)','rgba(16,185,129,.85)','rgba(16,185,129,.85)','rgba(16,185,129,.85)','rgba(251,191,36,.75)','rgba(16,185,129,.85)'],
+        borderColor:['#FBBF24','#FBBF24','#10B981','#10B981','#10B981','#FBBF24','#10B981'],borderWidth:1.5}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true,labels:{color:PT,font:{size:9.5},boxWidth:10,padding:7}},
+        tooltip:{callbacks:{label:c=>c.dataset.label+': '+pBRL(c.raw)}}},
+      scales:{x:{ticks:{color:PT,font:{size:9.5}},grid:{display:false},border:{color:'#1E293B'}},
+              y:{ticks:{color:PT,font:{size:9},callback:pK},grid:{color:PG},border:{display:false}}}}
+  });
+
+  // ---- 6. RITMO MENSAL ----
+  new Chart(document.getElementById('pch-ritmo'),{
+    type:'bar',
+    data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun','Jul'],datasets:[
+      {label:'Realizado do mês',data:[108279,88417,57987,64420,60067,100222,57635],
+        backgroundColor:'rgba(16,185,129,.55)',borderColor:'#10B981',borderWidth:1.5,borderRadius:3,barPercentage:.68},
+      {type:'line',label:'Média acumulada',data:[108279,98348,84894,79776,75834,79899,76718],
+        borderColor:'#FBBF24',borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#FBBF24',fill:false,tension:.3}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true,labels:{color:PT,font:{size:9.5},boxWidth:10,padding:7,usePointStyle:true,pointStyle:'line'}},
+        tooltip:{callbacks:{label:c=>c.dataset.label+': '+pBRL(c.raw)}}},
+      scales:{x:{ticks:{color:PT,font:{size:9.5}},grid:{display:false},border:{color:'#1E293B'}},
+              y:{ticks:{color:PT,font:{size:9},callback:pK},grid:{color:PG},border:{display:false}}}}
+  });
+}
+
+</script>
+</body>
+</html>
