@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <title>Dengo — Budget 2026 v5 · CD Armazém Bahia</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
@@ -636,8 +636,185 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
 .lg-err{font-size:12.5px;color:#F87171;margin-top:14px;min-height:18px;display:flex;align-items:center;gap:6px}
 .lg-foot{margin-top:38px;padding-top:24px;border-top:1px solid #1E293B}
 .lg-foot p{font-size:12px;color:#475569;line-height:1.65;margin:0}
-@media(max-width:900px){.lg{grid-template-columns:1fr}.lg-visual{display:none}.lg-panel{padding:0 30px}}
+@media(max-width:900px){
+  .lg{grid-template-columns:1fr;grid-template-rows:minmax(200px,32vh) auto;overflow-y:auto}
+  .lg-visual{display:block}
+  .lg-photo{object-position:48% 38%}
+  .lg-cap{left:20px;bottom:16px}
+  .lg-cap-t{font-size:17px}.lg-cap-s{font-size:11.5px}
+  .lg-panel{justify-content:flex-start;padding:26px 22px calc(28px + env(safe-area-inset-bottom))}
+  .lg-brand{margin-bottom:24px}.lg-brand-ico{width:40px;height:40px;font-size:19px}
+  .lg-brand-n{font-size:18px}.lg-brand-s{font-size:9.5px;letter-spacing:.1em}
+  .lg-h{font-size:24px}.lg-d{font-size:13px;margin-bottom:22px}
+  .lg-in{font-size:16px;padding:14px 15px;margin-bottom:16px}
+  .lg-btn{padding:15px}
+  .lg-foot{margin-top:24px;padding-top:18px}
+}
 
+
+/* ============================ MOBILE ============================ */
+.mtop,.sb-back,.tl-mlist,.pres-hint{display:none}
+.tl-mi{display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--bd);border-radius:8px;background:#fff}
+.tl-mi.hi{background:var(--grbg);border-color:var(--grb)}
+.tl-mi.bad{background:var(--rbg);border-color:var(--rbd)}
+.tl-md{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.tl-mi>div{flex:1;min-width:0}
+.tl-mi b{display:block;font-size:11.5px;font-weight:600;color:var(--t1)}
+.tl-mi small{display:block;font-size:10px;color:var(--t3);margin-top:1px}
+.tl-mv{font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+@media (hover:none){[data-tip]::before,[data-tip]::after{display:none!important}}
+
+@media (max-width:900px){
+  .app{height:100vh;height:100dvh}
+  .mtop{display:flex;position:fixed;top:0;left:0;right:0;z-index:800;align-items:center;gap:10px;
+        height:calc(54px + env(safe-area-inset-top));padding:env(safe-area-inset-top) 12px 0;
+        background:#0F172A;border-bottom:1px solid #1E293B}
+  .mtop-btn{width:38px;height:38px;border-radius:9px;border:1px solid #334155;background:#1E293B;color:#CBD5E1;
+            display:flex;align-items:center;justify-content:center;font-size:19px;cursor:pointer;flex-shrink:0;padding:0}
+  .mtop-btn.gold{background:#B45309;border-color:#B45309;color:#fff}
+  .mtop-t{flex:1;min-width:0}
+  .mtop-n{font-size:13.5px;font-weight:600;color:#F8FAFC;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mtop-s{font-size:9.5px;color:#94A3B8;text-transform:uppercase;letter-spacing:.07em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+  .pres-trigger{display:none!important}
+
+  .sb{position:fixed;top:0;left:0;bottom:0;width:276px!important;z-index:850;transform:translateX(-102%);
+      transition:transform .26s cubic-bezier(.4,0,.2,1)!important;overflow-y:auto;opacity:1!important;
+      padding-top:env(safe-area-inset-top)}
+  body.sb-open .sb{transform:none;box-shadow:14px 0 40px rgba(0,0,0,.38)}
+  .sb-back{display:block;position:fixed;inset:0;background:rgba(2,6,23,.55);z-index:840;opacity:0;pointer-events:none;transition:opacity .22s}
+  body.sb-open .sb-back{opacity:1;pointer-events:auto}
+  .ni{padding:11px 12px;font-size:13px}
+
+  .main{padding-top:calc(54px + env(safe-area-inset-top));width:100%;-webkit-overflow-scrolling:touch}
+  .sec{padding:14px 12px calc(28px + env(safe-area-inset-bottom))}
+  .sh{margin-bottom:12px}
+  .st{font-size:17px}
+  .sd{font-size:11px}
+
+  .g4{grid-template-columns:1fr 1fr;gap:9px}
+  .g3,.g2,.ag,.bg3,.ceng,.mv-hl,.pl-list{grid-template-columns:1fr!important}
+  .card{padding:12px 13px}
+  .cv{font-size:20px}
+  .cd{font-size:10.5px}
+  .ci{display:none}
+  .cc{padding:13px 12px}
+
+  .pipe,.cmv-bridge,.mt-status{grid-template-columns:1fr 1fr!important}
+  .pipe .pa,.cmv-br-op,.mt-st-arrow{display:none!important}
+  .pi,.cmv-br-i,.mt-st-item{border-bottom:1px solid var(--bd2);padding:11px 10px}
+  .pv{font-size:15px!important}
+  .cmv-br-v,.mt-st-val{font-size:15px}
+
+  .cen{border-right:none;border-bottom:1px solid var(--bd)}
+  .cen:last-child{border-bottom:none}
+  .fkp{grid-template-columns:1fr 1fr}
+  .fk{border-bottom:1px solid var(--grb)}
+  .fmg{grid-template-columns:repeat(4,1fr)!important;gap:6px}
+  .fm{padding:8px}
+  .fmr{font-size:13px}
+  .fph{flex-direction:column;align-items:flex-start}
+
+  .efr{gap:6px}
+  .efnm{min-width:0;flex:0 0 40%;white-space:normal;font-size:10.5px;line-height:1.25}
+  .efdl{min-width:0;font-size:9.5px}
+  .t5bg{width:40px}
+  .t5vl{min-width:0}
+  .drb{max-width:64px}
+  .drv{min-width:0;font-size:10px}
+  .prow{flex-direction:column;gap:3px}
+
+  .mv-hd{flex-direction:column;align-items:flex-start}
+  .mv-chips{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;scrollbar-width:none;margin-left:-2px;margin-right:-12px}
+  .mv-chips::-webkit-scrollbar{display:none}
+  .mv-chip{flex-shrink:0}
+  .mv-kpi-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .mv-kpi{padding:10px 11px}
+  .mv-kpi-val{font-size:18px}
+  .mv-table-row{grid-template-columns:1.45fr .95fr .95fr 42px .9fr;gap:5px;padding:7px 3px;font-size:10px}
+
+  .cxtl{overflow-x:auto;grid-template-columns:repeat(12,minmax(44px,1fr));padding-bottom:6px}
+  .cmv-flow{grid-template-columns:1fr;gap:8px}
+  .cmv-op{display:none}
+
+  table{font-size:11px}
+  thead th{padding:7px 6px;white-space:nowrap}
+  tbody td{padding:6px}
+  .tw table{min-width:660px}
+
+  .tl-wrap{padding:14px 12px}
+  .tl-targets-top{display:none!important}
+  .tl-bar{margin-top:26px}
+  .tl-mlist{display:flex;flex-direction:column;gap:6px;margin-top:14px}
+  .tl-callouts-bottom{height:auto!important;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+  .tl-cb-start{display:none}
+  .tl-callout{position:static!important;transform:none!important;min-width:0;text-align:left}
+  .tl-callout .tl-co-arrow{display:none}
+  .tl-co-box{display:block;padding:8px 10px}
+  .tl-co-val{font-size:12.5px}
+  .tl-co-sub{font-size:9.5px}
+  .tl-legend{gap:8px 12px}
+  .tl-leg-item{font-size:9.5px}
+}
+@media (max-width:380px){
+  .g4,.pipe,.cmv-bridge,.mt-status,.mv-kpi-grid,.tl-callouts-bottom{grid-template-columns:1fr!important}
+  .fmg{grid-template-columns:repeat(2,1fr)!important}
+}
+
+/* ------------------------- APRESENTAÇÃO MOBILE ------------------------- */
+@media (max-width:900px){
+  .pres-top{padding:calc(10px + env(safe-area-inset-top)) 14px 10px}
+  .pres-brand{gap:9px}
+  .pres-brand-ico{width:30px;height:30px;font-size:15px;border-radius:8px}
+  .pres-brand-t{font-size:12.5px}
+  .pres-brand-s{font-size:8.5px;letter-spacing:.05em}
+  .pres-close{padding:8px 10px}
+  .pres-close-txt{display:none}
+  .pres-slide{padding:16px 14px 22px}
+  .pres-h{font-size:19px}
+  .pres-sub{font-size:11.5px;margin-bottom:14px;line-height:1.45}
+  .pk-grid{grid-template-columns:1fr 1fr!important;gap:9px;margin-bottom:14px}
+  .pk{padding:12px 12px}
+  .pk-l{font-size:8.5px;margin-bottom:5px}
+  .pk-v{font-size:21px!important;margin-bottom:4px}
+  .pk-s{font-size:10px}
+  .pres-split,.pres-split-2{grid-template-columns:1fr!important;gap:11px}
+  .pres-chart{padding:12px 11px 8px}
+  .pres-chart-t{font-size:12px}
+  .pres-chart-s{font-size:10px}
+  .pres-cw{height:215px!important}
+  .pres-bar-wrap{padding:28px 13px 14px}
+  .pres-bar-hd{flex-direction:column;gap:3px;margin-bottom:16px}
+  .pres-bar{height:28px}
+  .pres-bar-real{font-size:10px;padding-right:8px}
+  .pres-bar-finish::after{font-size:9px;top:-21px}
+  .pres-bar-lbls{margin-top:20px;font-size:9.5px}
+  .pt-tbl{display:block;overflow-x:auto;white-space:nowrap;font-size:11px;-webkit-overflow-scrolling:touch}
+  .pt-tbl thead th,.pt-tbl tbody td{padding:9px 10px}
+  .pl-item{padding:12px 13px;gap:10px}
+  .pl-ico{width:28px;height:28px;font-size:14px}
+  .pl-t{font-size:12px}
+  .pl-d{font-size:11px}
+  .pres-nav{padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
+  .pres-hint{display:inline;font-size:10px;color:#475569}
+  .pres-arw{width:38px;height:38px}
+}
+@media (max-width:900px) and (orientation:landscape) and (max-height:500px){
+  .pres-cw{height:170px!important}
+  .pk-grid{grid-template-columns:repeat(4,1fr)!important}
+  .pres-split,.pres-split-2{grid-template-columns:1fr 1fr!important}
+}
+
+
+/* marcadores da régua: position absoluta deve vencer a regra genérica [data-tip] */
+.tl-bar .tl-target,.tl-bar .tl-finish,.tl-bar .tl-danger{position:absolute}
+.tl-bar .tl-danger{left:92%;right:0;top:0;bottom:0}
+.tl-bar .tl-target.min{background:#DC2626}
+
+
+.pt-tbl thead th{background:transparent!important;color:#64748B}
+.pt-tbl tbody tr:hover td{box-shadow:none}
+.pres .pt-tbl tbody tr:hover{box-shadow:none}
 </style>
 </head>
 <body class="locked">
@@ -657,7 +834,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
         <div class="pres-brand-s">Budget 2026 · Jan–Ago · Setembro 2026</div>
       </div>
     </div>
-    <button class="pres-close" onclick="presClose()"><i class="ti ti-x" style="font-size:14px"></i> Sair (ESC)</button>
+    <button class="pres-close" onclick="presClose()"><i class="ti ti-x" style="font-size:14px"></i><span class="pres-close-txt"> Sair (ESC)</span></button>
   </div>
 
   <div class="pres-body">
@@ -695,7 +872,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
           <div class="pres-cw" style="height:262px"><canvas id="pch-burn"></canvas></div>
         </div>
         <div class="pres-chart">
-          <div class="pres-chart-t">De onde vem o saving de R$ 141k</div>
+          <div class="pres-chart-t">De onde vem o saving de R$ 193k</div>
           <div class="pres-chart-s">Principais contribuições por conta</div>
           <div class="pres-cw" style="height:262px"><canvas id="pch-water"></canvas></div>
         </div>
@@ -821,7 +998,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
     <!-- SLIDE 4 — DRIVERS E RISCOS -->
     <div class="pres-slide" data-s="3">
       <div class="pres-h">O que sustenta o resultado e o que monitorar</div>
-      <div class="pres-sub">Drivers estruturais do saving e pontos de atenção para Ago–Dez</div>
+      <div class="pres-sub">Drivers estruturais do saving e pontos de atenção para Set–Dez</div>
 
       <div class="pres-split-2">
         <div class="pres-chart">
@@ -836,7 +1013,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
         </div>
       </div>
 
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#FBBF24;margin:18px 0 11px">Pontos de atenção para Ago–Dez</div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#FBBF24;margin:18px 0 11px">Pontos de atenção para Set–Dez</div>
       <div class="pl-list">
         <div class="pl-item">
           <div class="pl-ico" style="background:rgba(251,191,36,.16);color:#FBBF24"><i class="ti ti-calendar-exclamation"></i></div>
@@ -861,6 +1038,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
   <div class="pres-nav">
     <div class="pres-dots" id="pres-dots"></div>
     <div style="display:flex;align-items:center;gap:14px">
+      <span class="pres-hint">deslize ↔</span>
       <span class="pres-count" id="pres-count">1 / 4</span>
       <div class="pres-arrows">
         <button class="pres-arw" id="pres-prev" onclick="presGo(-1)"><i class="ti ti-chevron-left"></i></button>
@@ -909,6 +1087,15 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
 </div>
 
 <div class="app">
+<div class="mtop">
+  <button class="mtop-btn" onclick="sbToggle()" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+  <div class="mtop-t">
+    <div class="mtop-n">Dengo · Budget 2026</div>
+    <div class="mtop-s" id="mtop-s">Budget 2026</div>
+  </div>
+  <button class="mtop-btn gold" onclick="presOpen()" aria-label="Modo apresentação"><i class="ti ti-presentation"></i></button>
+</div>
+<div class="sb-back" onclick="sbToggle(false)"></div>
 
 <!-- SIDEBAR -->
 <aside class="sb">
@@ -1128,7 +1315,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
   <!-- ① SAZONALIDADE -->
   <div class="cc" id="s-sazon">
     <div class="cch">
-      <div><div class="cct">① Sazonalidade histórica — 2026 Orçado e Realizado Jan–Abr</div></div>
+      <div><div class="cct">① Sazonalidade histórica — 2026 Orçado e Realizado Jan–Ago</div></div>
       <span class="badge bp">Insight #1</span>
     </div>
     <div class="ccs">2026 orçado (barras azuis) × realizado Jan–Ago (barras verdes) × projeção Set–Dez (amarelo) × linha roxa histórica 2025.</div>
@@ -1230,7 +1417,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
   <div class="g2" id="s-top5">
     <div class="cc" style="margin-bottom:0">
       <div class="cch"><div class="cct">③ Saldo crítico — maior % do budget já consumido</div><span class="badge br">Insight #3</span></div>
-      <div class="ccs">Contas que mais consumiram do budget anual. Saldo restante = o que ainda pode ser gasto nos 8 meses restantes. Risco real = saldo próximo de zero.</div>
+      <div class="ccs">Contas que mais consumiram do budget anual. Saldo restante = o que ainda pode ser gasto nos 4 meses restantes. Risco real = saldo próximo de zero.</div>
       <div id="top5-risco"></div>
     </div>
     <div class="cc" style="margin-bottom:0">
@@ -1275,8 +1462,8 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div class="ccs">Jan–Ago realizados · Set–Dez projeção R$72,4k/mês</div>
       <div class="leg">
         <div class="li"><span class="ld" style="background:#93C5FD"></span>Orçado</div>
-        <div class="li"><span class="ld" style="background:#6EE7B7"></span>Realizado (Jan–Abr)</div>
-        <div class="li"><span class="ld" style="background:#FCD34D"></span>Projeção (Mai–Dez)</div>
+        <div class="li"><span class="ld" style="background:#6EE7B7"></span>Realizado (Jan–Ago)</div>
+        <div class="li"><span class="ld" style="background:#FCD34D"></span>Projeção (Set–Dez)</div>
       </div>
       <div class="cw h200"><canvas id="ch-mensal"></canvas></div>
     </div>
@@ -1296,8 +1483,8 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
 
   <!-- ⑤ EFICIÊNCIA POR CATEGORIA -->
   <div class="cc" id="s-ef">
-    <div class="cch"><div class="cct">⑤ Saldo orçamentário disponível por categoria — Mai–Dez</div><span class="badge bp">Insight #5</span></div>
-    <div class="ccs">Quanto de budget resta em cada categoria para os 8 meses restantes. Ordenado do maior saldo ao menor. Verde = folgado (&gt;60% restante). Amarelo = usar com atenção (30–60%). Vermelho = saldo crítico ou já estourado.</div>
+    <div class="cch"><div class="cct">⑤ Saldo orçamentário disponível por categoria — Set–Dez</div><span class="badge bp">Insight #5</span></div>
+    <div class="ccs">Quanto de budget resta em cada categoria para os 4 meses restantes. Ordenado do maior saldo ao menor. Verde = folgado (&gt;60% restante). Amarelo = usar com atenção (30–60%). Vermelho = saldo crítico ou já estourado.</div>
     <div id="ef-list"></div>
     <div class="g3" style="margin-top:13px;margin-bottom:0">
       <div style="background:var(--grbg);border:1px solid var(--grb);border-radius:var(--rsm);padding:10px 12px;text-align:center">
@@ -1528,7 +1715,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div class="pd">já consumido · 54,5%</div>
     </div>
     <div class="pa"><i class="ti ti-equal" style="font-size:13px"></i></div>
-    <div class="pi" style="background:#EFF6FF" data-tip="Saldo livre para consumir em Ago-Dez&#10;Distribuído entre 5 meses (R$105k/mês teórico)">
+    <div class="pi" style="background:#EFF6FF" data-tip="Saldo livre para consumir em Set-Dez&#10;Distribuído entre 4 meses (R$120,8k/mês teórico)">
       <div class="pl">Saldo disponível</div>
       <div class="pv" style="color:var(--blue)">R$ 483.175</div>
       <div class="pd">para Set–Dez</div>
@@ -1680,6 +1867,13 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       </div>
     </div>
 
+    <div class="tl-mlist">
+      <div class="tl-mi"><span class="tl-md" style="background:#7C3AED"></span><div><b>Supermeta –10%</b><small>97,8% da meta · folga extra</small></div><span class="tl-mv" style="color:var(--purple)">R$ 956.271</span></div>
+      <div class="tl-mi hi"><span class="tl-md" style="background:#059669"></span><div><b>🏁 Meta –8% · linha de chegada</b><small>100% · teto do ano</small></div><span class="tl-mv" style="color:var(--green)">R$ 977.521</span></div>
+      <div class="tl-mi bad"><span class="tl-md" style="background:#DC2626"></span><div><b>Mínimo –6%</b><small>102,2% · estoura a meta</small></div><span class="tl-mv" style="color:var(--red)">R$ 998.772</span></div>
+      <div class="tl-mi bad"><span class="tl-md" style="background:#B45309"></span><div><b>Orçado FY</b><small>108,7% · meta não cumprida</small></div><span class="tl-mv" style="color:var(--gold)">R$ 1.062.523</span></div>
+    </div>
+
     <!-- LEGENDA -->
     <div class="tl-legend">
       <div class="tl-leg-item"><span class="tl-leg-swatch" style="background:linear-gradient(90deg,#10B981,#059669)"></span>Realizado Jan–Ago</div>
@@ -1705,11 +1899,11 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
         <div>
           <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:2px">Target FY</div>
-          <div style="font-size:18px;font-weight:500;color:var(--amber)">R$ 997.926</div>
+          <div style="font-size:18px;font-weight:500;color:var(--amber)">R$ 998.772</div>
         </div>
         <div>
           <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:2px">Economia total</div>
-          <div style="font-size:18px;font-weight:500;color:var(--amber)">R$ 63.697</div>
+          <div style="font-size:18px;font-weight:500;color:var(--amber)">R$ 63.751</div>
         </div>
       </div>
       <div style="background:#fff;border:1px solid var(--abd);border-radius:var(--rsm);padding:10px 12px;margin-bottom:8px">
@@ -1717,9 +1911,9 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
         <div style="font-size:17px;font-weight:600;color:var(--t1)">R$ 104.856 / mês</div>
         <div style="font-size:10px;color:var(--t3);margin-top:2px">vs ritmo atual R$72.418/mês · +44,8% de margem</div>
       </div>
-      <div style="background:#FEF2F2;border:1px solid var(--rbd);border-radius:var(--rsm);padding:9px 11px">
-        <div style="font-size:10px;font-weight:600;color:var(--red);margin-bottom:2px">Gap vs projeção atual</div>
-        <div style="font-size:13px;font-weight:700;color:var(--red)">economizar +R$ 21.713</div>
+      <div style="background:var(--grbg);border:1px solid var(--grb);border-radius:var(--rsm);padding:9px 11px">
+        <div style="font-size:10px;font-weight:600;color:var(--green);margin-bottom:2px">Status vs projeção atual</div>
+        <div style="font-size:13px;font-weight:700;color:var(--green)">✓ ATINGIDO · folga R$ 129.750</div>
       </div>
     </div>
 
@@ -1735,11 +1929,11 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
         <div>
           <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:2px">Target FY</div>
-          <div style="font-size:18px;font-weight:500;color:var(--green)">R$ 976.694</div>
+          <div style="font-size:18px;font-weight:500;color:var(--green)">R$ 977.521</div>
         </div>
         <div>
           <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:2px">Economia total</div>
-          <div style="font-size:18px;font-weight:500;color:var(--green)">R$ 84.930</div>
+          <div style="font-size:18px;font-weight:500;color:var(--green)">R$ 85.002</div>
         </div>
       </div>
       <div style="background:#fff;border:1px solid var(--grb);border-radius:var(--rsm);padding:10px 12px;margin-bottom:8px">
@@ -1747,9 +1941,9 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
         <div style="font-size:17px;font-weight:600;color:var(--t1)">R$ 99.543 / mês</div>
         <div style="font-size:10px;color:var(--t3);margin-top:2px">vs ritmo atual R$72.418/mês · +37,5% de margem</div>
       </div>
-      <div style="background:#FEF2F2;border:1px solid var(--rbd);border-radius:var(--rsm);padding:9px 11px">
-        <div style="font-size:10px;font-weight:600;color:var(--red);margin-bottom:2px">Gap vs projeção atual</div>
-        <div style="font-size:13px;font-weight:700;color:var(--red)">economizar +R$ 42.946</div>
+      <div style="background:var(--grbg);border:1px solid var(--grb);border-radius:var(--rsm);padding:9px 11px">
+        <div style="font-size:10px;font-weight:600;color:var(--green);margin-bottom:2px">Status vs projeção atual</div>
+        <div style="font-size:13px;font-weight:700;color:var(--green)">✓ ATINGIDO · folga R$ 108.499</div>
       </div>
     </div>
 
@@ -1765,11 +1959,11 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
         <div>
           <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:2px">Target FY</div>
-          <div style="font-size:18px;font-weight:500;color:var(--purple)">R$ 955.461</div>
+          <div style="font-size:18px;font-weight:500;color:var(--purple)">R$ 956.271</div>
         </div>
         <div>
           <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:2px">Economia total</div>
-          <div style="font-size:18px;font-weight:500;color:var(--purple)">R$ 106.162</div>
+          <div style="font-size:18px;font-weight:500;color:var(--purple)">R$ 106.252</div>
         </div>
       </div>
       <div style="background:#fff;border:1px solid var(--pbd);border-radius:var(--rsm);padding:10px 12px;margin-bottom:8px">
@@ -1777,9 +1971,9 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
         <div style="font-size:17px;font-weight:600;color:var(--t1)">R$ 94.231 / mês</div>
         <div style="font-size:10px;color:var(--t3);margin-top:2px">vs ritmo atual R$72.418/mês · +30,1% de margem</div>
       </div>
-      <div style="background:#FEF2F2;border:1px solid var(--rbd);border-radius:var(--rsm);padding:9px 11px">
-        <div style="font-size:10px;font-weight:600;color:var(--red);margin-bottom:2px">Gap vs projeção atual</div>
-        <div style="font-size:13px;font-weight:700;color:var(--red)">economizar +R$ 64.178</div>
+      <div style="background:var(--grbg);border:1px solid var(--grb);border-radius:var(--rsm);padding:9px 11px">
+        <div style="font-size:10px;font-weight:600;color:var(--green);margin-bottom:2px">Status vs projeção atual</div>
+        <div style="font-size:13px;font-weight:700;color:var(--green)">✓ ATINGIDO · folga R$ 87.249</div>
       </div>
     </div>
   </div>
@@ -1796,10 +1990,10 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
     </div>
     <div class="cc" style="margin-bottom:0">
       <div class="cch">
-        <div class="cct">Teto mensal por cenário — Mai a Dezembro</div>
-        <span class="badge bb">8 meses restantes</span>
+        <div class="cct">Teto mensal por cenário — Set a Dezembro</div>
+        <span class="badge bb">4 meses restantes</span>
       </div>
-      <div class="ccs">Quanto pode ser consumido por mês para atingir cada meta (4 meses restantes). Ritmo atual R$71,7k está muito abaixo das 3 metas.</div>
+      <div class="ccs">Quanto pode ser consumido por mês para atingir cada meta (4 meses restantes). Ritmo atual R$72,4k está muito abaixo das 3 metas.</div>
       <div class="cw h260"><canvas id="ch-monthly-cap"></canvas></div>
     </div>
   </div>
@@ -1821,7 +2015,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
             <th class="tr">% Saving</th>
             <th class="tr">Target FY</th>
             <th class="tr">Economia total</th>
-            <th class="tr">Teto/mês Mai–Dez</th>
+            <th class="tr">Teto/mês Set–Dez</th>
             <th class="tr">Δ vs ritmo atual</th>
             <th class="tr">Gap vs projeção</th>
             <th>Status</th>
@@ -2334,13 +2528,13 @@ new Chart(document.getElementById('ch-pareto'),{type:'bar',data:{labels:dreD.map
 /* ============ META BUDGET 2026 — CHARTS & ACTION PLAN ============ */
 
 /* WATERFALL CHART — cascade orçamentária */
-const BUDGET=1062523, REAL=573348, PROJ=860022;
+const BUDGET=1062523, REAL=579348, PROJ=869022;
 const MIN_TARGET=998772, META_TARGET=977521, SUPER_TARGET=956271;
 
 new Chart(document.getElementById('ch-waterfall'),{
   type:'bar',
   data:{
-    labels:['Orçado FY','G&A líq.\nJan–Ago','Saldo\nSet–Dez','Projeção\nFY','Mínimo\n–6%','Meta\n–8%','Supermeta\n–10%'],
+    labels:['Orçado FY','Realizado\nJan–Ago','Saldo\nSet–Dez','Projeção\nFY','Mínimo\n–6%','Meta\n–8%','Supermeta\n–10%'],
     datasets:[{
       data:[BUDGET, REAL, BUDGET-REAL, PROJ, MIN_TARGET, META_TARGET, SUPER_TARGET],
       backgroundColor:['rgba(180,83,9,.85)','rgba(217,119,6,.75)','rgba(29,78,216,.7)','rgba(5,150,105,.9)','rgba(217,119,6,.85)','rgba(5,150,105,.85)','rgba(124,58,237,.85)'],
@@ -2367,7 +2561,7 @@ new Chart(document.getElementById('ch-monthly-cap'),{
   data:{
     labels:['Ritmo atual','Mínimo –6%','Meta –8%','Supermeta –10%'],
     datasets:[{
-      data:[71668, 106356, 101043, 95731],
+      data:[72418, 104856, 99543, 94231],
       backgroundColor:['rgba(100,116,139,.5)','rgba(217,119,6,.8)','rgba(5,150,105,.85)','rgba(124,58,237,.85)'],
       borderColor:['#64748B','#D97706','#059669','#7C3AED'],
       borderWidth:1.5,
@@ -3130,6 +3324,36 @@ function lgTry(){
     if(el) el.addEventListener('keydown',ev=>{ if(ev.key==='Enter') lgTry(); });
   });
   const u=document.getElementById('lg-u'); if(u) setTimeout(()=>u.focus(),120);
+})();
+
+/* ============================ MOBILE ============================ */
+function sbToggle(force){
+  const open = typeof force==='boolean' ? force : !document.body.classList.contains('sb-open');
+  document.body.classList.toggle('sb-open', open);
+}
+(function(){
+  const prev = window.goto;
+  window.goto = function(id, el){
+    prev(id, el);
+    const s = document.getElementById('mtop-s');
+    if(s && el){ s.textContent = el.textContent.replace(/\s+/g,' ').trim(); }
+    if(window.innerWidth <= 900){ sbToggle(false); }
+    setTimeout(()=>window.dispatchEvent(new Event('resize')), 80);
+  };
+  // deslizar no modo apresentação
+  const pr = document.getElementById('pres');
+  if(pr){
+    let x0=null, y0=null;
+    pr.addEventListener('touchstart', e=>{ x0=e.touches[0].clientX; y0=e.touches[0].clientY; }, {passive:true});
+    pr.addEventListener('touchend', e=>{
+      if(x0===null) return;
+      const dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+      if(Math.abs(dx)>55 && Math.abs(dx)>Math.abs(dy)*1.4){ presGo(dx<0?1:-1); }
+      x0=null;
+    }, {passive:true});
+  }
+  // girar o celular redesenha os gráficos
+  window.addEventListener('orientationchange', ()=>setTimeout(()=>window.dispatchEvent(new Event('resize')),250));
 })();
 
 </script>
