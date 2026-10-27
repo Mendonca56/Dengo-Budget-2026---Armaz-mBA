@@ -538,7 +538,7 @@ th.sortable.desc::after { content: '↓'; opacity: 1; color: var(--gold) }
 .pk-s{font-size:11px;color:#94A3B8;line-height:1.4}
 
 .pres-bar-wrap{background:#111C2E;border:1px solid #1E293B;border-radius:12px;padding:24px 26px;margin-bottom:18px}
-.pres-bar-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;flex-wrap:wrap;gap:8px}
+.pres-bar-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:32px;flex-wrap:wrap;gap:8px}
 .pres-bar-t{font-size:14px;font-weight:600;color:#F8FAFC}
 .pres-bar-n{font-size:12px;color:#64748B}
 .pres-bar{position:relative;height:40px;background:#1E293B;border-radius:20px;overflow:visible}
@@ -831,7 +831,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div class="pres-brand-ico"><i class="ti ti-leaf" style="color:#FEF3C7"></i></div>
       <div>
         <div class="pres-brand-t">Dengo · CD Armazém Bahia</div>
-        <div class="pres-brand-s">Budget 2026 · Jan–Ago · Setembro 2026</div>
+        <div class="pres-brand-s">Budget 2026 · Jan–Set · Outubro 2026</div>
       </div>
     </div>
     <button class="pres-close" onclick="presClose()"><i class="ti ti-x" style="font-size:14px"></i><span class="pres-close-txt"> Sair (ESC)</span></button>
@@ -841,8 +841,8 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
 
     <!-- SLIDE 1 — RESULTADO -->
     <div class="pres-slide on" data-s="0">
-      <div class="pres-h">Resultado do ano até Agosto</div>
-      <div class="pres-sub">8 meses lançados · projeção supera as três metas de saving com folga</div>
+      <div class="pres-h">Resultado do ano até Setembro</div>
+      <div class="pres-sub">9 meses lançados · G&A líquido do frete reclassificado para CMV · projeção supera as três metas</div>
       <div class="pk-grid">
         <div class="pk">
           <div class="pk-l">Orçado FY 2026</div>
@@ -850,19 +850,19 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
           <div class="pk-s">Budget anual revisado</div>
         </div>
         <div class="pk green">
-          <div class="pk-l">Realizado Jan–Ago</div>
-          <div class="pk-v green">R$ 579k</div>
-          <div class="pk-s">54,5% do orçado · 8 de 12 meses</div>
+          <div class="pk-l">G&A líquido Jan–Set</div>
+          <div class="pk-v green">R$ 638k</div>
+          <div class="pk-s">60,0% do orçado · 9 de 12 meses</div>
         </div>
         <div class="pk green">
           <div class="pk-l">Projeção FY</div>
-          <div class="pk-v green">R$ 869k</div>
-          <div class="pk-s">Ritmo de R$ 72,4k/mês</div>
+          <div class="pk-v green">R$ 850k</div>
+          <div class="pk-s">Ritmo de R$ 70,9k/mês</div>
         </div>
         <div class="pk purple">
           <div class="pk-l">Saving projetado</div>
-          <div class="pk-v" style="color:#A78BFA">–18,2%</div>
-          <div class="pk-s">R$ 193.501 abaixo do budget</div>
+          <div class="pk-v" style="color:#A78BFA">–20,0%</div>
+          <div class="pk-s">R$ 212.137 abaixo do budget</div>
         </div>
       </div>
       <div class="pres-split">
@@ -872,7 +872,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
           <div class="pres-cw" style="height:262px"><canvas id="pch-burn"></canvas></div>
         </div>
         <div class="pres-chart">
-          <div class="pres-chart-t">De onde vem o saving de R$ 193k</div>
+          <div class="pres-chart-t">De onde vem o saving de R$ 212k</div>
           <div class="pres-chart-s">Principais contribuições por conta</div>
           <div class="pres-cw" style="height:262px"><canvas id="pch-water"></canvas></div>
         </div>
@@ -887,12 +887,12 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div class="pres-bar-wrap">
         <div class="pres-bar-hd">
           <div class="pres-bar-t">Posição atual contra o teto da meta</div>
-          <div class="pres-bar-n">Consumido 59,3% · projeção fecha em 88,9%</div>
+          <div class="pres-bar-n">Consumido 65,2% · projeção fecha em 87,0%</div>
         </div>
         <div class="pres-bar">
           <div class="pres-bar-danger"></div>
-          <div class="pres-bar-real" style="width:54.5%">59,3% da meta</div>
-          <div class="pres-bar-proj" style="left:54.5%;width:27.3%"></div>
+          <div class="pres-bar-real" style="width:60.0%">65,2% da meta</div>
+          <div class="pres-bar-proj" style="left:60.0%;width:20.0%"></div>
           <div class="pres-bar-mk" style="left:90%;background:#A78BFA"></div>
           <div class="pres-bar-mk" style="left:94%;background:#EF4444"></div>
           <div class="pres-bar-finish"></div>
@@ -905,19 +905,19 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
 
       <div class="pk-grid" style="margin-bottom:0">
         <div class="pk green">
-          <div class="pk-l">Consumido</div>
-          <div class="pk-v green" style="font-size:26px">R$ 579.348</div>
-          <div class="pk-s">59,3% da meta</div>
+          <div class="pk-l">G&A líquido consumido</div>
+          <div class="pk-v green" style="font-size:26px">R$ 637.790</div>
+          <div class="pk-s">65,2% da meta</div>
         </div>
         <div class="pk blue">
           <div class="pk-l">Saldo até a meta</div>
-          <div class="pk-v blue" style="font-size:26px">R$ 398.173</div>
-          <div class="pk-s">disponível para Set–Dez</div>
+          <div class="pk-v blue" style="font-size:26px">R$ 339.731</div>
+          <div class="pk-s">disponível para Out–Dez</div>
         </div>
         <div class="pk blue">
           <div class="pk-l">Teto mensal permitido</div>
-          <div class="pk-v blue" style="font-size:26px">R$ 99.543</div>
-          <div class="pk-s">ritmo atual R$ 72,4k · folga de 37%</div>
+          <div class="pk-v blue" style="font-size:26px">R$ 113.244</div>
+          <div class="pk-s">ritmo atual R$ 70,9k · folga de 60%</div>
         </div>
         <div class="pk red">
           <div class="pk-l">Atenção</div>
@@ -927,8 +927,8 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       </div>
 
       <div class="pres-chart" style="margin-top:16px">
-        <div class="pres-chart-t">Orçado dos 4 meses restantes contra o teto permitido</div>
-        <div class="pres-chart-s">Linha verde = teto de R$ 99.543/mês para cumprir a meta · linha tracejada = ritmo atual de R$ 72,4k</div>
+        <div class="pres-chart-t">Orçado dos 3 meses restantes contra o teto permitido</div>
+        <div class="pres-chart-s">Linha verde = teto de R$ 113.244/mês para cumprir a meta · linha tracejada = ritmo atual de R$ 70,9k</div>
         <div class="pres-cw" style="height:200px"><canvas id="pch-rest"></canvas></div>
       </div>
     </div>
@@ -939,7 +939,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div class="pres-sub">Projeção atual comparada aos três cenários definidos para o ano</div>
       <div class="pres-chart" style="margin-bottom:16px">
         <div class="pres-chart-t">Alvo de cada cenário × projeção atual</div>
-        <div class="pres-chart-s">Barras = target de cada cenário · linha vermelha = projeção atual de R$ 869.022</div>
+        <div class="pres-chart-s">Barras = target de cada cenário · linha vermelha = projeção atual de R$ 850.386</div>
         <div class="pres-cw" style="height:150px"><canvas id="pch-scen"></canvas></div>
       </div>
       <table class="pt-tbl">
@@ -949,7 +949,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
             <th class="pt-tr">Saving</th>
             <th class="pt-tr">Target FY</th>
             <th class="pt-tr">Economia</th>
-            <th class="pt-tr">Teto/mês Set–Dez</th>
+            <th class="pt-tr">Teto/mês Out–Dez</th>
             <th class="pt-tr">Folga vs projeção</th>
             <th>Status</th>
           </tr>
@@ -957,10 +957,10 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
         <tbody>
           <tr style="background:#0F2A20">
             <td style="font-weight:600;color:#F8FAFC">Projeção atual</td>
-            <td class="pt-tr" style="color:#10B981;font-weight:700">–18,2%</td>
-            <td class="pt-tr">R$ 869.022</td>
-            <td class="pt-tr" style="color:#10B981;font-weight:600">R$ 193.501</td>
-            <td class="pt-tr">R$ 72.418</td>
+            <td class="pt-tr" style="color:#10B981;font-weight:700">–20,0%</td>
+            <td class="pt-tr">R$ 850.386</td>
+            <td class="pt-tr" style="color:#10B981;font-weight:600">R$ 212.137</td>
+            <td class="pt-tr">R$ 70.866</td>
             <td class="pt-tr">—</td>
             <td><span class="pt-badge" style="background:rgba(16,185,129,.2);color:#10B981">Superando tudo</span></td>
           </tr>
@@ -969,8 +969,8 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
             <td class="pt-tr">–6,0%</td>
             <td class="pt-tr">R$ 998.772</td>
             <td class="pt-tr">R$ 63.751</td>
-            <td class="pt-tr">R$ 104.856</td>
-            <td class="pt-tr" style="color:#10B981;font-weight:600">R$ 129.750</td>
+            <td class="pt-tr">R$ 120.327</td>
+            <td class="pt-tr" style="color:#10B981;font-weight:600">R$ 148.385</td>
             <td><span class="pt-badge" style="background:rgba(16,185,129,.15);color:#10B981">✓ Atingido</span></td>
           </tr>
           <tr>
@@ -978,8 +978,8 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
             <td class="pt-tr">–8,0%</td>
             <td class="pt-tr">R$ 977.521</td>
             <td class="pt-tr">R$ 85.002</td>
-            <td class="pt-tr">R$ 99.543</td>
-            <td class="pt-tr" style="color:#10B981;font-weight:600">R$ 108.499</td>
+            <td class="pt-tr">R$ 113.244</td>
+            <td class="pt-tr" style="color:#10B981;font-weight:600">R$ 127.135</td>
             <td><span class="pt-badge" style="background:rgba(16,185,129,.15);color:#10B981">✓ Atingido</span></td>
           </tr>
           <tr>
@@ -987,8 +987,8 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
             <td class="pt-tr">–10,0%</td>
             <td class="pt-tr">R$ 956.271</td>
             <td class="pt-tr">R$ 106.252</td>
-            <td class="pt-tr">R$ 94.231</td>
-            <td class="pt-tr" style="color:#10B981;font-weight:600">R$ 87.249</td>
+            <td class="pt-tr">R$ 106.160</td>
+            <td class="pt-tr" style="color:#10B981;font-weight:600">R$ 105.884</td>
             <td><span class="pt-badge" style="background:rgba(167,139,250,.18);color:#A78BFA">✓ Atingido</span></td>
           </tr>
         </tbody>
@@ -998,35 +998,35 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
     <!-- SLIDE 4 — DRIVERS E RISCOS -->
     <div class="pres-slide" data-s="3">
       <div class="pres-h">O que sustenta o resultado e o que monitorar</div>
-      <div class="pres-sub">Drivers estruturais do saving e pontos de atenção para Set–Dez</div>
+      <div class="pres-sub">Drivers estruturais do saving e pontos de atenção para Out–Dez</div>
 
       <div class="pres-split-2">
         <div class="pres-chart">
-          <div class="pres-chart-t" style="color:#10B981">Driver · Frete em 33% do orçado</div>
-          <div class="pres-chart-s">R$ 46.850 de R$ 140.766 · reclassificação para CMV a partir de Setembro</div>
+          <div class="pres-chart-t" style="color:#A78BFA">Driver · Frete de cacau migrou para CMV</div>
+          <div class="pres-chart-s">G&A congelado em R$ 46.850 de R$ 140.766 · Setembro reclassificado (barra roxa)</div>
           <div class="pres-cw" style="height:158px"><canvas id="pch-frete"></canvas></div>
         </div>
         <div class="pres-chart">
           <div class="pres-chart-t" style="color:#10B981">Driver · Ritmo mensal em queda</div>
-          <div class="pres-chart-s">Média móvel caiu de R$ 76,7k (Jan–Jul) para R$ 72,4k (Jan–Ago)</div>
+          <div class="pres-chart-s">Média móvel caiu de R$ 72,4k (Jan–Ago) para R$ 70,9k (Jan–Set)</div>
           <div class="pres-cw" style="height:158px"><canvas id="pch-ritmo"></canvas></div>
         </div>
       </div>
 
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#FBBF24;margin:18px 0 11px">Pontos de atenção para Set–Dez</div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#FBBF24;margin:18px 0 11px">Pontos de atenção para Out–Dez</div>
       <div class="pl-list">
         <div class="pl-item">
           <div class="pl-ico" style="background:rgba(251,191,36,.16);color:#FBBF24"><i class="ti ti-calendar-exclamation"></i></div>
           <div>
             <div class="pl-t">Outubro concentra R$ 126.253</div>
-            <div class="pl-d">Maior mês do orçado FY, 11,9% do total e 74% acima do ritmo atual de R$ 72,4k.</div>
+            <div class="pl-d">Maior mês do orçado FY, 11,9% do total e 78% acima do ritmo atual de R$ 70,9k. Único mês restante acima do teto da meta.</div>
           </div>
         </div>
         <div class="pl-item">
           <div class="pl-ico" style="background:rgba(251,191,36,.16);color:#FBBF24"><i class="ti ti-alert-triangle"></i></div>
           <div>
-            <div class="pl-t">Estorno de R$ 22.185 no Oximaster em Agosto</div>
-            <div class="pl-d" style="margin-bottom:7px">Crédito pontual derrubou a conta para R$ 54.412 de R$ 114.836 (47,4%). Sem esse evento, a projeção FY seria ~R$ 902k em vez de R$ 869k.</div>
+            <div class="pl-t">Parte do saving é contábil, não operacional</div>
+            <div class="pl-d" style="margin-bottom:7px">O estorno de R$ 22.185 no Oximaster (Ago) e a saída do frete para CMV respondem por boa parte da folga. Oximaster segue em R$ 54.412 de R$ 114.836 (47,4%).</div>
             <div style="height:7px;background:#1E293B;border-radius:4px;overflow:hidden"><div style="height:100%;width:47.4%;background:linear-gradient(90deg,#F59E0B,#FBBF24);border-radius:4px"></div></div>
           </div>
         </div>
@@ -1126,7 +1126,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div class="si-icon"><i class="ti ti-calendar-check"></i></div>
       <div class="si-body">
         <div class="si-lbl">Realizado</div>
-        <div class="si-val">Jan–Ago 2026</div>
+        <div class="si-val">Jan–Set 2026</div>
       </div>
     </div>
 
@@ -1142,7 +1142,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div class="si-icon"><i class="ti ti-chart-line"></i></div>
       <div class="si-body">
         <div class="si-lbl">Projeção base</div>
-        <div class="si-val">R$ 869.022</div>
+        <div class="si-val">R$ 850.386</div>
       </div>
     </div>
 
@@ -1150,11 +1150,11 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div class="si-icon"><i class="ti ti-trophy"></i></div>
       <div class="si-body">
         <div class="si-lbl">Saving projetado</div>
-        <div class="si-val">–18,2% ✓✓</div>
+        <div class="si-val">–20,0% ✓✓</div>
       </div>
     </div>
   </div>
-  <div class="sb-foot"><div class="sf-txt">Apresentação Diretoria<br>Setembro 2026</div></div>
+  <div class="sb-foot"><div class="sf-txt">Apresentação Diretoria<br>Outubro 2026</div></div>
 </aside>
 
 <main class="main">
@@ -1164,10 +1164,10 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
 ====================================================== -->
 <div class="sec vis" id="sec-vg">
   <div class="sh">
-    <div><div class="st">Budget 2026 — G&A Sem HC</div><div class="sd">CD Armazém Bahia · Ricardo/Caio · BR02001 · Jan–Ago realizados · Set–Dez projeção · frete de Ago contabilizado com ressalva</div></div>
+    <div><div class="st">Budget 2026 — G&A Sem HC</div><div class="sd">CD Armazém Bahia · Ricardo/Caio · BR02001 · Jan–Set realizados · Out–Dez projeção · frete de Set reclassificado p/ CMV</div></div>
     <div class="sb2r">
       <span class="badge bg">Budget 2026</span>
-      <span class="badge bgr">Jan–Ago Realizado</span>
+      <span class="badge bgr">Jan–Set Realizado</span>
       <span class="badge bgr">Supermeta atingida ✓✓</span>
       <span class="badge bp">6 insights</span>
 
@@ -1180,45 +1180,45 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
   <div class="pipe">
     <div class="pi" data-tip="Budget anual revisado para R$1.062.523&#10;Ajustes em Mar (−R$600) e Mai (+R$1.500)&#10;Base de todas as metas"><div class="pl">Orçado FY 2026</div><div class="pv">R$ 1.062.523</div><div class="pd">Budget anual · revisado</div></div>
     <div class="pa"><i class="ti ti-chevron-right"></i></div>
-    <div class="pi" data-tip="Realizado Jan-Ago com o frete de Agosto&#10;contabilizado (R$6.000), conforme economia&#10;já reportada. Reclassificação p/ CMV evidenciada."><div class="pl">Realizado Jan–Ago</div><div class="pv pwn">R$ 579.348</div><div class="pd">8 meses · 54,5% · frete incluso</div></div>
+    <div class="pi" data-tip="G&A líquido Jan-Set&#10;Bruto lançado: R$645.075&#10;(−) frete de Set em CMV: R$7.286"><div class="pl">Realizado G&A Jan–Set</div><div class="pv pwn">R$ 637.790</div><div class="pd">9 meses · 60,0% · líq. de CMV</div></div>
     <div class="pa"><i class="ti ti-chevron-right"></i></div>
-    <div class="pi" data-tip="Saldo = Orçado FY – Realizado&#10;R$1.062.523 – R$579.348 = R$483.175&#10;Disponível para Set-Dez (4 meses)"><div class="pl">Saldo disponível</div><div class="pv">R$ 483.175</div><div class="pd">45,5% do orçado FY</div></div>
+    <div class="pi" data-tip="Saldo = Orçado FY – G&A líquido&#10;R$1.062.523 – R$637.790 = R$424.733&#10;Disponível para Out-Dez (3 meses)"><div class="pl">Saldo disponível</div><div class="pv">R$ 424.733</div><div class="pd">40,0% do orçado FY</div></div>
     <div class="pa"><i class="ti ti-chevron-right"></i></div>
-    <div class="pi" data-tip="Projeção FY = média mensal × 12&#10;Média Jan-Ago: R$72.418/mês&#10;Projeção total: R$869.022 (–18,2%)"><div class="pl">Projeção FY · cenário base</div><div class="pv pgd">R$ 869.022</div><div class="pd">–18,2% · supera as 3 metas ✓✓</div></div>
+    <div class="pi" data-tip="Projeção FY = média mensal × 12&#10;Média Jan-Set: R$70.866/mês&#10;Projeção total: R$850.386 (–20,0%)"><div class="pl">Projeção FY · cenário base</div><div class="pv pgd">R$ 850.386</div><div class="pd">–20,0% · supera as 3 metas ✓✓</div></div>
   </div>
 
   <!-- KPIs -->
   <div class="g4">
     <div class="card blg" data-tip="Orçado FY 2026 aprovado em ciclo orçamentário&#10;Base de comparação anual&#10;Crescimento de R$205.952 vs 2025"><i class="ti ti-cash ci"></i><div class="cl">Orçado FY 2026</div><div class="cv">R$ 1.063k</div><div class="cd">Budget anual revisado</div><div class="cy yw">↑ +24,2% vs orçado 2025</div></div>
-    <div class="card blgr" data-tip="Realizado Jan-Ago: R$579.347,84&#10;Inclui R$6.000 de frete de Agosto&#10;que será reclassificado p/ CMV"><i class="ti ti-check ci"></i><div class="cl">Realizado Jan–Ago</div><div class="cv" style="color:var(--green)">R$ 579k</div><div class="cd">8 meses · 54,5% · frete incluso</div><div class="cy ydn">↓ R$151k abaixo do orçado parcial</div></div>
-    <div class="card blgr" data-tip="Orçado Jan-Ago: R$730.729&#10;Realizado Jan-Ago: R$579.348&#10;Economia: +R$151.381 (20,7% abaixo)"><i class="ti ti-coin ci"></i><div class="cl">Economia acumulada Jan–Ago</div><div class="cv" style="color:var(--green)">+R$ 151k</div><div class="cd">Orç. R$ 731k · Real R$ 579k</div><div class="cy ydn">↓ 20,7% abaixo do orçado parcial</div></div>
-    <div class="card blgr" data-tip="Projeção FY em R$869.022&#10;Supera as 3 metas&#10;Folga sobre Supermeta: R$87.249"><i class="ti ti-target-arrow ci"></i><div class="cl">Saving projetado FY</div><div class="cv" style="color:var(--green)">–18,2%</div><div class="cd">R$193.501 abaixo do budget FY</div><div class="cy ydn">✓✓ Supera as 3 metas</div></div>
+    <div class="card blgr" data-tip="Bruto lançado Jan-Set: R$645.075&#10;(−) CMV frete cacau (Set): R$7.286&#10;(=) G&A líquido: R$637.790"><i class="ti ti-check ci"></i><div class="cl">Realizado G&A Jan–Set</div><div class="cv" style="color:var(--green)">R$ 638k</div><div class="cd">9 meses · 60,0% · líquido de CMV</div><div class="cy ydn">↓ R$161k abaixo do orçado parcial</div></div>
+    <div class="card blgr" data-tip="Orçado Jan-Set: R$798.808&#10;G&A líquido Jan-Set: R$637.790&#10;Economia: +R$161.018 (20,2% abaixo)"><i class="ti ti-coin ci"></i><div class="cl">Economia acumulada Jan–Set</div><div class="cv" style="color:var(--green)">+R$ 161k</div><div class="cd">Orç. R$ 799k · Real R$ 638k</div><div class="cy ydn">↓ 20,2% abaixo do orçado parcial</div></div>
+    <div class="card blgr" data-tip="Projeção FY em R$850.386&#10;Supera as 3 metas&#10;Folga sobre Supermeta: R$105.884"><i class="ti ti-target-arrow ci"></i><div class="cl">Saving projetado FY</div><div class="cv" style="color:var(--green)">–20,0%</div><div class="cd">R$212.137 abaixo do budget FY</div><div class="cy ydn">✓✓ Supera as 3 metas</div></div>
   </div>
 
   <!-- PONTE DE RECONCILIAÇÃO G&A × CMV -->
   <div class="cmv-bridge">
-    <div class="cmv-br-i neutral" data-tip="Realizado Jan-Ago conforme planilha&#10;Inclui o frete de Agosto, conforme&#10;a economia já reportada">
-      <div class="cmv-br-l">Realizado contabilizado</div>
-      <div class="cmv-br-v" style="color:var(--t1)">R$ 579.348</div>
-      <div class="cmv-br-s">Jan–Ago · base do reporte</div>
+    <div class="cmv-br-i neutral" data-tip="Soma de tudo lançado nas contas de despesa&#10;Jan-Set, antes da reclassificação">
+      <div class="cmv-br-l">Bruto lançado no período</div>
+      <div class="cmv-br-v" style="color:var(--t1)">R$ 645.075</div>
+      <div class="cmv-br-s">Jan–Set · total desembolsado</div>
     </div>
     <div class="cmv-br-op"><i class="ti ti-minus" style="font-size:12px"></i></div>
-    <div class="cmv-br-i cmv" data-tip="Frete de Agosto que tem contrapartida&#10;em CMV mas foi mantido em G&A&#10;por decisão de gestão">
-      <div class="cmv-br-l">Frete a reclassificar</div>
-      <div class="cmv-br-v" style="color:var(--purple)">R$ 6.000</div>
-      <div class="cmv-br-s">Ago · mantido em G&A</div>
+    <div class="cmv-br-i cmv" data-tip="Frete de cacau de Setembro, reclassificado&#10;para CMV conforme a regra vigente&#10;Agosto segue em G&A por decisão de gestão">
+      <div class="cmv-br-l">Reclassificado p/ CMV</div>
+      <div class="cmv-br-v" style="color:var(--purple)">R$ 7.286</div>
+      <div class="cmv-br-s">frete de Set · fora do G&A</div>
     </div>
     <div class="cmv-br-op"><i class="ti ti-equal" style="font-size:12px"></i></div>
-    <div class="cmv-br-i final" data-tip="Valor que o realizado teria caso a&#10;reclassificação fosse aplicada em Agosto&#10;Mantido apenas como referência">
-      <div class="cmv-br-l">Se reclassificado seria</div>
-      <div class="cmv-br-v" style="color:var(--green)">R$ 573.348</div>
-      <div class="cmv-br-s">referência · não aplicada</div>
+    <div class="cmv-br-i final" data-tip="Este é o número que conta para o budget&#10;e para a meta de saving de –8%">
+      <div class="cmv-br-l">Realizado G&A líquido</div>
+      <div class="cmv-br-v" style="color:var(--green)">R$ 637.790</div>
+      <div class="cmv-br-s">base da meta · Jan–Set</div>
     </div>
     <div class="cmv-br-op"><i class="ti ti-chevron-right"></i></div>
-    <div class="cmv-br-i" data-tip="A partir de Set/2026 o frete de cacau&#10;passa a ser reclassificado e sai do G&A">
-      <div class="cmv-br-l">Vigência da regra</div>
-      <div class="cmv-br-v" style="color:var(--blue);font-size:15px">Set/2026</div>
-      <div class="cmv-br-s">a partir do próximo mês</div>
+    <div class="cmv-br-i" data-tip="A reclassificação não consome budget&#10;nem altera a projeção de saving">
+      <div class="cmv-br-l">Impacto na meta</div>
+      <div class="cmv-br-v" style="color:var(--t3)">R$ 0</div>
+      <div class="cmv-br-s">CMV não consome G&A</div>
     </div>
   </div>
 
@@ -1315,33 +1315,33 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
   <!-- ① SAZONALIDADE -->
   <div class="cc" id="s-sazon">
     <div class="cch">
-      <div><div class="cct">① Sazonalidade histórica — 2026 Orçado e Realizado Jan–Ago</div></div>
+      <div><div class="cct">① Sazonalidade histórica — 2026 Orçado e Realizado Jan–Set</div></div>
       <span class="badge bp">Insight #1</span>
     </div>
-    <div class="ccs">2026 orçado (barras azuis) × realizado Jan–Ago (barras verdes) × projeção Set–Dez (amarelo) × linha roxa histórica 2025.</div>
+    <div class="ccs">2026 orçado (barras azuis) × realizado Jan–Set (barras verdes) × projeção Out–Dez (amarelo) × linha roxa histórica 2025.</div>
 
     <div class="leg">
       <div class="li"><span class="ld" style="background:rgba(147,197,253,.6)"></span>2026 Orçado</div>
-      <div class="li"><span class="ld" style="background:#6EE7B7"></span>2026 Realizado (Jan–Ago)</div>
-      <div class="li"><span class="ld" style="background:#FCD34D;opacity:.8"></span>2026 Projeção (Set–Dez)</div>
+      <div class="li"><span class="ld" style="background:#6EE7B7"></span>2026 Realizado (Jan–Set)</div>
+      <div class="li"><span class="ld" style="background:#FCD34D;opacity:.8"></span>2026 Projeção (Out–Dez)</div>
       <div class="li"><span class="ld" style="background:#7C3AED"></span>2025 Realizado (histórico)</div>
     </div>
     <div class="cw h220"><canvas id="ch-sazon"></canvas></div>
     <div class="g3" style="margin-top:12px;margin-bottom:0">
       <div style="background:var(--grbg);border-radius:var(--rsm);padding:10px 12px;border:1px solid var(--grb)">
-        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--green);margin-bottom:4px">Ago 2026 · realizado</div>
-        <div style="font-size:14px;font-weight:500;color:var(--green)">R$ 42.322</div>
-        <div style="font-size:10px;color:var(--t3);margin-top:2px">50% do orçado · com estorno Oximaster</div>
+        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--green);margin-bottom:4px">Set 2026 · G&A líquido</div>
+        <div style="font-size:14px;font-weight:500;color:var(--green)">R$ 58.442</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:2px">86% do orçado · frete já em CMV</div>
       </div>
       <div style="background:var(--gbg);border-radius:var(--rsm);padding:10px 12px;border:1px solid var(--gb)">
-        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:4px">Média mensal Jan-Ago</div>
-        <div style="font-size:14px;font-weight:500;color:var(--gold)">R$ 72.418</div>
-        <div style="font-size:10px;color:var(--t3);margin-top:2px">–5,6% vs média anterior (Jan-Jul)</div>
+        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:4px">Média mensal Jan-Set</div>
+        <div style="font-size:14px;font-weight:500;color:var(--gold)">R$ 70.866</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:2px">–2,1% vs média anterior (Jan-Ago)</div>
       </div>
       <div style="background:var(--pbg);border-radius:var(--rsm);padding:10px 12px;border:1px solid var(--pbd)">
         <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--purple);margin-bottom:4px">Projeção FY vs Budget</div>
-        <div style="font-size:14px;font-weight:500;color:var(--purple)">–18,2%</div>
-        <div style="font-size:10px;color:var(--t3);margin-top:2px">Supera Supermeta em R$87,2k ✓✓</div>
+        <div style="font-size:14px;font-weight:500;color:var(--purple)">–20,0%</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:2px">Supera Supermeta em R$105,9k ✓✓</div>
       </div>
     </div>
   </div>
@@ -1349,37 +1349,37 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
   <!-- ② CENÁRIOS -->
   <div class="cc" id="s-cen">
     <div class="cch"><div class="cct">② Projeção por cenário — Otimista · Base · Pessimista</div><span class="badge bb">Insight #2</span></div>
-    <div class="ccs">R$579.348 realizados Jan–Ago + comportamento esperado Set–Dez por 3 hipóteses de volume de compra de cacau</div>
+    <div class="ccs">R$637.790 (G&A líquido) realizados Jan–Set + comportamento esperado Out–Dez por 3 hipóteses de volume de compra de cacau</div>
     <div class="ceng">
       <div class="cen otm">
         <div class="ctag" style="background:#D1FAE5;color:#059669"><i class="ti ti-trending-down" style="font-size:11px"></i> Otimista</div>
-        <div class="cval" style="color:var(--green)">R$ 845.000</div>
-        <div class="cdel" style="color:var(--green)">–R$ 217.523 vs budget (–20,5%)</div>
+        <div class="cval" style="color:var(--green)">R$ 828.000</div>
+        <div class="cdel" style="color:var(--green)">–R$ 234.523 vs budget (–22,1%)</div>
         <div class="citm">
-          <span>• Ritmo atual: R$72,4k/mês</span>
-          <span>• Frete em CMV a partir de Set</span>
+          <span>• Ritmo atual: R$70,9k/mês</span>
+          <span>• Frete de cacau 100% em CMV</span>
           <span>• Sem novos picos de consumo</span>
           <span style="color:var(--green);font-weight:700;margin-top:4px">→ Ultrapassa Super em R$60k</span>
         </div>
       </div>
       <div class="cen bas">
         <div class="ctag" style="background:#D1FAE5;color:#059669"><i class="ti ti-target" style="font-size:11px"></i> Base (mais provável)</div>
-        <div class="cval" style="color:var(--green)">R$ 869.022</div>
-        <div class="cdel" style="color:var(--green)">–R$ 193.501 vs budget (–18,2%)</div>
+        <div class="cval" style="color:var(--green)">R$ 850.386</div>
+        <div class="cdel" style="color:var(--green)">–R$ 212.137 vs budget (–20,0%)</div>
         <div class="citm">
-          <span>• Média Jan–Ago: R$72,4k/mês</span>
+          <span>• Média Jan–Set: R$70,9k/mês</span>
           <span>• Mantém ritmo até Dez</span>
-          <span>• Frete sai do G&A em Set</span>
-          <span style="color:var(--green);font-weight:700;margin-top:4px">→ Supera Supermeta (–R$87k)</span>
+          <span>• Frete de cacau fora do G&A</span>
+          <span style="color:var(--green);font-weight:700;margin-top:4px">→ Supera Supermeta (–R$106k)</span>
         </div>
       </div>
       <div class="cen pes">
         <div class="ctag" style="background:#FDE68A;color:#B45309"><i class="ti ti-alert-circle" style="font-size:11px"></i> Pessimista</div>
-        <div class="cval" style="color:var(--green)">R$ 948.000</div>
-        <div class="cdel" style="color:var(--green)">–R$ 114.523 vs budget (–10,8%)</div>
+        <div class="cval" style="color:var(--green)">R$ 930.000</div>
+        <div class="cdel" style="color:var(--green)">–R$ 132.523 vs budget (–12,5%)</div>
         <div class="citm">
-          <span>• Retomada forte compras Q4</span>
-          <span>• Out R$126k orçado · monitorar</span>
+          <span>• Out orçado em R$126k · pico anual</span>
+          <span>• Retomada forte de compras no Q4</span>
           <span>• Estorno Oximaster não se repete</span>
           <span style="color:var(--green);font-weight:700;margin-top:4px">→ Mesmo pessimista, bate Super</span>
         </div>
@@ -1399,25 +1399,25 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
   <div class="bench">
     <div class="bht"><i class="ti ti-flag"></i> Comparativo anual — G&A Sem HC · Armazém Bahia</div>
     <div class="bg3">
-      <div class="bi"><div class="bl">Realizado 2025 · Jan-Ago</div><div class="bv">R$ 551.646</div><div class="bs">8 meses histórico</div></div>
-      <div class="bi"><div class="bl">Realizado 2026 · Jan-Ago</div><div class="bv" style="color:var(--gold)">R$ 579.348</div><div class="bs">+5,0% vs 2025 · +R$27.702</div></div>
-      <div class="bi"><div class="bl">Projeção FY 2026 (base)</div><div class="bv" style="color:var(--green)">R$ 869.022</div><div class="bs">–18,2% vs budget · supera tudo ✓✓</div></div>
+      <div class="bi"><div class="bl">Realizado 2025 · Jan-Set</div><div class="bv">R$ 649.903</div><div class="bs">9 meses histórico</div></div>
+      <div class="bi"><div class="bl">G&A líquido 2026 · Jan-Set</div><div class="bv" style="color:var(--green)">R$ 637.790</div><div class="bs">–1,9% vs 2025 · –R$12.113</div></div>
+      <div class="bi"><div class="bl">Projeção FY 2026 (base)</div><div class="bv" style="color:var(--green)">R$ 850.386</div><div class="bs">–20,0% vs budget · supera tudo ✓✓</div></div>
     </div>
   </div>
 
   <!-- ALERTS -->
   <div class="ag">
-    <div class="alert green"><i class="ti ti-trophy ai"></i><div><div class="at">Projeção supera as 3 metas com folga de R$87.249 sobre a Supermeta</div><div class="ad">Média de R$72,4k/mês em Jan–Ago projeta FY em R$869.022 — R$193.501 abaixo do budget revisado de R$1.062.523. Inclui o frete de Agosto (R$6.000), conforme a economia reportada.</div></div></div>
-    <div class="alert green"><i class="ti ti-truck ai"></i><div><div class="at">Frete em 33% do orçado — reclassificação vale a partir de Setembro</div><div class="ad">Com os R$6.000 de Agosto contabilizados, a Transporte Bahia soma R$46.850 de R$140.766 orçados. Do saldo de R$93.916, o frete de cacau a partir de Set passa a ser reclassificado para CMV e não consumirá mais essa conta.</div></div></div>
-    <div class="alert green"><i class="ti ti-arrow-down ai"></i><div><div class="at">Atenção: Agosto contém estorno de R$22.185 no Oximaster</div><div class="ad">O realizado de Agosto (R$42.322) está reduzido por um crédito de R$22.184,60 em Outras Desp. de Consumo. Sem esse evento pontual, o mês seria R$64.507 e a projeção FY ficaria em ~R$902k. Vale considerar na leitura da tendência.</div></div></div>
-    <div class="alert blue"><i class="ti ti-calendar ai"></i><div><div class="at">Atenção: Out 2026 orçado em R$126.253</div><div class="ad">Outubro concentra 11,9% do budget anual — maior mês do FY e 74% acima do ritmo atual. Monitorar antecipadamente para preservar a folga de R$193k.</div></div></div>
+    <div class="alert green"><i class="ti ti-trophy ai"></i><div><div class="at">Projeção supera as 3 metas com folga de R$105.884 sobre a Supermeta</div><div class="ad">Média de R$70,9k/mês em Jan–Set projeta FY em R$850.386 — R$212.137 abaixo do budget revisado de R$1.062.523. G&A já líquido do frete de Setembro reclassificado para CMV.</div></div></div>
+    <div class="alert green"><i class="ti ti-truck ai"></i><div><div class="at">Frete saiu do G&A — conta congelada em R$46.850 (33%)</div><div class="ad">Os R$7.285,60 de Setembro foram reclassificados para CMV e não entram na despesa. A Transporte Bahia deve permanecer zerada em G&A até Dezembro, com R$93.916 de orçado que não será consumido.</div></div></div>
+    <div class="alert green"><i class="ti ti-arrow-down ai"></i><div><div class="at">Setembro normalizado — R$58.442, o mês mais previsível do ano</div><div class="ad">Sem estornos ou picos: 86% do orçado do mês, com todas as contas estruturais no ritmo. Vale lembrar que Agosto (R$42.322) ainda carrega o crédito de R$22.185 no Oximaster, que puxa a média para baixo e não se repete.</div></div></div>
+    <div class="alert blue"><i class="ti ti-calendar ai"></i><div><div class="at">Atenção: Out 2026 orçado em R$126.253</div><div class="ad">Outubro concentra 11,9% do budget anual — maior mês do FY e 78% acima do ritmo atual e único mês restante acima do teto da meta. Monitorar para preservar a folga de R$212k.</div></div></div>
   </div>
 
   <!-- ③ TOP 5 SALDO CRÍTICO + MAIOR FOLGA -->
   <div class="g2" id="s-top5">
     <div class="cc" style="margin-bottom:0">
       <div class="cch"><div class="cct">③ Saldo crítico — maior % do budget já consumido</div><span class="badge br">Insight #3</span></div>
-      <div class="ccs">Contas que mais consumiram do budget anual. Saldo restante = o que ainda pode ser gasto nos 4 meses restantes. Risco real = saldo próximo de zero.</div>
+      <div class="ccs">Contas que mais consumiram do budget anual. Saldo restante = o que ainda pode ser gasto nos 3 meses restantes. Risco real = saldo próximo de zero.</div>
       <div id="top5-risco"></div>
     </div>
     <div class="cc" style="margin-bottom:0">
@@ -1432,17 +1432,17 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
   <!-- ④ FRETE -->
   <div class="fp">
     <div class="fph">
-      <div class="fpt"><i class="ti ti-truck"></i> ④ Eficiência de Frete — Leite Express/Smartlog/Cereais · Conta 61320104 <span class="cmv-badge">CMV a partir de Set/26</span></div>
+      <div class="fpt"><i class="ti ti-truck"></i> ④ Eficiência de Frete — Leite Express/Smartlog/Cereais · Conta 61320104 <span class="cmv-badge">CMV desde Set/26</span></div>
       <span class="badge bgr"><i class="ti ti-star"></i> Destaque Diretoria</span>
     </div>
     <div class="fkp">
       <div class="fk"><div class="fkl">Orçado FY</div><div class="fkv">R$ 140.766</div><div class="fks">2ª maior conta · 13,3%</div></div>
-      <div class="fk"><div class="fkl">Realizado Jan–Ago</div><div class="fkv" style="color:var(--green)">R$ 46.850</div><div class="fks">33,3% do orçado FY</div></div>
+      <div class="fk"><div class="fkl">Realizado G&A Jan–Set</div><div class="fkv" style="color:var(--green)">R$ 46.850</div><div class="fks">33,3% · congelado desde Set</div></div>
       <div class="fk"><div class="fkl">Saldo preservado</div><div class="fkv" style="color:var(--green)">R$ 93.916</div><div class="fks">saldo disponível no FY</div></div>
-      <div class="fk"><div class="fkl">Ago · com ressalva</div><div class="fkv" style="color:var(--amber)">R$ 6.000</div><div class="fks">contabilizado · CMV em Set</div></div>
-      <div class="fk"><div class="fkl">Meses sem frete</div><div class="fkv" style="color:var(--green)">4 de 8</div><div class="fks">Mar, Abr, Mai e Jul</div></div>
+      <div class="fk"><div class="fkl">Set · reclassificado</div><div class="fkv" style="color:var(--purple)">R$ 7.286</div><div class="fks">migrou para CMV</div></div>
+      <div class="fk"><div class="fkl">Meses sem frete em G&A</div><div class="fkv" style="color:var(--green)">5 de 9</div><div class="fks">Mar,Abr,Mai,Jul + Set via CMV</div></div>
     </div>
-    <div class="fmg" style="grid-template-columns:repeat(8,1fr)">
+    <div class="fmg" style="grid-template-columns:repeat(9,1fr)">
       <div class="fm"><div class="fmn">Jan</div><div class="fmr" style="color:var(--amber)">R$ 29.718</div><div class="fmo">orç. R$ 36.543</div><div class="fmb"><div class="fmbf" style="width:81%;background:#D97706"></div></div><div class="fms" style="color:var(--amber)">81%</div></div>
       <div class="fm"><div class="fmn">Fev</div><div class="fmr" style="color:var(--amber)">R$ 5.082</div><div class="fmo">orç. R$ 7.936</div><div class="fmb"><div class="fmbf" style="width:64%;background:#D97706"></div></div><div class="fms" style="color:var(--amber)">64%</div></div>
       <div class="fm" style="background:#ECFDF5;border-color:var(--grb)"><div class="fmn" style="color:var(--green)">Mar ✓</div><div class="fmr" style="color:var(--green)">R$ 0</div><div class="fmo">orç. R$ 5.600</div><div class="fmb"><div class="fmbf" style="width:0%"></div></div><div class="fms" style="color:var(--green)">Sem cacau</div></div>
@@ -1450,26 +1450,27 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div class="fm" style="background:#ECFDF5;border-color:var(--grb)"><div class="fmn" style="color:var(--green)">Mai ✓</div><div class="fmr" style="color:var(--green)">R$ 0</div><div class="fmo">orç. R$ 7.936</div><div class="fmb"><div class="fmbf" style="width:0%"></div></div><div class="fms" style="color:var(--green)">Sem cacau</div></div>
       <div class="fm"><div class="fmn">Jun</div><div class="fmr" style="color:var(--amber)">R$ 6.050</div><div class="fmo">orç. R$ 5.600</div><div class="fmb"><div class="fmbf" style="width:100%;background:#D97706"></div></div><div class="fms" style="color:var(--amber)">Retomada</div></div>
       <div class="fm" style="background:#ECFDF5;border-color:var(--grb)"><div class="fmn" style="color:var(--green)">Jul ✓</div><div class="fmr" style="color:var(--green)">R$ 0</div><div class="fmo">orç. R$ 5.600</div><div class="fmb"><div class="fmbf" style="width:0%"></div></div><div class="fms" style="color:var(--green)">Sem cacau</div></div>
-      <div class="fm" style="background:#FFFBEB;border-color:var(--abd)"><div class="fmn" style="color:var(--amber)">Ago ⚠</div><div class="fmr" style="color:var(--amber)">R$ 6.000</div><div class="fmo">orç. R$ 17.972</div><div class="fmb"><div class="fmbf" style="width:33%;background:#D97706"></div></div><div class="fms" style="color:var(--amber)">33% · CMV em Set</div></div>
+      <div class="fm" style="background:#FFFBEB;border-color:var(--abd)"><div class="fmn" style="color:var(--amber)">Ago ⚠</div><div class="fmr" style="color:var(--amber)">R$ 6.000</div><div class="fmo">orç. R$ 17.972</div><div class="fmb"><div class="fmbf" style="width:33%;background:#D97706"></div></div><div class="fms" style="color:var(--amber)">33% · com ressalva</div></div>
+      <div class="fm" style="background:#F5F3FF;border-color:var(--pbd)"><div class="fmn" style="color:var(--purple)">Set · CMV</div><div class="fmr" style="color:var(--purple)">R$ 0</div><div class="fmo">bruto R$ 7.286</div><div class="fmb"><div class="fmbf" style="width:0%"></div></div><div class="fms" style="color:var(--purple)">Reclassificado</div></div>
     </div>
-    <div class="fnota"><strong>Agosto contabilizado, reclassificação a partir de Setembro:</strong> a conta soma R$46.850 de R$140.766 orçados (33,3%). Os R$6.000 de Agosto têm contrapartida em CMV no razão, mas foram mantidos na despesa por já integrarem a economia reportada. Do saldo de <strong>R$93.916</strong>, o frete de cacau a partir de Set migra para CMV.</div>
+    <div class="fnota"><strong>Regra em vigor desde Setembro — frete fora da despesa:</strong> a conta fecha congelada em R$46.850 de R$140.766 orçados (33,3%). Os R$7.285,60 de Setembro já foram para CMV; Agosto permanece em G&A por decisão de gestão. O saldo de <strong>R$93.916</strong> não deve ser consumido até Dezembro — é saving de natureza contábil, não eficiência operacional.</div>
   </div>
 
   <!-- CHARTS MENSAIS -->
   <div class="g2">
     <div class="cc" style="margin-bottom:0">
       <div class="cch"><div class="cct">Orçado × Realizado × Projeção — Mês a mês</div><span class="badge bg">FY 2026</span></div>
-      <div class="ccs">Jan–Ago realizados · Set–Dez projeção R$72,4k/mês</div>
+      <div class="ccs">Jan–Set realizados (G&A líquido) · Out–Dez projeção R$70,9k/mês</div>
       <div class="leg">
         <div class="li"><span class="ld" style="background:#93C5FD"></span>Orçado</div>
-        <div class="li"><span class="ld" style="background:#6EE7B7"></span>Realizado (Jan–Ago)</div>
-        <div class="li"><span class="ld" style="background:#FCD34D"></span>Projeção (Set–Dez)</div>
+        <div class="li"><span class="ld" style="background:#6EE7B7"></span>Realizado (Jan–Set)</div>
+        <div class="li"><span class="ld" style="background:#FCD34D"></span>Projeção (Out–Dez)</div>
       </div>
       <div class="cw h200"><canvas id="ch-mensal"></canvas></div>
     </div>
     <div class="cc" style="margin-bottom:0">
-      <div class="cch"><div class="cct">Frete mensal — Realizado × Orçado (8 meses)</div><span class="badge ba">Ago com ressalva</span></div>
-      <div class="ccs">Agosto contabilizado na despesa · contorno roxo indica o valor com contrapartida em CMV</div>
+      <div class="cch"><div class="cct">Frete mensal — G&A × CMV (9 meses)</div><span class="badge bp">Set em CMV</span></div>
+      <div class="ccs">Barra roxa = Setembro reclassificado para CMV, fora da despesa G&A</div>
       <div class="leg">
         <div class="li"><span class="ld" style="background:#93C5FD"></span>Orçado</div>
         <div class="li"><span class="ld" style="background:#D97706"></span>Realizado</div>
@@ -1483,8 +1484,8 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
 
   <!-- ⑤ EFICIÊNCIA POR CATEGORIA -->
   <div class="cc" id="s-ef">
-    <div class="cch"><div class="cct">⑤ Saldo orçamentário disponível por categoria — Set–Dez</div><span class="badge bp">Insight #5</span></div>
-    <div class="ccs">Quanto de budget resta em cada categoria para os 4 meses restantes. Ordenado do maior saldo ao menor. Verde = folgado (&gt;60% restante). Amarelo = usar com atenção (30–60%). Vermelho = saldo crítico ou já estourado.</div>
+    <div class="cch"><div class="cct">⑤ Saldo orçamentário disponível por categoria — Out–Dez</div><span class="badge bp">Insight #5</span></div>
+    <div class="ccs">Quanto de budget resta em cada categoria para os 3 meses restantes. Ordenado do maior saldo ao menor. Verde = folgado (&gt;60% restante). Amarelo = usar com atenção (30–60%). Vermelho = saldo crítico ou já estourado.</div>
     <div id="ef-list"></div>
     <div class="g3" style="margin-top:13px;margin-bottom:0">
       <div style="background:var(--grbg);border:1px solid var(--grb);border-radius:var(--rsm);padding:10px 12px;text-align:center">
@@ -1508,11 +1509,11 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
   <!-- ⑥ TABELA SEMÁFORO -->
   <div class="cc" id="s-tbl">
     <div class="cch">
-      <div><div class="cct">⑥ Detalhamento por conta — Semáforo + Realizado Jan–Ago</div></div>
+      <div><div class="cct">⑥ Detalhamento por conta — Semáforo + Realizado Jan–Set (G&A líquido)</div></div>
       <div style="display:flex;gap:5px;flex-wrap:wrap">
         <span class="badge bg">28 contratos</span>
         <span class="badge bp">Semáforo · Insight #6</span>
-        <span class="badge bgr">Ago consolidado</span>
+        <span class="badge bgr">Set consolidado</span>
       </div>
     </div>
     <div class="ccs">🟢 Saldo folgado (≤ 60% do FY consumido) · 🟡 Atenção (60–80% consumido) · 🔴 Saldo crítico (&gt; 80% consumido ou já estourou)</div>
@@ -1527,14 +1528,14 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
           <th>Sinal</th>
           <th class="sortable" data-col="d" data-type="text">Conta / Fornecedor</th>
           <th class="tr sortable" data-col="o" data-type="num">Orçado FY</th>
-          <th class="tr sortable" data-col="r" data-type="num">Real. Jan–Ago</th>
+          <th class="tr sortable" data-col="r" data-type="num">Real. Jan–Set</th>
           <th class="tr sortable" data-col="p" data-type="num">%</th>
           <th>Execução</th>
-          <th class="tr sortable" data-col="ar" data-type="num">Abr</th>
           <th class="tr sortable" data-col="mar" data-type="num">Mai</th>
           <th class="tr sortable" data-col="jur" data-type="num">Jun</th>
           <th class="tr sortable" data-col="jlr" data-type="num">Jul</th>
           <th class="tr sortable" data-col="agr" data-type="num">Ago</th>
+          <th class="tr sortable" data-col="setr" data-type="num">Set</th>
           <th class="tr sortable" data-col="saldo" data-type="num">Saldo</th>
         </tr></thead>
         <tbody id="tbl-contas"></tbody>
@@ -1709,31 +1710,31 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div class="pd">base do plano · revisado</div>
     </div>
     <div class="pa"><i class="ti ti-minus" style="font-size:13px"></i></div>
-    <div class="pi" style="background:#FEF3C7" data-tip="G&A líquido consumido em Jan-Ago&#10;Já descontado o frete reclassificado p/ CMV">
-      <div class="pl">Realizado Jan–Ago</div>
-      <div class="pv" style="color:var(--gold)">R$ 579.348</div>
-      <div class="pd">já consumido · 54,5%</div>
+    <div class="pi" style="background:#FEF3C7" data-tip="G&A líquido consumido em Jan-Set&#10;Já descontado o frete reclassificado p/ CMV">
+      <div class="pl">G&A líquido Jan–Set</div>
+      <div class="pv" style="color:var(--gold)">R$ 637.790</div>
+      <div class="pd">já consumido · 60,0%</div>
     </div>
     <div class="pa"><i class="ti ti-equal" style="font-size:13px"></i></div>
-    <div class="pi" style="background:#EFF6FF" data-tip="Saldo livre para consumir em Set-Dez&#10;Distribuído entre 4 meses (R$120,8k/mês teórico)">
+    <div class="pi" style="background:#EFF6FF" data-tip="Saldo livre para consumir em Out-Dez&#10;Distribuído entre 3 meses (R$141,6k/mês teórico)">
       <div class="pl">Saldo disponível</div>
-      <div class="pv" style="color:var(--blue)">R$ 483.175</div>
-      <div class="pd">para Set–Dez</div>
+      <div class="pv" style="color:var(--blue)">R$ 424.733</div>
+      <div class="pd">para Out–Dez</div>
     </div>
     <div class="pa"><i class="ti ti-chevron-right"></i></div>
-    <div class="pi" style="background:#FFFBEB" data-tip="Meta MÍNIMA aceitável de saving&#10;Cálculo: Orçado FY × 0,94&#10;Teto mensal Set-Dez: R$104.856/mês&#10;ATINGIDO ✓ (–R$129.750 de folga)">
+    <div class="pi" style="background:#FFFBEB" data-tip="Meta MÍNIMA aceitável de saving&#10;Cálculo: Orçado FY × 0,94&#10;Teto mensal Out-Dez: R$120.327/mês&#10;ATINGIDO ✓ (–R$148.385 de folga)">
       <div class="pl" style="color:var(--amber)">Mínimo –6%</div>
       <div class="pv" style="color:var(--amber);font-size:15px">R$ 998.772</div>
       <div class="pd">economia R$63.751</div>
     </div>
     <div class="pa" style="background:#FFFBEB"><i class="ti ti-chevron-right"></i></div>
-    <div class="pi" style="background:#ECFDF5" data-tip="META principal do plano de saving&#10;Cálculo: Orçado FY × 0,92&#10;Teto mensal Set-Dez: R$99.543/mês&#10;ATINGIDO ✓ (–R$108.499 de folga)">
+    <div class="pi" style="background:#ECFDF5" data-tip="META principal do plano de saving&#10;Cálculo: Orçado FY × 0,92&#10;Teto mensal Out-Dez: R$113.244/mês&#10;ATINGIDO ✓ (–R$127.135 de folga)">
       <div class="pl" style="color:var(--green)">Meta –8%</div>
       <div class="pv" style="color:var(--green);font-size:15px">R$ 977.521</div>
       <div class="pd">economia R$85.002</div>
     </div>
     <div class="pa" style="background:#ECFDF5"><i class="ti ti-chevron-right"></i></div>
-    <div class="pi" style="background:#F5F3FF" data-tip="SUPER META ambiciosa&#10;Cálculo: Orçado FY × 0,90&#10;Teto mensal Set-Dez: R$94.231/mês&#10;ATINGIDO ✓ (–R$87.249 de folga)">
+    <div class="pi" style="background:#F5F3FF" data-tip="SUPER META ambiciosa&#10;Cálculo: Orçado FY × 0,90&#10;Teto mensal Out-Dez: R$106.160/mês&#10;ATINGIDO ✓ (–R$105.884 de folga)">
       <div class="pl" style="color:var(--purple)">Supermeta –10%</div>
       <div class="pv" style="color:var(--purple);font-size:15px">R$ 956.271</div>
       <div class="pd">economia R$106.252</div>
@@ -1744,8 +1745,8 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
   <div class="alert green" style="margin-bottom:13px">
     <i class="ti ti-trophy ai"></i>
     <div>
-      <div class="at">Meta do ano: 59,3% consumida · projeção fecha em 88,9% da meta ✓</div>
-      <div class="ad">Contra o <strong>teto da meta (R$977.521)</strong>, foram consumidos R$579.348 (59,3%), restando <strong>R$398.173 para Set–Dez</strong> — um teto de <strong>R$99.543/mês</strong>. No ritmo atual de R$72,4k/mês a projeção fecha em R$869.022, ou <strong>88,9% da meta</strong>, com folga de R$108.499. Atenção: entregar o orçado FY integral (R$1.062.523) representaria <strong style="color:var(--red)">108,7% da meta</strong> — meta não cumprida.</div>
+      <div class="at">Meta do ano: 65,2% consumida · projeção fecha em 87,0% da meta ✓</div>
+      <div class="ad">Contra o <strong>teto da meta (R$977.521)</strong>, foram consumidos R$637.790 em G&A líquido (65,2%), restando <strong>R$339.731 para Out–Dez</strong> — um teto de <strong>R$113.244/mês</strong>. No ritmo atual de R$70,9k/mês a projeção fecha em R$850.386, ou <strong>87,0% da meta</strong>, com folga de R$127.135. Atenção: entregar o orçado FY integral (R$1.062.523) representaria <strong style="color:var(--red)">108,7% da meta</strong> — meta não cumprida.</div>
     </div>
   </div>
 
@@ -1768,21 +1769,21 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       </div>
       <div class="mt-st-arrow"><i class="ti ti-minus"></i></div>
       <div class="mt-st-item">
-        <div class="mt-st-lbl">Realizado Jan–Ago</div>
-        <div class="mt-st-val" style="color:var(--gold)">R$ 579.348</div>
-        <div class="mt-st-sub">59,3% da meta</div>
+        <div class="mt-st-lbl">G&A líquido Jan–Set</div>
+        <div class="mt-st-val" style="color:var(--gold)">R$ 637.790</div>
+        <div class="mt-st-sub">65,2% da meta</div>
       </div>
       <div class="mt-st-arrow"><i class="ti ti-equal"></i></div>
       <div class="mt-st-item highlight">
         <div class="mt-st-lbl">Saldo até a meta</div>
-        <div class="mt-st-val" style="color:var(--blue)">R$ 398.173</div>
-        <div class="mt-st-sub">40,7% restante · Set–Dez</div>
+        <div class="mt-st-val" style="color:var(--blue)">R$ 339.731</div>
+        <div class="mt-st-sub">34,8% restante · Out–Dez</div>
       </div>
       <div class="mt-st-arrow"><i class="ti ti-chevron-right"></i></div>
       <div class="mt-st-item">
         <div class="mt-st-lbl">Teto mensal permitido</div>
-        <div class="mt-st-val" style="color:var(--blue)">R$ 99.543</div>
-        <div class="mt-st-sub">4 meses · ritmo atual R$72,4k ✓</div>
+        <div class="mt-st-val" style="color:var(--blue)">R$ 113.244</div>
+        <div class="mt-st-sub">3 meses · ritmo atual R$70,9k ✓</div>
       </div>
     </div>
 
@@ -1832,8 +1833,8 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
         <!-- zona de estouro da meta (92% → 100%) -->
         <div class="tl-danger" data-tip="Zona de estouro da meta&#10;Acima de R$977.521 a meta de –8% não é cumprida&#10;mesmo estando dentro do orçado FY"></div>
 
-        <div class="tl-fill-real" style="width:54.5%">59,3% da meta</div>
-        <div class="tl-fill-proj" style="left:54.5%;width:27.3%"></div>
+        <div class="tl-fill-real" style="width:60.0%">65,2% da meta</div>
+        <div class="tl-fill-proj" style="left:60.0%;width:20.0%"></div>
 
         <!-- linha de chegada -->
         <div class="tl-finish" data-tip="🏁 META –8% = R$977.521&#10;Este é o teto do ano&#10;Ficar abaixo = meta cumprida"></div>
@@ -1847,21 +1848,21 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       <div class="tl-callouts-bottom">
         <div class="tl-cb-start">Início · R$ 0</div>
 
-        <div class="tl-callout realized" style="left:54.5%">
+        <div class="tl-callout realized" style="left:60.0%">
           <div class="tl-co-arrow"></div>
           <div class="tl-co-box">
             <div class="tl-co-lbl">✓ Você está aqui</div>
-            <div class="tl-co-val">R$ 579.348</div>
-            <div class="tl-co-sub">59,3% da meta · Jan–Ago</div>
+            <div class="tl-co-val">R$ 637.790</div>
+            <div class="tl-co-sub">65,2% da meta · Jan–Set</div>
           </div>
         </div>
 
-        <div class="tl-callout" style="left:81.8%">
+        <div class="tl-callout" style="left:80.0%">
           <div class="tl-co-arrow" style="border-bottom:7px solid var(--green)"></div>
           <div class="tl-co-box" style="background:var(--grbg);border-color:var(--green);color:var(--green)">
             <div class="tl-co-lbl">✓ Projeção atual</div>
-            <div class="tl-co-val">R$ 869.022</div>
-            <div class="tl-co-sub">88,9% da meta · folga R$108.499</div>
+            <div class="tl-co-val">R$ 850.386</div>
+            <div class="tl-co-sub">87,0% da meta · folga R$127.135</div>
           </div>
         </div>
       </div>
@@ -1876,8 +1877,8 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
 
     <!-- LEGENDA -->
     <div class="tl-legend">
-      <div class="tl-leg-item"><span class="tl-leg-swatch" style="background:linear-gradient(90deg,#10B981,#059669)"></span>Realizado Jan–Ago</div>
-      <div class="tl-leg-item"><span class="tl-leg-swatch" style="background:repeating-linear-gradient(135deg,rgba(245,158,11,.35),rgba(245,158,11,.35) 4px,rgba(245,158,11,.55) 4px,rgba(245,158,11,.55) 8px)"></span>Projeção Set–Dez</div>
+      <div class="tl-leg-item"><span class="tl-leg-swatch" style="background:linear-gradient(90deg,#10B981,#059669)"></span>G&A líquido Jan–Set</div>
+      <div class="tl-leg-item"><span class="tl-leg-swatch" style="background:repeating-linear-gradient(135deg,rgba(245,158,11,.35),rgba(245,158,11,.35) 4px,rgba(245,158,11,.55) 4px,rgba(245,158,11,.55) 8px)"></span>Projeção Out–Dez</div>
       <div class="tl-leg-item"><span class="tl-leg-swatch" style="background:repeating-linear-gradient(135deg,rgba(220,38,38,.12),rgba(220,38,38,.12) 4px,rgba(220,38,38,.22) 4px,rgba(220,38,38,.22) 8px)"></span>Zona de estouro da meta</div>
       <div class="tl-leg-item"><span class="tl-leg-line" style="background:#059669;width:4px"></span>🏁 Meta –8% (100%)</div>
       <div class="tl-leg-item"><span class="tl-leg-line" style="background:#7C3AED"></span>Supermeta</div>
@@ -1907,13 +1908,13 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
         </div>
       </div>
       <div style="background:#fff;border:1px solid var(--abd);border-radius:var(--rsm);padding:10px 12px;margin-bottom:8px">
-        <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:3px">Teto mensal Set–Dez (4 meses)</div>
-        <div style="font-size:17px;font-weight:600;color:var(--t1)">R$ 104.856 / mês</div>
-        <div style="font-size:10px;color:var(--t3);margin-top:2px">vs ritmo atual R$72.418/mês · +44,8% de margem</div>
+        <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:3px">Teto mensal Out–Dez (3 meses)</div>
+        <div style="font-size:17px;font-weight:600;color:var(--t1)">R$ 120.327 / mês</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:2px">vs ritmo atual R$70.866/mês · +69,8% de margem</div>
       </div>
       <div style="background:var(--grbg);border:1px solid var(--grb);border-radius:var(--rsm);padding:9px 11px">
         <div style="font-size:10px;font-weight:600;color:var(--green);margin-bottom:2px">Status vs projeção atual</div>
-        <div style="font-size:13px;font-weight:700;color:var(--green)">✓ ATINGIDO · folga R$ 129.750</div>
+        <div style="font-size:13px;font-weight:700;color:var(--green)">✓ ATINGIDO · folga R$ 148.385</div>
       </div>
     </div>
 
@@ -1937,13 +1938,13 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
         </div>
       </div>
       <div style="background:#fff;border:1px solid var(--grb);border-radius:var(--rsm);padding:10px 12px;margin-bottom:8px">
-        <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:3px">Teto mensal Set–Dez (4 meses)</div>
-        <div style="font-size:17px;font-weight:600;color:var(--t1)">R$ 99.543 / mês</div>
-        <div style="font-size:10px;color:var(--t3);margin-top:2px">vs ritmo atual R$72.418/mês · +37,5% de margem</div>
+        <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:3px">Teto mensal Out–Dez (3 meses)</div>
+        <div style="font-size:17px;font-weight:600;color:var(--t1)">R$ 113.244 / mês</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:2px">vs ritmo atual R$70.866/mês · +59,8% de margem</div>
       </div>
       <div style="background:var(--grbg);border:1px solid var(--grb);border-radius:var(--rsm);padding:9px 11px">
         <div style="font-size:10px;font-weight:600;color:var(--green);margin-bottom:2px">Status vs projeção atual</div>
-        <div style="font-size:13px;font-weight:700;color:var(--green)">✓ ATINGIDO · folga R$ 108.499</div>
+        <div style="font-size:13px;font-weight:700;color:var(--green)">✓ ATINGIDO · folga R$ 127.135</div>
       </div>
     </div>
 
@@ -1967,13 +1968,13 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
         </div>
       </div>
       <div style="background:#fff;border:1px solid var(--pbd);border-radius:var(--rsm);padding:10px 12px;margin-bottom:8px">
-        <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:3px">Teto mensal Set–Dez (4 meses)</div>
-        <div style="font-size:17px;font-weight:600;color:var(--t1)">R$ 94.231 / mês</div>
-        <div style="font-size:10px;color:var(--t3);margin-top:2px">vs ritmo atual R$72.418/mês · +30,1% de margem</div>
+        <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t2);margin-bottom:3px">Teto mensal Out–Dez (3 meses)</div>
+        <div style="font-size:17px;font-weight:600;color:var(--t1)">R$ 106.160 / mês</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:2px">vs ritmo atual R$70.866/mês · +49,8% de margem</div>
       </div>
       <div style="background:var(--grbg);border:1px solid var(--grb);border-radius:var(--rsm);padding:9px 11px">
         <div style="font-size:10px;font-weight:600;color:var(--green);margin-bottom:2px">Status vs projeção atual</div>
-        <div style="font-size:13px;font-weight:700;color:var(--green)">✓ ATINGIDO · folga R$ 87.249</div>
+        <div style="font-size:13px;font-weight:700;color:var(--green)">✓ ATINGIDO · folga R$ 105.884</div>
       </div>
     </div>
   </div>
@@ -1990,10 +1991,10 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
     </div>
     <div class="cc" style="margin-bottom:0">
       <div class="cch">
-        <div class="cct">Teto mensal por cenário — Set a Dezembro</div>
-        <span class="badge bb">4 meses restantes</span>
+        <div class="cct">Teto mensal por cenário — Out a Dezembro</div>
+        <span class="badge bb">3 meses restantes</span>
       </div>
-      <div class="ccs">Quanto pode ser consumido por mês para atingir cada meta (4 meses restantes). Ritmo atual R$72,4k está muito abaixo das 3 metas.</div>
+      <div class="ccs">Quanto pode ser consumido por mês para atingir cada meta (3 meses restantes). Ritmo atual R$70,9k está muito abaixo das 3 metas.</div>
       <div class="cw h260"><canvas id="ch-monthly-cap"></canvas></div>
     </div>
   </div>
@@ -2015,7 +2016,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
             <th class="tr">% Saving</th>
             <th class="tr">Target FY</th>
             <th class="tr">Economia total</th>
-            <th class="tr">Teto/mês Set–Dez</th>
+            <th class="tr">Teto/mês Out–Dez</th>
             <th class="tr">Δ vs ritmo atual</th>
             <th class="tr">Gap vs projeção</th>
             <th>Status</th>
@@ -2023,11 +2024,11 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
         </thead>
         <tbody>
           <tr style="background:#ECFDF5">
-            <td style="font-weight:600">Projeção atual (média Jan–Ago)</td>
-            <td class="tr" style="color:var(--green);font-weight:700">–18,2%</td>
-            <td class="tr">R$ 869.022</td>
-            <td class="tr" style="color:var(--green);font-weight:700">R$ 193.501</td>
-            <td class="tr">R$ 72.418</td>
+            <td style="font-weight:600">Projeção atual (média Jan–Set)</td>
+            <td class="tr" style="color:var(--green);font-weight:700">–20,0%</td>
+            <td class="tr">R$ 850.386</td>
+            <td class="tr" style="color:var(--green);font-weight:700">R$ 212.137</td>
+            <td class="tr">R$ 70.866</td>
             <td class="tr">–</td>
             <td class="tr">–</td>
             <td><span class="tbg" style="background:#D1FAE5;color:var(--green)">Supera as 3 metas ✓✓</span></td>
@@ -2037,9 +2038,9 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
             <td class="tr" style="color:var(--green);font-weight:700">–6,0%</td>
             <td class="tr" style="font-weight:600">R$ 998.772</td>
             <td class="tr" style="color:var(--green);font-weight:600">R$ 63.751</td>
-            <td class="tr">R$ 104.856</td>
-            <td class="tr" style="color:var(--green)">+R$ 32.438 (+44,8%)</td>
-            <td class="tr" style="color:var(--green);font-weight:700">✓ –R$ 129.750 (folga)</td>
+            <td class="tr">R$ 120.327</td>
+            <td class="tr" style="color:var(--green)">+R$ 49.461 (+69,8%)</td>
+            <td class="tr" style="color:var(--green);font-weight:700">✓ –R$ 148.385 (folga)</td>
             <td><span class="tbg" style="background:#D1FAE5;color:var(--green)">✓ Atingido</span></td>
           </tr>
           <tr style="background:#F0FDF4">
@@ -2047,9 +2048,9 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
             <td class="tr" style="color:var(--green);font-weight:700">–8,0%</td>
             <td class="tr" style="font-weight:600">R$ 977.521</td>
             <td class="tr" style="color:var(--green);font-weight:600">R$ 85.002</td>
-            <td class="tr">R$ 99.543</td>
-            <td class="tr" style="color:var(--green)">+R$ 27.125 (+37,5%)</td>
-            <td class="tr" style="color:var(--green);font-weight:700">✓ –R$ 108.499 (folga)</td>
+            <td class="tr">R$ 113.244</td>
+            <td class="tr" style="color:var(--green)">+R$ 42.378 (+59,8%)</td>
+            <td class="tr" style="color:var(--green);font-weight:700">✓ –R$ 127.135 (folga)</td>
             <td><span class="tbg" style="background:#D1FAE5;color:var(--green)">✓ Atingido</span></td>
           </tr>
           <tr style="background:#F0FDF4">
@@ -2057,9 +2058,9 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
             <td class="tr" style="color:var(--green);font-weight:700">–10,0%</td>
             <td class="tr" style="font-weight:600">R$ 956.271</td>
             <td class="tr" style="color:var(--green);font-weight:600">R$ 106.252</td>
-            <td class="tr">R$ 94.231</td>
-            <td class="tr" style="color:var(--green)">+R$ 21.813 (+30,1%)</td>
-            <td class="tr" style="color:var(--green);font-weight:700">✓ –R$ 87.249 (folga)</td>
+            <td class="tr">R$ 106.160</td>
+            <td class="tr" style="color:var(--green)">+R$ 35.294 (+49,8%)</td>
+            <td class="tr" style="color:var(--green);font-weight:700">✓ –R$ 105.884 (folga)</td>
             <td><span class="tbg" style="background:#D1FAE5;color:var(--green)">✓ Atingido</span></td>
           </tr>
         </tbody>
@@ -2106,29 +2107,29 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
     <div class="alert green">
       <i class="ti ti-trophy ai"></i>
       <div>
-        <div class="at">Projeção supera a Supermeta com R$87.249 de folga ✓✓✓</div>
-        <div class="ad">Média Jan–Ago de R$72,4k/mês projeta FY em R$869.022, ou –18,2% sobre o budget revisado. Vale ponderar que parte dessa folga vem do estorno de R$22.185 em Agosto, evento não recorrente.</div>
+        <div class="at">Projeção supera a Supermeta com R$105.884 de folga ✓✓✓</div>
+        <div class="ad">Média Jan–Set de R$70,9k/mês projeta FY em R$850.386, ou –20,0% sobre o budget revisado. Vale ponderar que parte dessa folga vem do estorno de R$22.185 em Agosto e da saída do frete para CMV — nenhum dos dois é eficiência operacional recorrente.</div>
       </div>
     </div>
     <div class="alert green">
       <i class="ti ti-truck ai"></i>
       <div>
-        <div class="at">Frete sai do G&A a partir de Setembro — R$93.916 de saldo</div>
-        <div class="ad">Agosto foi contabilizado com os R$6.000, conforme a economia reportada. De Set em diante o frete de cacau é reclassificado para CMV, e o saldo orçado remanescente da Transporte Bahia vira saving de natureza contábil, não eficiência operacional.</div>
+        <div class="at">Frete fora do G&A desde Setembro — R$93.916 de saldo não consumido</div>
+        <div class="ad">Os R$7.285,60 de Set já foram para CMV. A Transporte Bahia fica congelada em R$46.850 de R$140.766 orçados até Dezembro, e esse saldo remanescente vira saving de natureza contábil. Na leitura executiva, vale separá-lo do ganho operacional.</div>
       </div>
     </div>
     <div class="alert blue">
       <i class="ti ti-shield-check ai"></i>
       <div>
         <div class="at">Fatores estruturais que sustentam a projeção</div>
-        <div class="ad">(1) Watson estável em R$27,3k/mês; (2) Aluguel Máq. e Limpeza no ritmo linear; (3) frete sai do G&A a partir de Set; (4) oito meses consecutivos abaixo do orçado parcial.</div>
+        <div class="ad">(1) Watson estável em R$27,3k/mês; (2) Aluguel Máq. e Limpeza no ritmo linear; (3) frete fora do G&A desde Set; (4) nove meses consecutivos abaixo do orçado parcial.</div>
       </div>
     </div>
     <div class="alert gold">
       <i class="ti ti-alert-triangle ai"></i>
       <div>
         <div class="at">Riscos monitorar até Dez para preservar a folga</div>
-        <div class="ad">(1) Estorno de R$22.185 no Oximaster em Ago não se repete — projeção normalizada seria ~R$902k; (2) Out orçado em R$126k, 74% acima do ritmo atual; (3) a partir de Set parte do saving passa a ser reclassificação de frete, não eficiência.</div>
+        <div class="ad">(1) Out orçado em R$126k, 78% acima do ritmo atual — único mês restante acima do teto da meta; (2) estorno de R$22.185 no Oximaster em Ago não se repete; (3) parte do saving vem da reclassificação de frete, não de eficiência.</div>
       </div>
     </div>
   </div>
@@ -2142,54 +2143,54 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
   <div class="sh">
     <div>
       <div class="st">CMV — Fretes Cacau</div>
-      <div class="sd">Frete de cacau reclassificado para Custo da Mercadoria · Agosto contabilizado com ressalva · reclassificação vigente a partir de Set/2026</div>
+      <div class="sd">Frete de cacau reclassificado para Custo da Mercadoria · Frete de cacau reclassificado para CMV · vigente desde Set/2026 · não compõe despesa G&A</div>
     </div>
     <div class="sb2r">
       <span class="badge bp">CMV</span>
       <span class="badge bgy">Conta 61320104</span>
-      <span class="badge ba">Ago com ressalva</span>
+      <span class="badge bgr">Não impacta a meta</span>
     </div>
   </div>
 
   <div class="cmv-note">
     <i class="ti ti-info-circle"></i>
     <div>
-      <div class="cmv-note-t">Como funciona — e por que Agosto foi mantido em G&A</div>
-      <div class="cmv-note-d">A fatura de frete entra como débito na conta de despesa Transporte Bahia e, no fechamento do mês, recebe um crédito de igual valor via documento de reclassificação, migrando o custo para o CMV do cacau. Em Agosto, embora o razão já traga a contrapartida, o valor foi <strong>mantido na despesa</strong> por decisão de gestão, já que a economia do mês foi reportada com o frete incluso. A reclassificação passa a valer <strong>a partir de Setembro/2026</strong>, quando os valores saem do G&A e deixam de consumir budget.</div>
+      <div class="cmv-note-t">Como funciona a reclassificação</div>
+      <div class="cmv-note-d">A fatura de frete entra como débito na conta de despesa Transporte Bahia e, no fechamento do mês, recebe um crédito de igual valor via documento de reclassificação, migrando o custo para o CMV do cacau. A regra está em vigor <strong>desde Setembro/2026</strong>: os valores saem do G&A, não consomem budget e não afetam a meta de –8%. Agosto é a única exceção — os R$6.000 foram mantidos na despesa por decisão de gestão, já que a economia daquele mês foi reportada com o frete incluso.</div>
     </div>
   </div>
 
   <div class="g4">
     <div class="card blp" data-tip="Total de frete de cacau reclassificado&#10;para CMV no exercício de 2026"><i class="ti ti-package-export ci"></i>
-      <div class="cl">Frete com contrapartida CMV</div>
-      <div class="cv" style="color:var(--purple)">R$ 6.000</div>
-      <div class="cd">Ago/2026 · mantido em G&A</div>
-      <div class="cy yp">reclassificação a partir de Set</div>
+      <div class="cl">CMV acumulado 2026</div>
+      <div class="cv" style="color:var(--purple)">R$ 7.286</div>
+      <div class="cd">Frete de cacau reclassificado</div>
+      <div class="cy yp">1 mês sob a nova regra</div>
     </div>
     <div class="card blgr" data-tip="Efeito líquido dos lançamentos de frete&#10;nas contas de despesa G&A"><i class="ti ti-equal ci"></i>
-      <div class="cl">Contabilizado em Ago</div>
+      <div class="cl">Exceção de Agosto</div>
       <div class="cv" style="color:var(--amber)">R$ 6.000</div>
-      <div class="cd">Integra a economia reportada</div>
-      <div class="cy yw">⚠ com ressalva</div>
+      <div class="cd">Mantido em G&A por decisão</div>
+      <div class="cy yw">⚠ economia já reportada</div>
     </div>
     <div class="card blg" data-tip="Mês em que o novo tratamento contábil&#10;passou a valer"><i class="ti ti-calendar-event ci"></i>
-      <div class="cl">Vigência da reclassificação</div>
+      <div class="cl">Vigência da regra</div>
       <div class="cv" style="font-size:19px">Set/2026</div>
-      <div class="cd">A partir do próximo mês</div>
+      <div class="cd">Primeiro mês reclassificado</div>
       <div class="cy yeq">Jan–Ago mantidos em G&A</div>
     </div>
     <div class="card blb" data-tip="Frete lançado em G&A antes da mudança&#10;Permanece no realizado do período"><i class="ti ti-history ci"></i>
-      <div class="cl">Frete em G&A (Jan–Ago)</div>
+      <div class="cl">Frete em G&A (congelado)</div>
       <div class="cv" style="color:var(--blue)">R$ 46.850</div>
-      <div class="cd">33,3% do orçado FY</div>
-      <div class="cy yeq">Saldo R$93.916</div>
+      <div class="cd">33,3% do orçado FY · Jan–Ago</div>
+      <div class="cy yeq">Saldo R$93.916 não consumido</div>
     </div>
   </div>
 
   <!-- FLUXO CONTÁBIL -->
   <div class="cc">
     <div class="cch">
-      <div><div class="cct">Mecânica do lançamento — Agosto/2026 (razão contábil)</div></div>
+      <div><div class="cct">Mecânica do lançamento — exemplo de Agosto/2026 (razão contábil)</div></div>
       <span class="badge bgy">Razão · conta 61320104</span>
     </div>
     <div class="ccs">Sequência de débito e crédito que neutraliza o frete na despesa e transfere o custo para CMV</div>
@@ -2207,9 +2208,9 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
       </div>
       <div class="cmv-op"><i class="ti ti-equal"></i></div>
       <div class="cmv-fl res">
-        <div class="cmv-fl-t" style="color:var(--amber)"><i class="ti ti-alert-triangle" style="vertical-align:-1px"></i> Tratamento em Ago</div>
-        <div class="cmv-fl-v" style="color:var(--amber)">R$ 6.000,00</div>
-        <div class="cmv-fl-d">Mantido em G&A<br>Reclassificação a partir de Set</div>
+        <div class="cmv-fl-t" style="color:var(--purple)"><i class="ti ti-package-export" style="vertical-align:-1px"></i> Destino · CMV</div>
+        <div class="cmv-fl-v" style="color:var(--purple)">R$ 6.000,00</div>
+        <div class="cmv-fl-d">Em Ago: mantido em G&A<br>De Set em diante: sai da despesa</div>
       </div>
     </div>
   </div>
@@ -2236,7 +2237,7 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
           <tbody id="cmv-tbl"></tbody>
           <tfoot>
             <tr style="background:var(--slag);font-weight:700">
-              <td colspan="2">TOTAL Ago/2026</td>
+              <td colspan="2">TOTAL 2026</td>
               <td class="tr" id="cmv-t-bruto">—</td>
               <td class="tr" id="cmv-t-est">—</td>
               <td class="tr" style="color:var(--amber)" id="cmv-t-liq">—</td>
@@ -2248,10 +2249,10 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
     </div>
     <div class="cc" style="margin-bottom:0">
       <div class="cch">
-        <div class="cct">Frete de cacau — realizado mensal em G&A</div>
+        <div class="cct">Frete de cacau — G&A até Ago × CMV desde Set</div>
         <span class="badge bgy">Transição</span>
       </div>
-      <div class="ccs">Todos os meses, inclusive Agosto, compõem a despesa G&A · CMV passa a valer em Set</div>
+      <div class="ccs">Barras verdes e âmbar = frete que compôs despesa G&A · roxa = reclassificado para CMV</div>
       <div class="cw h240"><canvas id="ch-cmv"></canvas></div>
     </div>
   </div>
@@ -2260,12 +2261,12 @@ body.locked .app,body.locked .pres-trigger{display:none!important}
 
   <div class="ag">
     <div class="alert purple"><i class="ti ti-package-export ai"></i>
-      <div><div class="at">Agosto contabilizado com ressalva · CMV vale a partir de Setembro</div>
-      <div class="ad">Os R$6.000 de Agosto permanecem na despesa porque a economia do mês já foi reportada com o frete incluso. De Set/2026 em diante o frete de cacau passa a integrar o CMV e a conta Transporte Bahia tende a fechar em zero no G&A.</div></div>
+      <div><div class="at">Frete de cacau deixou de ser despesa operacional</div>
+      <div class="ad">Desde Set/2026 o frete integra o custo do cacau. Os R$7.285,60 do mês não entram no G&A, e a conta Transporte Bahia tende a permanecer zerada na despesa até Dezembro — o custo aparece apenas neste módulo. Agosto segue como exceção por já ter sido reportado.</div></div>
     </div>
     <div class="alert gold"><i class="ti ti-alert-triangle ai"></i>
       <div><div class="at">O orçado de frete permanece em G&A</div>
-      <div class="ad">Por decisão de gestão, o budget da Transporte Bahia não foi reclassificado. Com o frete migrando para CMV a partir de Set, o saldo de R$93.916 tende a gerar saving adicional de natureza contábil — vale destacar essa distinção na leitura executiva do resultado.</div></div>
+      <div class="ad">Por decisão de gestão, o budget da Transporte Bahia não foi reclassificado. Com o frete fora do G&A desde Set, o saldo de R$93.916 gera saving de natureza contábil — vale destacar essa distinção na leitura executiva, separando-a do ganho operacional real.</div></div>
     </div>
   </div>
 </div>
@@ -2284,13 +2285,13 @@ const brlk=v=>'R$'+Math.round(v/1000)+'k';
 const MONTHS=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
 
 /* ---- ACCOUNT DATA ---- */
-const ACCS=[{"d":"Ajuste de Inventário","o":4000,"r":1676.83,"mr":1.04,"ar":1579.73,"mar":0,"jur":0,"jlr":0.01,"agr":-19.45,"cmv":0,"frete":false,"p":42,"sem":"🟢"},{"d":"Vigilância e Segurança","o":11640,"r":7424.8,"mr":928.0,"ar":928.16,"mar":928.16,"jur":928.0,"jlr":928.16,"agr":928.16,"cmv":0,"frete":false,"p":64,"sem":"🟡"},{"d":"Outros Serv. Terc. — CIC Treinamentos","o":4000,"r":3980.0,"mr":0,"ar":0,"mar":3980.0,"jur":0,"jlr":0,"agr":0,"cmv":0,"frete":false,"p":100,"sem":"🔴"},{"d":"03 ARCOS / RFA / GS ARAUJO / CAL SERVICE / GSAAS SERVIÇOS / AGÍL SOLUÇÕES / NACIF Engenharia","o":24718,"r":12513.9,"mr":1216.0,"ar":1500.0,"mar":0,"jur":1084.0,"jlr":0.0,"agr":3029.9,"cmv":0,"frete":false,"p":51,"sem":"🟢"},{"d":"Laudos Técnicos (Bioagri/CIC/Eurofins)","o":16928,"r":7149.25,"mr":800.0,"ar":1034.0,"mar":920.0,"jur":1034.0,"jlr":1192.0,"agr":1034.0,"cmv":0,"frete":false,"p":42,"sem":"🟢"},{"d":"Armazenagem CD Bahia (Dayse/Joel/Almir)","o":81456,"r":47862.1,"mr":5968.21,"ar":5968.21,"mar":5968.0,"jur":5968.0,"jlr":5986.36,"agr":5986.36,"cmv":0,"frete":false,"p":59,"sem":"🟢"},{"d":"Manut. e Conservação Predial","o":10000,"r":580.0,"mr":580.0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0,"cmv":0,"frete":false,"p":6,"sem":"🟢"},{"d":"Manut. de Equipamentos (Extintores/Bruno)","o":5152,"r":5455.0,"mr":0,"ar":1800.0,"mar":0,"jur":0,"jlr":370.0,"agr":1800.0,"cmv":0,"frete":false,"p":106,"sem":"🔴"},{"d":"PREFEITURA ALVARÁ FUNCIONAMENTO/ IPTU/ ALVARÁ SANITARIO","o":35402,"r":12615.18,"mr":0.0,"ar":2129.77,"mar":0,"jur":0,"jlr":1121.77,"agr":0,"cmv":0,"frete":false,"p":36,"sem":"🟢"},{"d":"Material de Escritório (Ventura)","o":1250,"r":0.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0.0,"cmv":0,"frete":false,"p":0,"sem":"🟢"},{"d":"Serv. e Mat. de Limpeza (Smartlog)","o":74340,"r":49090.96,"mr":6195.0,"ar":5621.96,"mar":6195.0,"jur":6195.0,"jlr":6195.0,"agr":6195.0,"cmv":0,"frete":false,"p":66,"sem":"🟡"},{"d":"Copa, Cozinha e Refeições (Mix Mateus)","o":7440,"r":2967.06,"mr":647.97,"ar":374.64,"mar":394.34,"jur":543.87,"jlr":497.2,"agr":509.04,"cmv":0,"frete":false,"p":40,"sem":"🟢"},{"d":"Confraternização (Reunião Produtores)","o":5550,"r":2924.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0,"cmv":0,"frete":false,"p":53,"sem":"🟢"},{"d":"Outros lançamentos","o":0,"r":660.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":660.0,"agr":0,"cmv":0,"frete":false,"p":0,"sem":"🟢"},{"d":"Roupas e Uniformes","o":1500,"r":0.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0,"cmv":0,"frete":false,"p":0,"sem":"🟢"},{"d":"Aluguel Máq. e Equipamentos","o":66084,"r":42712.69,"mr":5324.99,"ar":5214.99,"mar":5214.99,"jur":5214.99,"jlr":5971.65,"agr":5341.1,"cmv":0,"frete":false,"p":65,"sem":"🟡"},{"d":"Transporte Bahia — Fretes","o":140766,"r":46850.05,"mr":0.0,"ar":0.0,"mar":0.0,"jur":6050.0,"jlr":0.0,"agr":6000.0,"cmv":6000,"frete":true,"p":33,"sem":"🟢"},{"d":"OXIMASTER / LEVERY PALLETS  / CENY EMERY / STRECH FILM/ BIORENTA EMBALAGENS/ ETIQUEPRESS","o":114836,"r":54412.14,"mr":0,"ar":1188.39,"mar":1200.0,"jur":37885.0,"jlr":547.76,"agr":-22184.6,"cmv":0,"frete":false,"p":47,"sem":"🟢"},{"d":"Aluguel Imóvel Watson (Armazenagem)","o":373965,"r":218478.32,"mr":27309.72,"ar":27309.72,"mar":27309.72,"jur":27310.0,"jlr":27309.72,"agr":27309.72,"cmv":0,"frete":false,"p":58,"sem":"🟢"},{"d":"Outros lançamentos","o":0,"r":14924.76,"mr":2132.0,"ar":2132.0,"mar":2132.0,"jur":2132.0,"jlr":2132.38,"agr":2132.38,"cmv":0,"frete":false,"p":0,"sem":"🟢"},{"d":"Prêmio de Seguro","o":24768,"r":15027.26,"mr":2100.64,"ar":2032.49,"mar":2100.0,"jur":2032.49,"jlr":1591.29,"agr":1172.72,"cmv":0,"frete":false,"p":61,"sem":"🟡"},{"d":"Água e Saneamento","o":2844,"r":2244.64,"mr":225.82,"ar":656.6,"mar":225.82,"jur":225.87,"jlr":225.82,"agr":233.89,"cmv":0,"frete":false,"p":79,"sem":"🟡"},{"d":"Energia Elétrica","o":16800,"r":9417.13,"mr":1244.29,"ar":1394.06,"mar":1032.63,"jur":1222.17,"jlr":1091.49,"agr":1151.49,"cmv":0,"frete":false,"p":56,"sem":"🟢"},{"d":"Desintetização — Ecolab Química","o":15792,"r":11128.16,"mr":1316.0,"ar":1316.0,"mar":1473.92,"jur":1394.96,"jlr":1541.34,"agr":1454.09,"cmv":0,"frete":false,"p":70,"sem":"🟡"},{"d":"Manut. Refrigeração (Refrismaq)","o":2612,"r":0.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0,"cmv":0,"frete":false,"p":0,"sem":"🟢"},{"d":"Combustível e Lubrificantes","o":700,"r":929.09,"mr":700.0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":-24.74,"cmv":0,"frete":false,"p":133,"sem":"🔴"},{"d":"Outros lançamentos","o":0,"r":574.12,"mr":0,"ar":0,"mar":0,"jur":574.12,"jlr":0,"agr":0,"cmv":0,"frete":false,"p":0,"sem":"🟢"},{"d":"Outros lançamentos","o":0,"r":103.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0,"cmv":0,"frete":false,"p":0,"sem":"🟢"},{"d":"Internet (Sigaon)","o":1260,"r":799.2,"mr":99.9,"ar":99.9,"mar":99.9,"jur":99.9,"jlr":99.9,"agr":99.9,"cmv":0,"frete":false,"p":63,"sem":"🟡"},{"d":"Materiais TI / Computador","o":18720,"r":6848.2,"mr":1197.09,"ar":2139.17,"mar":892.86,"jur":327.17,"jlr":172.97,"agr":172.97,"cmv":0,"frete":false,"p":37,"sem":"🟢"}];
+const ACCS=[{"d":"Ajuste de Inventário","o":4000,"r":1676.83,"mr":1.04,"ar":1579.73,"mar":0,"jur":0,"jlr":0.01,"agr":-19.45,"setr":0,"frete":false,"p":42,"sem":"🟢"},{"d":"Vigilância e Segurança","o":11640,"r":8352.96,"mr":928.0,"ar":928.16,"mar":928.16,"jur":928.0,"jlr":928.16,"agr":928.16,"setr":928.16,"frete":false,"p":72,"sem":"🟡"},{"d":"Outros Serv. Terc. — CIC Treinamentos","o":4000,"r":3980.0,"mr":0,"ar":0,"mar":3980.0,"jur":0,"jlr":0,"agr":0,"setr":0,"frete":false,"p":100,"sem":"🔴"},{"d":"03 ARCOS / RFA / GS ARAUJO / CAL SERVICE / GSAAS SERVIÇOS / AGÍL SOLUÇÕES / NACIF Engenharia","o":24718,"r":15409.9,"mr":1216.0,"ar":1500.0,"mar":0,"jur":1084.0,"jlr":0.0,"agr":3029.9,"setr":2896.0,"frete":false,"p":62,"sem":"🟡"},{"d":"Laudos Técnicos (Bioagri/CIC/Eurofins)","o":16928,"r":7989.25,"mr":800.0,"ar":1034.0,"mar":920.0,"jur":1034.0,"jlr":1192.0,"agr":1034.0,"setr":840.0,"frete":false,"p":47,"sem":"🟢"},{"d":"Armazenagem CD Bahia (Dayse/Joel/Almir)","o":81456,"r":53848.7,"mr":5968.21,"ar":5968.21,"mar":5968.0,"jur":5968.0,"jlr":5986.36,"agr":5986.36,"setr":5986.6,"frete":false,"p":66,"sem":"🟡"},{"d":"Outros lançamentos","o":0,"r":604.01,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0,"setr":604.01,"frete":false,"p":0,"sem":"🟢"},{"d":"Manut. e Conservação Predial","o":10000,"r":580.0,"mr":580.0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0,"setr":0,"frete":false,"p":6,"sem":"🟢"},{"d":"Manut. de Equipamentos (Extintores/Bruno)","o":5152,"r":5455.0,"mr":0,"ar":1800.0,"mar":0,"jur":0,"jlr":370.0,"agr":1800.0,"setr":0,"frete":false,"p":106,"sem":"🔴"},{"d":"PREFEITURA ALVARÁ FUNCIONAMENTO/ IPTU/ ALVARÁ SANITARIO","o":35402,"r":12615.18,"mr":0.0,"ar":2129.77,"mar":0,"jur":0,"jlr":1121.77,"agr":0,"setr":0,"frete":false,"p":36,"sem":"🟢"},{"d":"Material de Escritório (Ventura)","o":1250,"r":0.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0.0,"setr":0,"frete":false,"p":0,"sem":"🟢"},{"d":"Serv. e Mat. de Limpeza (Smartlog)","o":74340,"r":55285.96,"mr":6195.0,"ar":5621.96,"mar":6195.0,"jur":6195.0,"jlr":6195.0,"agr":6195.0,"setr":6195.0,"frete":false,"p":74,"sem":"🟡"},{"d":"Copa, Cozinha e Refeições (Mix Mateus)","o":7440,"r":3811.96,"mr":647.97,"ar":374.64,"mar":394.34,"jur":543.87,"jlr":497.2,"agr":509.04,"setr":844.9,"frete":false,"p":51,"sem":"🟢"},{"d":"Confraternização (Reunião Produtores)","o":5550,"r":2924.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0,"setr":0,"frete":false,"p":53,"sem":"🟢"},{"d":"Outros lançamentos","o":0,"r":660.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":660.0,"agr":0,"setr":0,"frete":false,"p":0,"sem":"🟢"},{"d":"Roupas e Uniformes","o":1500,"r":0.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0,"setr":0,"frete":false,"p":0,"sem":"🟢"},{"d":"Aluguel Máq. e Equipamentos","o":66084,"r":48082.39,"mr":5324.99,"ar":5214.99,"mar":5214.99,"jur":5214.99,"jlr":5971.65,"agr":5341.1,"setr":5369.7,"frete":false,"p":73,"sem":"🟡"},{"d":"Transporte Bahia — Fretes","o":140766,"r":46850.05,"mr":0.0,"ar":0.0,"mar":0.0,"jur":6050.0,"jlr":0.0,"agr":6000.0,"setr":0.0,"frete":true,"p":33,"sem":"🟢"},{"d":"OXIMASTER / LEVERY PALLETS  / CENY EMERY / STRECH FILM/ BIORENTA EMBALAGENS/ ETIQUEPRESS","o":114836,"r":54412.14,"mr":0,"ar":1188.39,"mar":1200.0,"jur":37885.0,"jlr":547.76,"agr":-22184.6,"setr":0,"frete":false,"p":47,"sem":"🟢"},{"d":"Aluguel Imóvel Watson (Armazenagem)","o":373965,"r":245788.04,"mr":27309.72,"ar":27309.72,"mar":27309.72,"jur":27310.0,"jlr":27309.72,"agr":27309.72,"setr":27309.72,"frete":false,"p":66,"sem":"🟡"},{"d":"Outros lançamentos","o":0,"r":17057.14,"mr":2132.0,"ar":2132.0,"mar":2132.0,"jur":2132.0,"jlr":2132.38,"agr":2132.38,"setr":2132.38,"frete":false,"p":0,"sem":"🟢"},{"d":"Prêmio de Seguro","o":24768,"r":16161.6,"mr":2100.64,"ar":2032.49,"mar":2100.0,"jur":2032.49,"jlr":1591.29,"agr":1172.72,"setr":1134.34,"frete":false,"p":65,"sem":"🟡"},{"d":"Água e Saneamento","o":2844,"r":2478.53,"mr":225.82,"ar":656.6,"mar":225.82,"jur":225.87,"jlr":225.82,"agr":233.89,"setr":233.89,"frete":false,"p":87,"sem":"🔴"},{"d":"Energia Elétrica","o":16800,"r":10693.69,"mr":1244.29,"ar":1394.06,"mar":1032.63,"jur":1222.17,"jlr":1091.49,"agr":1151.49,"setr":1276.56,"frete":false,"p":64,"sem":"🟡"},{"d":"Desintetização — Ecolab Química","o":15792,"r":12582.25,"mr":1316.0,"ar":1316.0,"mar":1473.92,"jur":1394.96,"jlr":1541.34,"agr":1454.09,"setr":1454.09,"frete":false,"p":80,"sem":"🟡"},{"d":"Manut. Refrigeração (Refrismaq)","o":2612,"r":0.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0,"setr":0,"frete":false,"p":0,"sem":"🟢"},{"d":"Combustível e Lubrificantes","o":700,"r":929.09,"mr":700.0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":-24.74,"setr":0,"frete":false,"p":133,"sem":"🔴"},{"d":"Outros lançamentos","o":0,"r":574.12,"mr":0,"ar":0,"mar":0,"jur":574.12,"jlr":0,"agr":0,"setr":0,"frete":false,"p":0,"sem":"🟢"},{"d":"Outros lançamentos","o":0,"r":762.46,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0,"setr":659.46,"frete":false,"p":0,"sem":"🟢"},{"d":"Outros lançamentos","o":0,"r":323.0,"mr":0,"ar":0,"mar":0,"jur":0,"jlr":0,"agr":0,"setr":323.0,"frete":false,"p":0,"sem":"🟢"},{"d":"Internet (Sigaon)","o":1260,"r":899.1,"mr":99.9,"ar":99.9,"mar":99.9,"jur":99.9,"jlr":99.9,"agr":99.9,"setr":99.9,"frete":false,"p":71,"sem":"🟡"},{"d":"Materiais TI / Computador","o":18720,"r":7002.4,"mr":1197.09,"ar":2139.17,"mar":892.86,"jur":327.17,"jlr":172.97,"agr":172.97,"setr":154.2,"frete":false,"p":37,"sem":"🟢"}];
 
 /* MONTHLY TOTALS */
 const ORC_M=[118704,126055,88259,70519,74095,103017,65059,85021,68079,126253,69864,67598];
-const REAL_M=[108278.72,88417.03,57986.67,64419.79,60067.34,100221.54,57634.82,42321.93,0,0,0,0];
+const REAL_M=[108278.72,88417.03,57986.67,64419.79,60067.34,100221.54,57634.82,42321.93,58441.91,0,0,0];
 const REAL_2025_M=[80053.69,76230.86,80072.67,62395.52,67592.73,76165.64,18147.57,90987.12,98256.84,72967.88,69852.88,62947.88];
-const PROJ_M=[null,null,null,null,null,null,null,null,72418,72418,72418,72418];
+const PROJ_M=[null,null,null,null,null,null,null,null,null,70866,70866,70866];
 
 /* ① SAZONALIDADE */
 new Chart(document.getElementById('ch-sazon'),{type:'bar',
@@ -2307,10 +2308,10 @@ new Chart(document.getElementById('ch-sazon'),{type:'bar',
 
 /* ② CENÁRIOS CUMULATIVOS */
 function cumArr(monthly){let s=0;return monthly.map(v=>v==null?null:(s+=v,s));}
-const cumReal=cumArr([108279,88417,57987,64420,60067,100222,57635,42322,null,null,null,null]);
-const cumOtim=cumArr([108279,88417,57987,64420,60067,100222,57635,42322,66418,66418,66418,66418]);
-const cumBase=cumArr([108279,88417,57987,64420,60067,100222,57635,42322,72418,72418,72418,72418]);
-const cumPess=cumArr([108279,88417,57987,64420,60067,100222,57635,42322,92418,92418,92418,92418]);
+const cumReal=cumArr([108279,88417,57987,64420,60067,100222,57635,42322,58442,null,null,null]);
+const cumOtim=cumArr([108279,88417,57987,64420,60067,100222,57635,42322,58442,63600,63600,63600]);
+const cumBase=cumArr([108279,88417,57987,64420,60067,100222,57635,42322,58442,70866,70866,70866]);
+const cumPess=cumArr([108279,88417,57987,64420,60067,100222,57635,42322,58442,97400,97400,97400]);
 const cumOrc=ORC_M.map((v,i,a)=>a.slice(0,i+1).reduce((s,x)=>s+x,0));
 new Chart(document.getElementById('ch-cen'),{type:'line',
   data:{labels:MONTHS,datasets:[
@@ -2391,12 +2392,12 @@ new Chart(document.getElementById('ch-mensal'),{type:'bar',
 
 /* FRETE */
 new Chart(document.getElementById('ch-frete'),{type:'bar',
-  data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago'],datasets:[
-    {label:'Orçado',data:[36543,7936,5600,0,7936,5600,5600,17972],backgroundColor:'rgba(147,197,253,.5)',borderColor:'#93C5FD',borderWidth:1.5,borderRadius:3},
-    {label:'Realizado',data:[29718,5082,0,0,0,6050,0,6000],
-      backgroundColor:['rgba(217,119,6,.7)','rgba(217,119,6,.7)','rgba(5,150,105,.85)','rgba(5,150,105,.85)','rgba(5,150,105,.85)','rgba(217,119,6,.7)','rgba(5,150,105,.85)','rgba(5,150,105,.85)'],
-      borderColor:['#D97706','#D97706','#059669','#059669','#059669','#D97706','#059669','#059669'],borderWidth:1.5,borderRadius:3},
-    {label:'A reclassificar p/ CMV',data:[null,null,null,null,null,null,null,6000],backgroundColor:'rgba(124,58,237,.25)',borderColor:'#7C3AED',borderWidth:1.5,borderRadius:3}
+  data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set'],datasets:[
+    {label:'Orçado',data:[36543,7936,5600,0,7936,5600,5600,17972,5600],backgroundColor:'rgba(147,197,253,.5)',borderColor:'#93C5FD',borderWidth:1.5,borderRadius:3},
+    {label:'Realizado G&A',data:[29718,5082,0,0,0,6050,0,6000,0],
+      backgroundColor:['rgba(217,119,6,.7)','rgba(217,119,6,.7)','rgba(5,150,105,.85)','rgba(5,150,105,.85)','rgba(5,150,105,.85)','rgba(217,119,6,.7)','rgba(5,150,105,.85)','rgba(217,119,6,.7)','rgba(5,150,105,.85)'],
+      borderColor:['#D97706','#D97706','#059669','#059669','#059669','#D97706','#059669','#D97706','#059669'],borderWidth:1.5,borderRadius:3},
+    {label:'CMV (fora do G&A)',data:[null,null,null,null,null,null,null,null,7286],backgroundColor:'rgba(124,58,237,.7)',borderColor:'#7C3AED',borderWidth:1.5,borderRadius:3}
   ]},
   options:{...C0,plugins:{legend:{display:true,labels:{font:{size:10},color:T2,boxWidth:10,padding:10}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+brl(c.raw)}}},
     scales:{x:{ticks:{color:T2,font:{size:10}},grid:{display:false},border:{display:false}},
@@ -2411,15 +2412,15 @@ new Chart(document.getElementById('ch-frete'),{type:'bar',
 const EF = [
   {n:'Manut. e Conservação Predial',    orc:10000,  real:580},
   {n:'Fretes Carregamentos (Leite Exp.)',orc:140766, real:46850},
-  {n:'Análises de Cacau (Bioagri…)',    orc:16928,  real:7149},
+  {n:'Análises de Cacau (Bioagri…)',    orc:16928,  real:7989},
   {n:'Taxas e Impostos',                orc:35402,  real:12615},
-  {n:'Energia Elétrica',                orc:16800,  real:9418},
-  {n:'Aluguel Watson (Armazenagem)',     orc:373965, real:218479},
-  {n:'Armazenagem Terceiros (Dayse…)',  orc:81456,  real:47862},
-  {n:'Aluguel Máq/Equip (Eurolift)',    orc:66084,  real:42713},
-  {n:'Limpeza/Manutenção (Smartlog)',   orc:74340,  real:49091},
-  {n:'Prêmio de Seguro',                 orc:24768,  real:15027},
-  {n:'Desintetização (Ecolab)',         orc:15792,  real:11128},
+  {n:'Energia Elétrica',                orc:16800,  real:10695},
+  {n:'Aluguel Watson (Armazenagem)',     orc:373965, real:245789},
+  {n:'Armazenagem Terceiros (Dayse…)',  orc:81456,  real:53849},
+  {n:'Aluguel Máq/Equip (Eurolift)',    orc:66084,  real:48083},
+  {n:'Limpeza/Manutenção (Smartlog)',   orc:74340,  real:55286},
+  {n:'Prêmio de Seguro',                 orc:24768,  real:16161},
+  {n:'Desintetização (Ecolab)',         orc:15792,  real:12582},
   {n:'Confraternização',                orc:5550,   real:2924},
   {n:'Outras Desp. Consumo (Oximaster…)',orc:114836,real:54412},
   {n:'Manut. de Equipamentos',          orc:5152,   real:5455},
@@ -2500,11 +2501,11 @@ ACCS.forEach(a => {
     <td class="tr" style="font-size:10.5px;font-weight:600;color:${f ? '#059669' : tc}">${a.r.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</td>
     <td class="tr">${a.o > 0 ? `<span class="tbg" style="background:${bg};color:${bc}">${p}%</span>` : '<span class="tbg" style="background:#F1F5F9;color:#94A3B8">—</span>'}</td>
     <td>${a.o > 0 ? `<div class="pt"><div class="pf" style="width:${Math.min(p,100)}%;background:${f ? '#059669' : bc}"></div></div>` : ''}</td>
-    <td class="tr" style="font-size:10px;${f && mv(a.ar)===0 ? 'color:#059669;font-weight:700' : 'color:#94A3B8'}">${f && mv(a.ar)===0 ? 'R$0 ✓' : fmt(a.ar)}</td>
     <td class="tr" style="font-size:10px;${f && mv(a.mar)===0 ? 'color:#059669;font-weight:700' : 'color:#94A3B8'}">${f && mv(a.mar)===0 ? 'R$0 ✓' : fmt(a.mar)}</td>
     <td class="tr" style="font-size:10px;color:#94A3B8">${fmt(a.jur)}</td>
     <td class="tr" style="font-size:10px;${f && mv(a.jlr)===0 ? 'color:#059669;font-weight:700' : 'color:#94A3B8'}">${f && mv(a.jlr)===0 ? 'R$0 ✓' : fmt(a.jlr)}</td>
-    <td class="tr" style="font-size:10px;${f ? 'color:#D97706;font-weight:700' : 'color:#94A3B8'}">${fmt(a.agr)}${f ? ' <span style="font-size:7.5px;color:#7C3AED">CMV</span>' : ''}</td>
+    <td class="tr" style="font-size:10px;${f ? 'color:#D97706;font-weight:700' : 'color:#94A3B8'}">${fmt(a.agr)}</td>
+    <td class="tr" style="font-size:10px;${f ? 'color:#7C3AED;font-weight:700' : 'color:#94A3B8'}">${f ? 'CMV' : fmt(a.setr)}</td>
     <td class="tr">${saldoStr}</td>
   </tr>`;
 });
@@ -2528,13 +2529,13 @@ new Chart(document.getElementById('ch-pareto'),{type:'bar',data:{labels:dreD.map
 /* ============ META BUDGET 2026 — CHARTS & ACTION PLAN ============ */
 
 /* WATERFALL CHART — cascade orçamentária */
-const BUDGET=1062523, REAL=579348, PROJ=869022;
+const BUDGET=1062523, REAL=637790, PROJ=850386;
 const MIN_TARGET=998772, META_TARGET=977521, SUPER_TARGET=956271;
 
 new Chart(document.getElementById('ch-waterfall'),{
   type:'bar',
   data:{
-    labels:['Orçado FY','Realizado\nJan–Ago','Saldo\nSet–Dez','Projeção\nFY','Mínimo\n–6%','Meta\n–8%','Supermeta\n–10%'],
+    labels:['Orçado FY','G&A líq.\nJan–Set','Saldo\nOut–Dez','Projeção\nFY','Mínimo\n–6%','Meta\n–8%','Supermeta\n–10%'],
     datasets:[{
       data:[BUDGET, REAL, BUDGET-REAL, PROJ, MIN_TARGET, META_TARGET, SUPER_TARGET],
       backgroundColor:['rgba(180,83,9,.85)','rgba(217,119,6,.75)','rgba(29,78,216,.7)','rgba(5,150,105,.9)','rgba(217,119,6,.85)','rgba(5,150,105,.85)','rgba(124,58,237,.85)'],
@@ -2561,7 +2562,7 @@ new Chart(document.getElementById('ch-monthly-cap'),{
   data:{
     labels:['Ritmo atual','Mínimo –6%','Meta –8%','Supermeta –10%'],
     datasets:[{
-      data:[72418, 104856, 99543, 94231],
+      data:[70866, 120327, 113244, 106160],
       backgroundColor:['rgba(100,116,139,.5)','rgba(217,119,6,.8)','rgba(5,150,105,.85)','rgba(124,58,237,.85)'],
       borderColor:['#64748B','#D97706','#059669','#7C3AED'],
       borderWidth:1.5,
@@ -2580,7 +2581,7 @@ new Chart(document.getElementById('ch-monthly-cap'),{
         ticks:{color:T2,font:{size:9},callback:v=>brlk(v)},
         grid:{color:BD},
         border:{display:false},
-        min:60000,max:115000
+        min:60000,max:132000
       },
       y:{ticks:{color:T2,font:{size:10}},grid:{display:false},border:{display:false}}
     }
@@ -2737,12 +2738,12 @@ document.querySelectorAll('.card[data-tip]').forEach(card => {
 
 
 /* === VISÃO MENSAL - Filtro dinâmico por mês === */
-const MONTHLY_DATA=[{"n":"Ajuste de Inventário","o":[1000.0,0.0,0.0,1000.0,0.0,0.0,0.0,1000.0,0.0,0.0,0.0,1000.0],"r":[0.0,115.5,1.04,1579.73,0,0,0.01,-19.45,0,0,0,0]},{"n":"Vigilância e Segurança","o":[970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0],"r":[928.16,928.0,928.0,928.16,928.16,928.0,928.16,928.16,0,0,0,0]},{"n":"Outros Serv. Terc. — CIC Treinamentos","o":[0.0,0.0,0.0,0.0,4000.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,3980.0,0,0,0,0,0,0,0]},{"n":"03 ARCOS / RFA / GS ARAUJO / CAL SERVICE / GSAAS SERVIÇOS / AGÍL SOLUÇÕES / NACIF Engenharia","o":[884.0,5684.0,3384.0,1084.0,884.0,1084.0,884.0,4744.0,3184.0,884.0,1134.0,884.0],"r":[0.0,5684.0,1216.0,1500.0,0,1084.0,0.0,3029.9,0,0,0,0]},{"n":"Laudos Técnicos (Bioagri/CIC/Eurofins)","o":[1034.0,1034.0,1034.0,1034.0,1034.0,1034.0,1034.0,1034.0,1754.0,4834.0,1034.0,1034.0],"r":[635.25,500.0,800.0,1034.0,920.0,1034.0,1192.0,1034.0,0,0,0,0]},{"n":"Armazenagem CD Bahia (Dayse/Joel/Almir)","o":[6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0],"r":[5958.0,6058.96,5968.21,5968.21,5968.0,5968.0,5986.36,5986.36,0,0,0,0]},{"n":"Manut. e Conservação Predial","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10000.0,0.0,0.0],"r":[0,0,580.0,0,0,0,0,0,0,0,0,0]},{"n":"Manut. de Equipamentos (Extintores/Bruno)","o":[0.0,1552.0,0.0,1800.0,0.0,0.0,0.0,1800.0,0.0,0.0,0.0,0.0],"r":[0,1485.0,0,1800.0,0,0,370.0,1800.0,0,0,0,0]},{"n":"PREFEITURA ALVARÁ FUNCIONAMENTO/ IPTU/ ALVARÁ SANITARIO","o":[9022.0,4800.0,20000.0,1580.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[9022.0,341.64,0.0,2129.77,0,0,1121.77,0,0,0,0,0]},{"n":"Material de Escritório (Ventura)","o":[0.0,800.0,0.0,200.0,0.0,0.0,0.0,250.0,0.0,0.0,0.0,0.0],"r":[0,0.0,0,0,0,0,0,0.0,0,0,0,0]},{"n":"Serv. e Mat. de Limpeza (Smartlog)","o":[6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0],"r":[6299.0,6195.0,6195.0,5621.96,6195.0,6195.0,6195.0,6195.0,0,0,0,0]},{"n":"Copa, Cozinha e Refeições (Mix Mateus)","o":[620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0],"r":[0.0,0.0,647.97,374.64,394.34,543.87,497.2,509.04,0,0,0,0]},{"n":"Confraternização (Reunião Produtores)","o":[0.0,5550.0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[2302.0,622.0,0,0,0,0,0,0,0,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,0,0,660.0,0,0,0,0,0]},{"n":"Roupas e Uniformes","o":[0.0,0.0,0,0.0,1500.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,0,0,0,0,0,0,0,0]},{"n":"Aluguel Máq. e Equipamentos","o":[5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0],"r":[5214.99,5214.99,5324.99,5214.99,5214.99,5214.99,5971.65,5341.1,0,0,0,0]},{"n":"Transporte Bahia — Fretes","o":[36543.0,7936.0,5600.0,5600.0,7936.0,5600.0,5600.0,17972.0,5600.0,28843.0,7936.0,5600.0],"r":[29718.05,5082.0,0.0,0.0,0.0,6050.0,0.0,6000.0,0,0,0,0]},{"n":"OXIMASTER / LEVERY PALLETS  / CENY EMERY / STRECH FILM/ BIORENTA EMBALAGENS/ ETIQUEPRESS","o":[12680.0,41158.0,0.0,680.0,1200.0,37758.0,0.0,680.0,0.0,20000.0,680.0,0.0],"r":[14657.48,21118.11,0,1188.39,1200.0,37885.0,547.76,-22184.6,0,0,0,0]},{"n":"Aluguel Imóvel Watson (Armazenagem)","o":[30779.0,30779.0,30779.0,30779.0,30779.0,30779.0,30779.0,30779.0,30779.0,32318.0,32318.0,32318.0],"r":[27309.72,27310.0,27309.72,27309.72,27309.72,27310.0,27309.72,27309.72,0,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,2132.0,2132.0,2132.0,2132.0,2132.0,2132.38,2132.38,0,0,0,0]},{"n":"Prêmio de Seguro","o":[2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0],"r":[2100.64,1896.99,2100.64,2032.49,2100.0,2032.49,1591.29,1172.72,0,0,0,0]},{"n":"Água e Saneamento","o":[237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0],"r":[225.82,225.0,225.82,656.6,225.82,225.87,225.82,233.89,0,0,0,0]},{"n":"Energia Elétrica","o":[1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0],"r":[1104.0,1177.0,1244.29,1394.06,1032.63,1222.17,1091.49,1151.49,0,0,0,0]},{"n":"Desintetização — Ecolab Química","o":[1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0],"r":[1448.0,1183.85,1316.0,1316.0,1473.92,1394.96,1541.34,1454.09,0,0,0,0]},{"n":"Manut. Refrigeração (Refrismaq)","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2612.0,0.0,0.0],"r":[0,0,0,0,0,0,0,0,0,0,0,0]},{"n":"Combustível e Lubrificantes","o":[0.0,0.0,700.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[253.83,0,700.0,0,0,0,0,-24.74,0,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,0,574.12,0,0,0,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[103.0,0,0,0,0,0,0,0,0,0,0,0]},{"n":"Internet (Sigaon)","o":[105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0],"r":[99.9,99.9,99.9,99.9,99.9,99.9,99.9,99.9,0,0,0,0]},{"n":"Materiais TI / Computador","o":[1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0],"r":[898.88,1047.09,1197.09,2139.17,892.86,327.17,172.97,172.97,0,0,0,0]}];
+const MONTHLY_DATA=[{"n":"Ajuste de Inventário","o":[1000.0,0.0,0.0,1000.0,0.0,0.0,0.0,1000.0,0.0,0.0,0.0,1000.0],"r":[0.0,115.5,1.04,1579.73,0,0,0.01,-19.45,0,0,0,0]},{"n":"Vigilância e Segurança","o":[970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0,970.0],"r":[928.16,928.0,928.0,928.16,928.16,928.0,928.16,928.16,928.16,0,0,0]},{"n":"Outros Serv. Terc. — CIC Treinamentos","o":[0.0,0.0,0.0,0.0,4000.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,3980.0,0,0,0,0,0,0,0]},{"n":"03 ARCOS / RFA / GS ARAUJO / CAL SERVICE / GSAAS SERVIÇOS / AGÍL SOLUÇÕES / NACIF Engenharia","o":[884.0,5684.0,3384.0,1084.0,884.0,1084.0,884.0,4744.0,3184.0,884.0,1134.0,884.0],"r":[0.0,5684.0,1216.0,1500.0,0,1084.0,0.0,3029.9,2896.0,0,0,0]},{"n":"Laudos Técnicos (Bioagri/CIC/Eurofins)","o":[1034.0,1034.0,1034.0,1034.0,1034.0,1034.0,1034.0,1034.0,1754.0,4834.0,1034.0,1034.0],"r":[635.25,500.0,800.0,1034.0,920.0,1034.0,1192.0,1034.0,840.0,0,0,0]},{"n":"Armazenagem CD Bahia (Dayse/Joel/Almir)","o":[6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0,6788.0],"r":[5958.0,6058.96,5968.21,5968.21,5968.0,5968.0,5986.36,5986.36,5986.6,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,0,0,0,0,604.01,0,0,0]},{"n":"Manut. e Conservação Predial","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10000.0,0.0,0.0],"r":[0,0,580.0,0,0,0,0,0,0,0,0,0]},{"n":"Manut. de Equipamentos (Extintores/Bruno)","o":[0.0,1552.0,0.0,1800.0,0.0,0.0,0.0,1800.0,0.0,0.0,0.0,0.0],"r":[0,1485.0,0,1800.0,0,0,370.0,1800.0,0,0,0,0]},{"n":"PREFEITURA ALVARÁ FUNCIONAMENTO/ IPTU/ ALVARÁ SANITARIO","o":[9022.0,4800.0,20000.0,1580.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[9022.0,341.64,0.0,2129.77,0,0,1121.77,0,0,0,0,0]},{"n":"Material de Escritório (Ventura)","o":[0.0,800.0,0.0,200.0,0.0,0.0,0.0,250.0,0.0,0.0,0.0,0.0],"r":[0,0.0,0,0,0,0,0,0.0,0,0,0,0]},{"n":"Serv. e Mat. de Limpeza (Smartlog)","o":[6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0,6195.0],"r":[6299.0,6195.0,6195.0,5621.96,6195.0,6195.0,6195.0,6195.0,6195.0,0,0,0]},{"n":"Copa, Cozinha e Refeições (Mix Mateus)","o":[620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0,620.0],"r":[0.0,0.0,647.97,374.64,394.34,543.87,497.2,509.04,844.9,0,0,0]},{"n":"Confraternização (Reunião Produtores)","o":[0.0,5550.0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[2302.0,622.0,0,0,0,0,0,0,0,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,0,0,660.0,0,0,0,0,0]},{"n":"Roupas e Uniformes","o":[0.0,0.0,0,0.0,1500.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,0,0,0,0,0,0,0,0]},{"n":"Aluguel Máq. e Equipamentos","o":[5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0,5507.0],"r":[5214.99,5214.99,5324.99,5214.99,5214.99,5214.99,5971.65,5341.1,5369.7,0,0,0]},{"n":"Transporte Bahia — Fretes","o":[36543.0,7936.0,5600.0,5600.0,7936.0,5600.0,5600.0,17972.0,5600.0,28843.0,7936.0,5600.0],"r":[29718.05,5082.0,0.0,0.0,0.0,6050.0,0.0,6000.0,0.0,0,0,0]},{"n":"OXIMASTER / LEVERY PALLETS  / CENY EMERY / STRECH FILM/ BIORENTA EMBALAGENS/ ETIQUEPRESS","o":[12680.0,41158.0,0.0,680.0,1200.0,37758.0,0.0,680.0,0.0,20000.0,680.0,0.0],"r":[14657.48,21118.11,0,1188.39,1200.0,37885.0,547.76,-22184.6,0,0,0,0]},{"n":"Aluguel Imóvel Watson (Armazenagem)","o":[30779.0,30779.0,30779.0,30779.0,30779.0,30779.0,30779.0,30779.0,30779.0,32318.0,32318.0,32318.0],"r":[27309.72,27310.0,27309.72,27309.72,27309.72,27310.0,27309.72,27309.72,27309.72,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,2132.0,2132.0,2132.0,2132.0,2132.0,2132.38,2132.38,2132.38,0,0,0]},{"n":"Prêmio de Seguro","o":[2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0,2064.0],"r":[2100.64,1896.99,2100.64,2032.49,2100.0,2032.49,1591.29,1172.72,1134.34,0,0,0]},{"n":"Água e Saneamento","o":[237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0,237.0],"r":[225.82,225.0,225.82,656.6,225.82,225.87,225.82,233.89,233.89,0,0,0]},{"n":"Energia Elétrica","o":[1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0,1400.0],"r":[1104.0,1177.0,1244.29,1394.06,1032.63,1222.17,1091.49,1151.49,1276.56,0,0,0]},{"n":"Desintetização — Ecolab Química","o":[1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0,1316.0],"r":[1448.0,1183.85,1316.0,1316.0,1473.92,1394.96,1541.34,1454.09,1454.09,0,0,0]},{"n":"Manut. Refrigeração (Refrismaq)","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2612.0,0.0,0.0],"r":[0,0,0,0,0,0,0,0,0,0,0,0]},{"n":"Combustível e Lubrificantes","o":[0.0,0.0,700.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[253.83,0,700.0,0,0,0,0,-24.74,0,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,0,574.12,0,0,0,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[103.0,0,0,0,0,0,0,0,659.46,0,0,0]},{"n":"Outros lançamentos","o":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"r":[0,0,0,0,0,0,0,0,323.0,0,0,0]},{"n":"Internet (Sigaon)","o":[105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0,105.0],"r":[99.9,99.9,99.9,99.9,99.9,99.9,99.9,99.9,99.9,0,0,0]},{"n":"Materiais TI / Computador","o":[1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0,1560.0],"r":[898.88,1047.09,1197.09,2139.17,892.86,327.17,172.97,172.97,154.2,0,0,0]}];
 
 const MV_MONTHS = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 const MV_SHORT  = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-const MV_REALIZED_UNTIL = 7;  // Ago is last month with data (index 7)
-let MV_CURRENT = 7;             // Default: Ago (most recent)
+const MV_REALIZED_UNTIL = 8;  // Set is last month with data (index 8)
+let MV_CURRENT = 8;             // Default: Set (most recent)
 let mvChart = null;
 
 // Render month chips — future months now ENABLED (modo planejamento)
@@ -2770,7 +2771,7 @@ const mvBRL = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
 const mvBRLd = v => 'R$ ' + Number(v).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
 
 // Média mensal atual (Jan-Jul) para comparação de planejamento
-const MV_MEDIA_ATUAL = 72418;
+const MV_MEDIA_ATUAL = 70866;
 
 function mvUpdate(){
   const m = MV_CURRENT;
@@ -2827,7 +2828,7 @@ function mvUpdate(){
     elRealCard.className = 'mv-kpi blue';
     document.getElementById('mv-real-sub').textContent = 'Valor total a ser realizado';
 
-    elSaldoLbl.textContent = 'vs média atual (R$72,4k)';
+    elSaldoLbl.textContent = 'vs média atual (R$70,9k)';
     const difMedia = totOrc - MV_MEDIA_ATUAL;
     document.getElementById('mv-saldo').textContent = (difMedia>=0?'+':'') + mvBRL(difMedia);
     document.getElementById('mv-saldo').style.color = difMedia > 0 ? 'var(--amber)' : 'var(--green)';
@@ -3132,8 +3133,8 @@ function presBuildCharts(){
 
   // ---- 1. CURVA DE QUEIMA ACUMULADA ----
   const cOrc =[118704,244759,333018,403537,477632,580649,645708,730729,798808,925061,994925,1062523];
-  const cReal=[108279,196696,254682,319102,379170,479391,537026,579348,null,null,null,null];
-  const cProj=[null,null,null,null,null,null,null,579348,651766,724185,796603,869022];
+  const cReal=[108279,196696,254682,319102,379170,479391,537026,579348,637790,null,null,null];
+  const cProj=[null,null,null,null,null,null,null,null,637790,708656,779521,850386];
   const cMeta=Array(12).fill(977521);
 
   new Chart(document.getElementById('pch-burn'),{
@@ -3153,11 +3154,11 @@ function presBuildCharts(){
 
   // ---- 2. WATERFALL DO SAVING ----
   const wLab=['Orçado FY','Oximaster','Frete','Watson','Impostos','Armaz. 3ºs','Predial','Demais','Projeção'];
-  const wStep=[0,-60424,-42530,-46247,-13776,-9669,-9006,-11849,0];
+  const wStep=[0,-60424,-52530,-46247,-15776,-10669,-9006,-17485,0];
   let run=1062523; const wBase=[]; const wBar=[];
   wLab.forEach((l,i)=>{
     if(i===0){ wBase.push(0); wBar.push(1062523); }
-    else if(i===wLab.length-1){ wBase.push(0); wBar.push(869022); }
+    else if(i===wLab.length-1){ wBase.push(0); wBar.push(850386); }
     else {
       const s=wStep[i];
       if(s<0){ wBase.push(run+s); wBar.push(-s); run=run+s; }
@@ -3176,7 +3177,7 @@ function presBuildCharts(){
       plugins:{legend:{display:false},
         tooltip:{filter:c=>c.datasetIndex===1,callbacks:{label:c=>{const i=c.dataIndex;
           if(i===0) return 'Orçado FY: '+pBRL(1062523);
-          if(i===wLab.length-1) return 'Projeção: '+pBRL(869022);
+          if(i===wLab.length-1) return 'Projeção: '+pBRL(850386);
           return (wStep[i]<0?'Economia ':'Acréscimo ')+pBRL(Math.abs(wStep[i]));}}}},
       scales:{x:{stacked:true,ticks:{color:PT,font:{size:9},maxRotation:38,minRotation:38},grid:{display:false},border:{color:'#1E293B'}},
               y:{stacked:true,min:800000,ticks:{color:PT,font:{size:9.5},callback:pK},grid:{color:PG},border:{display:false}}}}
@@ -3185,12 +3186,12 @@ function presBuildCharts(){
   // ---- 3. AGO-DEZ vs TETO ----
   new Chart(document.getElementById('pch-rest'),{
     type:'bar',
-    data:{labels:['Setembro','Outubro','Novembro','Dezembro'],datasets:[
-      {label:'Orçado do mês',data:[68079,126253,69864,67598],borderRadius:5,barPercentage:.6,
-        backgroundColor:['rgba(59,130,246,.65)','rgba(239,68,68,.75)','rgba(59,130,246,.65)','rgba(59,130,246,.65)'],
-        borderColor:['#3B82F6','#EF4444','#3B82F6','#3B82F6'],borderWidth:1.5},
-      {type:'line',label:'Teto da meta (R$99.543)',data:Array(4).fill(99543),borderColor:'#10B981',borderWidth:2.5,pointRadius:0,fill:false},
-      {type:'line',label:'Ritmo atual (R$72.418)',data:Array(4).fill(72418),borderColor:'#94A3B8',borderDash:[6,4],borderWidth:2,pointRadius:0,fill:false}
+    data:{labels:['Outubro','Novembro','Dezembro'],datasets:[
+      {label:'Orçado do mês',data:[126253,69864,67598],borderRadius:5,barPercentage:.5,
+        backgroundColor:['rgba(239,68,68,.75)','rgba(59,130,246,.65)','rgba(59,130,246,.65)'],
+        borderColor:['#EF4444','#3B82F6','#3B82F6'],borderWidth:1.5},
+      {type:'line',label:'Teto da meta (R$113.244)',data:Array(3).fill(113244),borderColor:'#10B981',borderWidth:2.5,pointRadius:0,fill:false},
+      {type:'line',label:'Ritmo atual (R$70.866)',data:Array(3).fill(70866),borderColor:'#94A3B8',borderDash:[6,4],borderWidth:2,pointRadius:0,fill:false}
     ]},
     options:{responsive:true,maintainAspectRatio:false,
       plugins:{legend:{display:true,labels:{color:PT,font:{size:10},boxWidth:11,padding:9,usePointStyle:true,pointStyle:'line'}},
@@ -3206,7 +3207,7 @@ function presBuildCharts(){
       {label:'Target do cenário',data:[998772,977521,956271],borderRadius:4,barPercentage:.55,
         backgroundColor:['rgba(251,191,36,.6)','rgba(16,185,129,.6)','rgba(167,139,250,.6)'],
         borderColor:['#FBBF24','#10B981','#A78BFA'],borderWidth:1.5},
-      {type:'line',label:'Projeção atual (R$869.022)',data:[869022,869022,869022],borderColor:'#EF4444',borderWidth:2.5,pointRadius:0,fill:false}
+      {type:'line',label:'Projeção atual (R$850.386)',data:[850386,850386,850386],borderColor:'#EF4444',borderWidth:2.5,pointRadius:0,fill:false}
     ]},
     options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
       plugins:{legend:{display:true,labels:{color:PT,font:{size:10},boxWidth:11,padding:9,usePointStyle:true,pointStyle:'line'}},
@@ -3218,12 +3219,12 @@ function presBuildCharts(){
   // ---- 5. FRETE MENSAL ----
   new Chart(document.getElementById('pch-frete'),{
     type:'bar',
-    data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago'],datasets:[
-      {label:'Orçado',data:[36543,7936,5600,5600,7936,5600,5600,17972],backgroundColor:'rgba(100,116,139,.3)',borderColor:'#64748B',borderWidth:1,borderRadius:3},
-      {label:'Realizado',data:[29718,5082,0,0,0,6050,0,6000],borderRadius:3,
-        backgroundColor:['rgba(251,191,36,.75)','rgba(251,191,36,.75)','rgba(16,185,129,.85)','rgba(16,185,129,.85)','rgba(16,185,129,.85)','rgba(251,191,36,.75)','rgba(16,185,129,.85)','rgba(16,185,129,.85)'],
-        borderColor:['#FBBF24','#FBBF24','#10B981','#10B981','#10B981','#FBBF24','#10B981','#10B981'],borderWidth:1.5},
-      {label:'A reclassificar (Set+)',data:[null,null,null,null,null,null,null,6000],backgroundColor:'rgba(167,139,250,.25)',borderColor:'#A78BFA',borderWidth:1.5,borderRadius:3}
+    data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set'],datasets:[
+      {label:'Orçado',data:[36543,7936,5600,5600,7936,5600,5600,17972,5600],backgroundColor:'rgba(100,116,139,.3)',borderColor:'#64748B',borderWidth:1,borderRadius:3},
+      {label:'Realizado G&A',data:[29718,5082,0,0,0,6050,0,6000,0],borderRadius:3,
+        backgroundColor:['rgba(251,191,36,.75)','rgba(251,191,36,.75)','rgba(16,185,129,.85)','rgba(16,185,129,.85)','rgba(16,185,129,.85)','rgba(251,191,36,.75)','rgba(16,185,129,.85)','rgba(251,191,36,.75)','rgba(16,185,129,.85)'],
+        borderColor:['#FBBF24','#FBBF24','#10B981','#10B981','#10B981','#FBBF24','#10B981','#FBBF24','#10B981'],borderWidth:1.5},
+      {label:'CMV (fora do G&A)',data:[null,null,null,null,null,null,null,null,7286],backgroundColor:'rgba(167,139,250,.8)',borderColor:'#A78BFA',borderWidth:1.5,borderRadius:3}
     ]},
     options:{responsive:true,maintainAspectRatio:false,
       plugins:{legend:{display:true,labels:{color:PT,font:{size:9.5},boxWidth:10,padding:7}},
@@ -3236,9 +3237,9 @@ function presBuildCharts(){
   new Chart(document.getElementById('pch-ritmo'),{
     type:'bar',
     data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago'],datasets:[
-      {label:'Realizado do mês',data:[108279,88417,57987,64420,60067,100222,57635,42322],
+      {label:'Realizado do mês',data:[108279,88417,57987,64420,60067,100222,57635,42322,58442],
         backgroundColor:'rgba(16,185,129,.55)',borderColor:'#10B981',borderWidth:1.5,borderRadius:3,barPercentage:.68},
-      {type:'line',label:'Média acumulada',data:[108279,98348,84894,79776,75834,79899,76718,72418],
+      {type:'line',label:'Média acumulada',data:[108279,98348,84894,79776,75834,79899,76718,72418,70866],
         borderColor:'#FBBF24',borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#FBBF24',fill:false,tension:.3}
     ]},
     options:{responsive:true,maintainAspectRatio:false,
@@ -3251,21 +3252,26 @@ function presBuildCharts(){
 
 /* ============ CMV — FRETES CACAU ============ */
 const CMV_DATA = [
-  {mes:'Ago/2026', mesIdx:7, forn:'DL Cargo Logística Ltda', doc:'NF 146711-1 · lanç. 5100028553', bruto:6000, estorno:-6000, cmv:6000}
+  {mes:'Ago/2026', mesIdx:7, forn:'DL Cargo Logística Ltda', doc:'NF 146711-1 · lanç. 5100028553', bruto:6000, estorno:-6000, cmv:6000, ga:6000, obs:'mantido em G&A'},
+  {mes:'Set/2026', mesIdx:8, forn:'Leite Express / Smartlog / Cereais Nico', doc:'conta 61320104', bruto:7285.60, estorno:-7285.60, cmv:7285.60, ga:0, obs:'reclassificado'}
 ];
 
 (function cmvInit(){
   const tb = document.getElementById('cmv-tbl');
   if(!tb) return;
-  let tB=0, tE=0, tC=0;
+  let tB=0, tE=0, tC=0, tG=0;
   tb.innerHTML = CMV_DATA.map(r=>{
-    tB+=r.bruto; tE+=r.estorno; tC+=r.cmv;
-    return `<tr>
+    const ga = (typeof r.ga === 'number') ? r.ga : 0;
+    tB+=r.bruto; tE+=r.estorno; tC+=r.cmv; tG+=ga;
+    const gaCell = ga > 0
+      ? `<td class="tr" style="color:var(--amber);font-weight:600">${brl(ga)}<div style="font-size:8.5px;font-weight:500;color:var(--t3)">${r.obs||''}</div></td>`
+      : `<td class="tr" style="color:var(--t3)">R$ 0,00<div style="font-size:8.5px;color:var(--green)">${r.obs||''}</div></td>`;
+    return `<tr${ga>0?' style="background:#FFFBEB"':''}>
       <td style="font-weight:600;color:var(--purple)">${r.mes}</td>
       <td style="font-size:11px">${r.forn}<div style="font-size:9.5px;color:var(--t3);margin-top:1px">${r.doc}</div></td>
       <td class="tr" style="color:var(--red);font-weight:600">${brl(r.bruto)}</td>
       <td class="tr" style="color:var(--green);font-weight:600">${brl(r.estorno)}</td>
-      <td class="tr" style="color:var(--amber);font-weight:600">${brl(r.bruto)}</td>
+      ${gaCell}
       <td class="tr" style="color:var(--purple);font-weight:700">${brl(r.cmv)}</td>
     </tr>`;
   }).join('');
@@ -3273,20 +3279,20 @@ const CMV_DATA = [
   document.getElementById('cmv-t-bruto').innerHTML = `<span style="color:var(--red)">${brl(tB)}</span>`;
   document.getElementById('cmv-t-est').innerHTML   = `<span style="color:var(--green)">${brl(tE)}</span>`;
   document.getElementById('cmv-t-cmv').textContent = brl(tC);
-  const el=document.getElementById('cmv-t-liq'); if(el) el.textContent = brl(tB);
+  const el=document.getElementById('cmv-t-liq'); if(el) el.textContent = brl(tG);
 
   // gráfico de transição
   const ctx = document.getElementById('ch-cmv');
   if(ctx){
-    const labels=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago'];
-    const ga  =[29718,5082,0,0,0,6050,0,6000];
-    const cmv =[null,null,null,null,null,null,null,null];
+    const labels=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set'];
+    const ga  =[29718,5082,0,0,0,6050,0,6000,0];
+    const cmv =[null,null,null,null,null,null,null,null,7286];
     new Chart(ctx,{type:'bar',
       data:{labels,datasets:[
         {label:'Frete em G&A',data:ga,borderRadius:3,
           backgroundColor:['rgba(217,119,6,.7)','rgba(217,119,6,.7)','rgba(5,150,105,.8)','rgba(5,150,105,.8)','rgba(5,150,105,.8)','rgba(217,119,6,.7)','rgba(5,150,105,.8)','rgba(0,0,0,0)'],
           borderColor:['#D97706','#D97706','#059669','#059669','#059669','#D97706','#059669','rgba(0,0,0,0)'],borderWidth:1.5},
-        {label:'A reclassificar (Set+)',data:cmv,backgroundColor:'rgba(124,58,237,.3)',borderColor:'#7C3AED',borderWidth:1.5,borderRadius:3}
+        {label:'Reclassificado p/ CMV',data:cmv,backgroundColor:'rgba(124,58,237,.72)',borderColor:'#7C3AED',borderWidth:1.5,borderRadius:3}
       ]},
       options:{...C0,
         plugins:{legend:{display:true,labels:{color:T2,font:{size:10},boxWidth:10,padding:9}},
